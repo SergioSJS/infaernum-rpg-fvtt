@@ -43,6 +43,11 @@
   --inf-font-header:  "UnifrakturMaguntia", "Old English Text MT", fantasy;
   --inf-font-mono:    "Courier New", monospace;
 
+  // ── Floating panels (narrative panel, grupo HUD) ───────────────────────────
+  --inf-color-bg-float:       rgba(0, 0, 0, 0.80);
+  --inf-color-bg-float-hover: rgba(0, 0, 0, 0.90);
+  --inf-color-divider:        rgba(255, 255, 255, 0.07);
+
   // ── Layout ─────────────────────────────────────────────────────────────────
   --inf-border-radius:  4px;
   --inf-sheet-padding:  12px;

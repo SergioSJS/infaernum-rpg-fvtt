@@ -270,6 +270,7 @@
         "Name":      "Tema visual",
         "Hint":      "Aparência das fichas (por cliente).",
         "Escuro":    "Escuro (padrão)",
+        "Claro":     "Claro (pergaminho)",
         "Medieval":  "Medieval (sépia quente)",
         "Cyberpunk": "Cyberpunk (azul néon)"
       },

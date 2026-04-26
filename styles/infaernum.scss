@@ -1571,7 +1571,7 @@
 
   td {
     padding: 4px 6px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--inf-color-divider);
     vertical-align: middle;
   }
 
@@ -2458,10 +2458,10 @@
   gap: 6px;
   width: 100%;
   padding: 5px 10px;
-  background: rgba(0, 0, 0, 0.75);
+  background: var(--inf-color-bg-float);
   border: 1px solid var(--inf-color-accent);
   border-radius: 6px;
-  color: var(--inf-color-border-light);
+  color: var(--inf-color-text);
   font-family: var(--inf-font-body, serif);
   font-size: 1rem;
   cursor: pointer;
@@ -2469,7 +2469,7 @@
 
   &:hover {
     border-color: var(--inf-color-border-light);
-    background: rgba(0, 0, 0, 0.88);
+    background: var(--inf-color-bg-float-hover);
   }
 
   &[aria-expanded="true"] {
@@ -2484,7 +2484,7 @@
 }
 
 .inf-np-menu {
-  background: rgba(0, 0, 0, 0.90);
+  background: var(--inf-color-bg-float-hover);
   border: 1px solid var(--inf-color-accent);
   border-top: none;
   border-radius: 0 0 6px 6px;
@@ -2502,7 +2502,7 @@
   padding: 6px 12px;
   background: transparent;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--inf-color-divider);
   color: var(--inf-color-text);
   font-family: var(--inf-font-body, serif);
   font-size: 0.95rem;
@@ -2538,7 +2538,7 @@
   color: var(--inf-color-text-muted);
   opacity: 0.7;
   padding: 5px 12px 2px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--inf-color-divider);
 }
 
 // ─── Grupo HUD (presságios e dia, abaixo do painel narrativo) ─────────────────
@@ -2555,13 +2555,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 0, 0, 0.75);
+  background: var(--inf-color-bg-float);
   border: 1px solid var(--inf-color-accent);
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
 
-  &:hover { border-color: var(--inf-color-border-light); background: rgba(0, 0, 0, 0.88); }
+  &:hover { border-color: var(--inf-color-border-light); background: var(--inf-color-bg-float-hover); }
 }
 
 .inf-hud-dia {
@@ -2569,7 +2569,7 @@
   flex-direction: column;
   align-items: center;
   min-width: 32px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid var(--inf-color-divider);
   padding-right: 8px;
   margin-right: 2px;
 }
@@ -2792,11 +2792,31 @@
   font-style: italic;
 }
 
-// ─── Chat message wrapper (Foundry outer .chat-message) ─────────────────────
-// Foundry renders its own chrome around each message; override for inf messages.
-.chat-message:has(.infaernum-chat-message) {
+// ─── Chat sidebar chrome ─────────────────────────────────────────────────────
+#chat-log {
+  background: var(--inf-color-bg) !important;
+}
+
+#chat-form {
   background: var(--inf-color-bg-panel) !important;
-  border-color: var(--inf-color-border) !important;
+  border-top: 1px solid var(--inf-color-border) !important;
+
+  textarea, input[type="text"] {
+    background: var(--inf-color-bg-input) !important;
+    color: var(--inf-color-text) !important;
+    border-color: var(--inf-color-border) !important;
+    font-family: var(--inf-font-body) !important;
+
+    &:focus { border-color: var(--inf-color-border-light) !important; outline: none !important; }
+    &::placeholder { color: var(--inf-color-text-muted) !important; opacity: 0.6 !important; }
+  }
+}
+
+// ─── All chat messages ────────────────────────────────────────────────────────
+.chat-message {
+  background: var(--inf-color-bg-panel) !important;
+  border: 1px solid var(--inf-color-border) !important;
+  color: var(--inf-color-text) !important;
 
   .message-header {
     background: var(--inf-color-bg) !important;
@@ -2816,6 +2836,47 @@
 
   .message-content {
     background: var(--inf-color-bg-panel) !important;
+    color: var(--inf-color-text) !important;
+  }
+
+  // Native Foundry dice roll
+  .dice-roll {
+    .dice-formula {
+      background: var(--inf-color-bg) !important;
+      border: 1px solid var(--inf-color-border) !important;
+      color: var(--inf-color-text-muted) !important;
+    }
+
+    .dice-total {
+      background: var(--inf-color-bg) !important;
+      border: 2px solid var(--inf-color-accent) !important;
+      color: var(--inf-color-text-header) !important;
+      font-family: var(--inf-font-header) !important;
+
+      &.success { color: var(--inf-color-milagre) !important; border-color: var(--inf-color-milagre) !important; }
+      &.failure { color: var(--inf-color-desgraca) !important; border-color: var(--inf-color-desgraca) !important; }
+    }
+
+    .dice-tooltip {
+      background: var(--inf-color-bg-sheet) !important;
+      border: 1px solid var(--inf-color-border) !important;
+      color: var(--inf-color-text) !important;
+
+      .part-header {
+        background: var(--inf-color-bg-panel) !important;
+        color: var(--inf-color-text-muted) !important;
+        border-bottom: 1px solid var(--inf-color-border) !important;
+      }
+
+      .die.max { color: var(--inf-color-milagre) !important; font-weight: bold; }
+      .die.min { color: var(--inf-color-desgraca) !important; }
+    }
+  }
+}
+
+// ─── Chat message wrapper (Foundry outer .chat-message) — inf messages override
+.chat-message:has(.infaernum-chat-message) {
+  .message-content {
     padding: 6px !important;
   }
 }
