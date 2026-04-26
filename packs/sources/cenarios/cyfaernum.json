@@ -1,0 +1,33 @@
+{
+  "_id": "CenCyfaernum0001",
+  "name": "Cyfærnum",
+  "img": "icons/svg/eye.svg",
+  "pages": [
+    {
+      "_id": "cyfPage0000000001",
+      "name": "O que é Cyfærnum",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Cyfærnum — Cenário Alternativo</h2><p>No cenário Cyfærnum, a estética do jogo muda: o apocalipse não é bíblico mas tecnológico. Os Caídos tornam-se <strong>Agentes</strong>, as Almas tornam-se <strong>Downloads</strong>, e o tom das narrativas se aproxima do cyberpunk sombrio.</p><h3>Mudanças de terminologia</h3><ul><li><strong>Caído</strong> → Agente</li><li><strong>Alma</strong> → Download</li><li><strong>Queimar Alma</strong> → Queimar Download</li></ul><h3>Ativação</h3><p>Em <em>Configurações do Sistema</em>, defina o <strong>Cenário</strong> como <em>Cyfærnum</em>. Os rótulos nas fichas se ajustam automaticamente.</p><h3>Regras</h3><p>Todas as regras mecânicas permanecem idênticas ao cenário padrão. Apenas a nomenclatura e o tom narrativo mudam.</p>"
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {},
+      "_key": "!journal.pages!CenCyfaernum0001.cyfPage0000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!journal!CenCyfaernum0001"
+}

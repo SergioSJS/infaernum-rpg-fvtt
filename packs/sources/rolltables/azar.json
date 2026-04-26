@@ -1,0 +1,210 @@
+{
+  "_id": "rtAzar0000000001",
+  "name": "Azar — no que é pior (3d6)",
+  "description": "Área de dificuldade do personagem — Old Infærnum PDF p.5",
+  "img": "icons/svg/d6-grey.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtAza3000000001",
+      "type": "text",
+      "text": "Fazer-se compreender",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza3000000001"
+    },
+    {
+      "_id": "rtAza4000000001",
+      "type": "text",
+      "text": "Pensar estrategicamente",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza4000000001"
+    },
+    {
+      "_id": "rtAza5000000001",
+      "type": "text",
+      "text": "Empunhar armas",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza5000000001"
+    },
+    {
+      "_id": "rtAza6000000001",
+      "type": "text",
+      "text": "Travar embates físicos",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza6000000001"
+    },
+    {
+      "_id": "rtAza7000000001",
+      "type": "text",
+      "text": "Esconder-se",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza7000000001"
+    },
+    {
+      "_id": "rtAza8000000001",
+      "type": "text",
+      "text": "Ludibriar, blefar",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza8000000001"
+    },
+    {
+      "_id": "rtAza9000000001",
+      "type": "text",
+      "text": "Lidar com o oculto",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza9000000001"
+    },
+    {
+      "_id": "rtAza10000000001",
+      "type": "text",
+      "text": "Encontrar pistas",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza10000000001"
+    },
+    {
+      "_id": "rtAza11000000001",
+      "type": "text",
+      "text": "Perceber ameaças",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza11000000001"
+    },
+    {
+      "_id": "rtAza12000000001",
+      "type": "text",
+      "text": "Negociar",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza12000000001"
+    },
+    {
+      "_id": "rtAza13000000001",
+      "type": "text",
+      "text": "Agir com rapidez",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza13000000001"
+    },
+    {
+      "_id": "rtAza14000000001",
+      "type": "text",
+      "text": "Ler, discernir sinais ou runas",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza14000000001"
+    },
+    {
+      "_id": "rtAza15000000001",
+      "type": "text",
+      "text": "Entender a natureza",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza15000000001"
+    },
+    {
+      "_id": "rtAza16000000001",
+      "type": "text",
+      "text": "Discernir intenções",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza16000000001"
+    },
+    {
+      "_id": "rtAza17000000001",
+      "type": "text",
+      "text": "Tirar vidas",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza17000000001"
+    },
+    {
+      "_id": "rtAza18000000001",
+      "type": "text",
+      "text": "Sujeitar-se a outras opiniões",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtAzar0000000001.rtAza18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtAzar0000000001"
+}

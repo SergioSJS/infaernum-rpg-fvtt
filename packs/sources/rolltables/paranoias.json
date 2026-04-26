@@ -1,0 +1,210 @@
+{
+  "_id": "rtParanoias00001",
+  "name": "Paranoias (3d6)",
+  "description": "Tabela de paranoias — Old Infærnum PDF p.38-39",
+  "img": "icons/svg/pawprint.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtPar3000000001",
+      "type": "text",
+      "text": "Quatro vozes dizem te guiar à Terra Prometida",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar3000000001"
+    },
+    {
+      "_id": "rtPar4000000001",
+      "type": "text",
+      "text": "Algo te diz que você é o quinto Cavaleiro",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar4000000001"
+    },
+    {
+      "_id": "rtPar5000000001",
+      "type": "text",
+      "text": "Está tudo envenenado. É perigoso comer qualquer coisa",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar5000000001"
+    },
+    {
+      "_id": "rtPar6000000001",
+      "type": "text",
+      "text": "Personalidade alterna momentos com outra cruel ao extremo",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar6000000001"
+    },
+    {
+      "_id": "rtPar7000000001",
+      "type": "text",
+      "text": "Personalidade alterna com outra megalomaníaca",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar7000000001"
+    },
+    {
+      "_id": "rtPar8000000001",
+      "type": "text",
+      "text": "Personalidade alterna com outra amedrontada",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar8000000001"
+    },
+    {
+      "_id": "rtPar9000000001",
+      "type": "text",
+      "text": "Há um padrão em todas as coisas, nada parece ser por acaso",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar9000000001"
+    },
+    {
+      "_id": "rtPar10000000001",
+      "type": "text",
+      "text": "Vozes incessantes que confundem raciocínio",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar10000000001"
+    },
+    {
+      "_id": "rtPar11000000001",
+      "type": "text",
+      "text": "Visões de vultos que parecem te perseguir",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar11000000001"
+    },
+    {
+      "_id": "rtPar12000000001",
+      "type": "text",
+      "text": "Estresse torna pelos mais alvos que a neve",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar12000000001"
+    },
+    {
+      "_id": "rtPar13000000001",
+      "type": "text",
+      "text": "Há algo vindo das águas e todos parecem ignorar",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar13000000001"
+    },
+    {
+      "_id": "rtPar14000000001",
+      "type": "text",
+      "text": "Há algo vindo dos céus e todos parecem ignorar",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar14000000001"
+    },
+    {
+      "_id": "rtPar15000000001",
+      "type": "text",
+      "text": "Eles te matarão enquanto dormir",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar15000000001"
+    },
+    {
+      "_id": "rtPar16000000001",
+      "type": "text",
+      "text": "Sangue precisa ser derramado, ou ela ficará furiosa",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar16000000001"
+    },
+    {
+      "_id": "rtPar17000000001",
+      "type": "text",
+      "text": "Um senhor das profundezas deseja algo de você",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar17000000001"
+    },
+    {
+      "_id": "rtPar18000000001",
+      "type": "text",
+      "text": "O Dragão sussurra sua vontade em seus ouvidos",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtParanoias00001.rtPar18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtParanoias00001"
+}

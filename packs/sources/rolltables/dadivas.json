@@ -1,0 +1,210 @@
+{
+  "_id": "rtDadivas0000001",
+  "name": "Dádivas de Pacto (3d6)",
+  "description": "Tabela de dádivas de pacto — Old Infærnum PDF p.40-41",
+  "img": "icons/svg/eye.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtDad3000000001",
+      "type": "text",
+      "text": "Saúde — livre-se de um tormento",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad3000000001"
+    },
+    {
+      "_id": "rtDad4000000001",
+      "type": "text",
+      "text": "Prosperidade — recursos suficientes",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad4000000001"
+    },
+    {
+      "_id": "rtDad5000000001",
+      "type": "text",
+      "text": "Sedução — convencimento nas próximas palavras",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad5000000001"
+    },
+    {
+      "_id": "rtDad6000000001",
+      "type": "text",
+      "text": "Revelação — descobre algo oculto",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad6000000001"
+    },
+    {
+      "_id": "rtDad7000000001",
+      "type": "text",
+      "text": "Conhecimento — qualquer informação",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad7000000001"
+    },
+    {
+      "_id": "rtDad8000000001",
+      "type": "text",
+      "text": "Coragem — reduz dificuldade de desafio em 1",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad8000000001"
+    },
+    {
+      "_id": "rtDad9000000001",
+      "type": "text",
+      "text": "Carisma — alguém passa a gostar de você",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad9000000001"
+    },
+    {
+      "_id": "rtDad10000000001",
+      "type": "text",
+      "text": "Direção — aponta o caminho",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad10000000001"
+    },
+    {
+      "_id": "rtDad11000000001",
+      "type": "text",
+      "text": "Ilusão — como você deseja ser visto (tempo limitado)",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad11000000001"
+    },
+    {
+      "_id": "rtDad12000000001",
+      "type": "text",
+      "text": "Natureza — ambiente facilita o caminho",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad12000000001"
+    },
+    {
+      "_id": "rtDad13000000001",
+      "type": "text",
+      "text": "Divinação — passado ou futuro (pergunta com 1d6)",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad13000000001"
+    },
+    {
+      "_id": "rtDad14000000001",
+      "type": "text",
+      "text": "Transmutação — transforma em animal (não dura muito)",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad14000000001"
+    },
+    {
+      "_id": "rtDad15000000001",
+      "type": "text",
+      "text": "Destino — reduz 2 desgraças OU rerrola 2 dados com presságio",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad15000000001"
+    },
+    {
+      "_id": "rtDad16000000001",
+      "type": "text",
+      "text": "Dominação — obediência (duração via 1d6)",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad16000000001"
+    },
+    {
+      "_id": "rtDad17000000001",
+      "type": "text",
+      "text": "Fortalecimento — ao reduzir dificuldade, reduz o dobro",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad17000000001"
+    },
+    {
+      "_id": "rtDad18000000001",
+      "type": "text",
+      "text": "Desejo — qualquer pedido (verifica com 1d6)",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDadivas0000001.rtDad18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtDadivas0000001"
+}

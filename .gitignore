@@ -1,8 +1,9 @@
 node_modules/
 *.DS_Store
 .fvtt-config
-packs/
-!packs/sources/
+packs/cavaleiros/
+packs/rolltables/
+packs/cenarios/
 styles/infaernum.css.map
 docs/assimilacao-sistema-nao-oficial/
 docs/fractal-foundry-vtt/

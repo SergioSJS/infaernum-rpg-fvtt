@@ -1,0 +1,33 @@
+{
+  "_id": "CavPeste00000001",
+  "name": "Cavaleiro da Peste",
+  "img": "icons/svg/skull.svg",
+  "pages": [
+    {
+      "_id": "PesteMaldicao001",
+      "name": "Maldições da Peste",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Maldições da Peste</h2><p>Quando um personagem acumula 6 desgraças e encontra o Cavaleiro da Peste, rola 1d6:</p><ol><li>Língua derrete, torna-se sangue. Pecado jamais virá pela voz.</li><li>Tímpanos sangram até que o estampido cesse. Silêncio te acompanhará.</li><li>Chagas abrem em cada mão. Feridas jamais se fecharão.</li><li>Chagas abrem em cada pé. Sangue perseguirá seus passos.</li><li>Cavidades oculares vazam sangue. Pela visão não pecarás.</li><li>Todos estão imundos. Você é ferramenta da Peste.</li></ol>"
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {},
+      "_key": "!journal.pages!CavPeste00000001.PesteMaldicao001"
+    }
+  ],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!journal!CavPeste00000001"
+}

@@ -1,0 +1,210 @@
+{
+  "_id": "rtPassado0000001",
+  "name": "Passado — quem é você (3d6)",
+  "description": "Origem e passado do personagem — Old Infærnum PDF p.5",
+  "img": "icons/svg/mystery-man.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtPas3000000001",
+      "type": "text",
+      "text": "Um invocador que tagarela com caídos",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas3000000001"
+    },
+    {
+      "_id": "rtPas4000000001",
+      "type": "text",
+      "text": "Alguém que já leu o que ainda será escrito",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas4000000001"
+    },
+    {
+      "_id": "rtPas5000000001",
+      "type": "text",
+      "text": "O fervor da divindade antiga, a encarnação da crença morta",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas5000000001"
+    },
+    {
+      "_id": "rtPas6000000001",
+      "type": "text",
+      "text": "Aos olhos dos outros, um louco qualquer",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas6000000001"
+    },
+    {
+      "_id": "rtPas7000000001",
+      "type": "text",
+      "text": "Alguém importante demais para lidar com o trabalho sujo",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas7000000001"
+    },
+    {
+      "_id": "rtPas8000000001",
+      "type": "text",
+      "text": "Astúcia e perspicácia te fizeram sobreviver até aqui",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas8000000001"
+    },
+    {
+      "_id": "rtPas9000000001",
+      "type": "text",
+      "text": "Um escravo, agora livre para continuar lutando",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas9000000001"
+    },
+    {
+      "_id": "rtPas10000000001",
+      "type": "text",
+      "text": "Alguém condenado à forca, salvo pelo prenúncio do fim",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas10000000001"
+    },
+    {
+      "_id": "rtPas11000000001",
+      "type": "text",
+      "text": "Aquele que carrega o peso de muitas mortes",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas11000000001"
+    },
+    {
+      "_id": "rtPas12000000001",
+      "type": "text",
+      "text": "Por algum motivo, um monstro",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas12000000001"
+    },
+    {
+      "_id": "rtPas13000000001",
+      "type": "text",
+      "text": "A justiça de uma única perspectiva",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas13000000001"
+    },
+    {
+      "_id": "rtPas14000000001",
+      "type": "text",
+      "text": "Um conhecedor das profundezas",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas14000000001"
+    },
+    {
+      "_id": "rtPas15000000001",
+      "type": "text",
+      "text": "Alguém que vê o que outros não veem",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas15000000001"
+    },
+    {
+      "_id": "rtPas16000000001",
+      "type": "text",
+      "text": "O servo de um caído que se opõe ao fim de tudo",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas16000000001"
+    },
+    {
+      "_id": "rtPas17000000001",
+      "type": "text",
+      "text": "A chave para um grande acontecimento",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas17000000001"
+    },
+    {
+      "_id": "rtPas18000000001",
+      "type": "text",
+      "text": "Um viajante de sonhos",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtPassado0000001.rtPas18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtPassado0000001"
+}

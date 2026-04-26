@@ -1,0 +1,210 @@
+{
+  "_id": "rtDividas0000001",
+  "name": "Dívidas de Pacto (3d6)",
+  "description": "Tabela de dívidas de pacto — Old Infærnum PDF p.41",
+  "img": "icons/svg/eye.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtDiv3000000001",
+      "type": "text",
+      "text": "Portal — destruir portais e ninhos de caídos",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv3000000001"
+    },
+    {
+      "_id": "rtDiv4000000001",
+      "type": "text",
+      "text": "Alimento — comer o que é proibido (literalmente)",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv4000000001"
+    },
+    {
+      "_id": "rtDiv5000000001",
+      "type": "text",
+      "text": "Súplica — lidar com súplica no quadro de orações",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv5000000001"
+    },
+    {
+      "_id": "rtDiv6000000001",
+      "type": "text",
+      "text": "Coleção — trazer restos de outros caídos",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv6000000001"
+    },
+    {
+      "_id": "rtDiv7000000001",
+      "type": "text",
+      "text": "Sacrifício — animais tombados",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv7000000001"
+    },
+    {
+      "_id": "rtDiv8000000001",
+      "type": "text",
+      "text": "Traição — trair alguém de verdade",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv8000000001"
+    },
+    {
+      "_id": "rtDiv9000000001",
+      "type": "text",
+      "text": "Vício — substância insubstituível",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv9000000001"
+    },
+    {
+      "_id": "rtDiv10000000001",
+      "type": "text",
+      "text": "Ouro — preciosidades (verifica com 1d6)",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv10000000001"
+    },
+    {
+      "_id": "rtDiv11000000001",
+      "type": "text",
+      "text": "Morte — uma vida por dia",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv11000000001"
+    },
+    {
+      "_id": "rtDiv12000000001",
+      "type": "text",
+      "text": "Cerimônia — rito peculiar",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv12000000001"
+    },
+    {
+      "_id": "rtDiv13000000001",
+      "type": "text",
+      "text": "Exorcismo — eliminar um caído",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv13000000001"
+    },
+    {
+      "_id": "rtDiv14000000001",
+      "type": "text",
+      "text": "Culto — converter fiéis",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv14000000001"
+    },
+    {
+      "_id": "rtDiv15000000001",
+      "type": "text",
+      "text": "Roubo — pegar algo (especificar via 1d6/2d6)",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv15000000001"
+    },
+    {
+      "_id": "rtDiv16000000001",
+      "type": "text",
+      "text": "Adoração — construir altar",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv16000000001"
+    },
+    {
+      "_id": "rtDiv17000000001",
+      "type": "text",
+      "text": "Busca — pistas sobre Terra Prometida",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv17000000001"
+    },
+    {
+      "_id": "rtDiv18000000001",
+      "type": "text",
+      "text": "Purificação — templos e sacerdotes devem perecer",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtDividas0000001.rtDiv18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtDividas0000001"
+}

@@ -1,0 +1,210 @@
+{
+  "_id": "rtBencoes0000001",
+  "name": "Bênçãos Iniciais (3d6)",
+  "description": "Bênçãos de criação de personagem — Old Infærnum PDF p.8",
+  "img": "icons/svg/holy-shield.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtBen3000000001",
+      "type": "text",
+      "text": "Escudo com brasão estranho capaz de invocar relâmpagos",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen3000000001"
+    },
+    {
+      "_id": "rtBen4000000001",
+      "type": "text",
+      "text": "Livro com vontade própria que materializa o que for escrito nele",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen4000000001"
+    },
+    {
+      "_id": "rtBen5000000001",
+      "type": "text",
+      "text": "Marreta com poder de causar tremores",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen5000000001"
+    },
+    {
+      "_id": "rtBen6000000001",
+      "type": "text",
+      "text": "Adaga que permite controlar a alma de quem for estocado por ela",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen6000000001"
+    },
+    {
+      "_id": "rtBen7000000001",
+      "type": "text",
+      "text": "Cruz com dom de repelir caídos",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen7000000001"
+    },
+    {
+      "_id": "rtBen8000000001",
+      "type": "text",
+      "text": "Mangual capaz de acertar golpes que explodem em chamas",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen8000000001"
+    },
+    {
+      "_id": "rtBen9000000001",
+      "type": "text",
+      "text": "Animal possuído por um caído",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen9000000001"
+    },
+    {
+      "_id": "rtBen10000000001",
+      "type": "text",
+      "text": "Espada que fareja sangue",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen10000000001"
+    },
+    {
+      "_id": "rtBen11000000001",
+      "type": "text",
+      "text": "Arco que cria flechas necrotizantes por sua corda retesada",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen11000000001"
+    },
+    {
+      "_id": "rtBen12000000001",
+      "type": "text",
+      "text": "Espelho que mostra a verdade",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen12000000001"
+    },
+    {
+      "_id": "rtBen13000000001",
+      "type": "text",
+      "text": "Chicote que congela o que é envolto por ele",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen13000000001"
+    },
+    {
+      "_id": "rtBen14000000001",
+      "type": "text",
+      "text": "Esfera de vidro que revela o que está por vir",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen14000000001"
+    },
+    {
+      "_id": "rtBen15000000001",
+      "type": "text",
+      "text": "Cetro que comanda o corpo de alguém morto por ele",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen15000000001"
+    },
+    {
+      "_id": "rtBen16000000001",
+      "type": "text",
+      "text": "Tridente capaz de controlar as águas e o que delas emerge",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen16000000001"
+    },
+    {
+      "_id": "rtBen17000000001",
+      "type": "text",
+      "text": "Manto que torna invisível o que cobrir",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen17000000001"
+    },
+    {
+      "_id": "rtBen18000000001",
+      "type": "text",
+      "text": "Tatuagem que ganha vida quando seu sangue é derramado",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtBencoes0000001.rtBen18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtBencoes0000001"
+}

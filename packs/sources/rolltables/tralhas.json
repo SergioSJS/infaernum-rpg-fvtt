@@ -1,0 +1,210 @@
+{
+  "_id": "rtTralhas0000001",
+  "name": "Tralhas Iniciais (3d6)",
+  "description": "Kit de itens de partida — Old Infærnum PDF p.6-7",
+  "img": "icons/svg/chest.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtTra3000000001",
+      "type": "text",
+      "text": "Um pão quase mofado, um cantil com aguardente e um canivete",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra3000000001"
+    },
+    {
+      "_id": "rtTra4000000001",
+      "type": "text",
+      "text": "Um martelo, alguns pregos e um pequeno espelho",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra4000000001"
+    },
+    {
+      "_id": "rtTra5000000001",
+      "type": "text",
+      "text": "Uma corda com gancho, um saco de dormir e uma capa pesada",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra5000000001"
+    },
+    {
+      "_id": "rtTra6000000001",
+      "type": "text",
+      "text": "Um pequeno livro em branco, tinta e uma pena para escrita",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra6000000001"
+    },
+    {
+      "_id": "rtTra7000000001",
+      "type": "text",
+      "text": "Um jogo com cartas marcadas, um cachimbo e um pouco de fumo",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra7000000001"
+    },
+    {
+      "_id": "rtTra8000000001",
+      "type": "text",
+      "text": "Um frasco de perfume, algumas ervas e uma pedra de amolar",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra8000000001"
+    },
+    {
+      "_id": "rtTra9000000001",
+      "type": "text",
+      "text": "Uma pederneira, algumas tochas e um frasco de óleo",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra9000000001"
+    },
+    {
+      "_id": "rtTra10000000001",
+      "type": "text",
+      "text": "Uma barraca desmontada, uma mochila e um cobertor",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra10000000001"
+    },
+    {
+      "_id": "rtTra11000000001",
+      "type": "text",
+      "text": "Uma panela, alguns vegetais e frascos de temperos variados",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra11000000001"
+    },
+    {
+      "_id": "rtTra12000000001",
+      "type": "text",
+      "text": "Uma pá, um crucifixo e vestes cerimoniais",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra12000000001"
+    },
+    {
+      "_id": "rtTra13000000001",
+      "type": "text",
+      "text": "Um molho de várias chaves, alguns cadeados e um par de algemas",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra13000000001"
+    },
+    {
+      "_id": "rtTra14000000001",
+      "type": "text",
+      "text": "Um mapa de algum lugar, uma bússola e uma garrafa de vinho",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra14000000001"
+    },
+    {
+      "_id": "rtTra15000000001",
+      "type": "text",
+      "text": "Um bestiário com páginas faltando, uma estola e um rosário",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra15000000001"
+    },
+    {
+      "_id": "rtTra16000000001",
+      "type": "text",
+      "text": "Um fêmur humano, a pele de algum animal e pequenos crânios de aves",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra16000000001"
+    },
+    {
+      "_id": "rtTra17000000001",
+      "type": "text",
+      "text": "Um pequeno saco de couro cheio de sal, algumas agulhas e um chifre",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra17000000001"
+    },
+    {
+      "_id": "rtTra18000000001",
+      "type": "text",
+      "text": "Uma coroa de espinhos, algumas velas e um pergaminho com uma gravura",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtTralhas0000001.rtTra18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtTralhas0000001"
+}

@@ -1,0 +1,210 @@
+{
+  "_id": "rtSorte000000001",
+  "name": "Sorte — no que é melhor (3d6)",
+  "description": "Área de excelência do personagem — Old Infærnum PDF p.5",
+  "img": "icons/svg/d6-grey.svg",
+  "formula": "3d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "rtSor3000000001",
+      "type": "text",
+      "text": "Manifestar milagres climáticos",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor3000000001"
+    },
+    {
+      "_id": "rtSor4000000001",
+      "type": "text",
+      "text": "Promover a cura, prestar auxílios milagrosos",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor4000000001"
+    },
+    {
+      "_id": "rtSor5000000001",
+      "type": "text",
+      "text": "Entender e ser compreendido por seres animalescos e bestas",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor5000000001"
+    },
+    {
+      "_id": "rtSor6000000001",
+      "type": "text",
+      "text": "Resistir, defender a qualquer custo, manter-se de pé",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor6000000001"
+    },
+    {
+      "_id": "rtSor7000000001",
+      "type": "text",
+      "text": "Encontrar caminhos e impedir que te encontrem",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor7000000001"
+    },
+    {
+      "_id": "rtSor8000000001",
+      "type": "text",
+      "text": "Causar boas primeiras impressões",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor8000000001"
+    },
+    {
+      "_id": "rtSor9000000001",
+      "type": "text",
+      "text": "Mover-se intensamente, com reflexos anormais",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor9000000001"
+    },
+    {
+      "_id": "rtSor10000000001",
+      "type": "text",
+      "text": "Esquematizar, lidar com armadilhas",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor10000000001"
+    },
+    {
+      "_id": "rtSor11000000001",
+      "type": "text",
+      "text": "Usar força bruta, superar limitações físicas",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor11000000001"
+    },
+    {
+      "_id": "rtSor12000000001",
+      "type": "text",
+      "text": "Perceber minúcias, notar detalhes ocultos",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor12000000001"
+    },
+    {
+      "_id": "rtSor13000000001",
+      "type": "text",
+      "text": "Investigar, usar da intuição para descobrir",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor13000000001"
+    },
+    {
+      "_id": "rtSor14000000001",
+      "type": "text",
+      "text": "Memorizar o que for preciso, gravar na mente",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor14000000001"
+    },
+    {
+      "_id": "rtSor15000000001",
+      "type": "text",
+      "text": "Improvisar, solucionar com o que é inesperado",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor15000000001"
+    },
+    {
+      "_id": "rtSor16000000001",
+      "type": "text",
+      "text": "Mentir, blefar, pintar como quiser a sua verdade",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor16000000001"
+    },
+    {
+      "_id": "rtSor17000000001",
+      "type": "text",
+      "text": "Conhecer e lidar com o oculto",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor17000000001"
+    },
+    {
+      "_id": "rtSor18000000001",
+      "type": "text",
+      "text": "Liderar, influenciar e cativar",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rtSorte000000001.rtSor18000000001"
+    }
+  ],
+  "folder": null,
+  "sort": 600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!tables!rtSorte000000001"
+}

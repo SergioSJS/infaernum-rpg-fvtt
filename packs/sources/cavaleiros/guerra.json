@@ -1,0 +1,33 @@
+{
+  "_id": "CavGuerra0000001",
+  "name": "Cavaleiro da Guerra",
+  "img": "icons/svg/combat.svg",
+  "pages": [
+    {
+      "_id": "GuerraMaldicao01",
+      "name": "Maldições da Guerra",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Maldições da Guerra</h2><p>Quando um personagem acumula 6 desgraças e encontra o Cavaleiro da Guerra, rola 1d6:</p><ol><li>Um braço separado da vida pelo gume da Guerra.</li><li>Uma perna separada da vida pelo gume da Guerra.</li><li>Alguém deve morrer sempre. Por suas mãos, a Guerra continuará.</li><li>Você passa a suar sangue. A dor será sempre intensa.</li><li>Caídos te perseguem para guerrear. Um após o outro, eles sempre virão.</li><li>Não há inocentes. Todos devem ser destruídos.</li></ol>"
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {},
+      "_key": "!journal.pages!CavGuerra0000001.GuerraMaldicao01"
+    }
+  ],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!journal!CavGuerra0000001"
+}

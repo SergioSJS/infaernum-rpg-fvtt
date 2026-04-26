@@ -1,0 +1,33 @@
+{
+  "_id": "CavFome000000001",
+  "name": "Cavaleiro da Fome",
+  "img": "icons/svg/hazard.svg",
+  "pages": [
+    {
+      "_id": "FomeMaldicoes001",
+      "name": "Maldições da Fome",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Maldições da Fome</h2><p>Quando um personagem acumula 6 desgraças e encontra o Cavaleiro da Fome, rola 1d6:</p><ol><li>A pior lepra recai sobre você. As marcas do pecado te seguirão.</li><li>Nada mais para no estômago. A Fome será eterna.</li><li>Cabelos e unhas caem, pele coça e queima numa ardência sangrenta.</li><li>Sangue vaza sob a pele formando bolsões de pus.</li><li>Um caído faminto te segue como sombra. Será preciso alimentá-lo.</li><li>A Fome exige um banquete de almas. Você precisará caçá-las.</li></ol>"
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {},
+      "_key": "!journal.pages!CavFome000000001.FomeMaldicoes001"
+    }
+  ],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!journal!CavFome000000001"
+}

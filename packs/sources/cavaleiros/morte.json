@@ -1,0 +1,33 @@
+{
+  "_id": "CavMorte00000001",
+  "name": "Cavaleiro da Morte",
+  "img": "icons/svg/death.svg",
+  "pages": [
+    {
+      "_id": "MorteMaldicao001",
+      "name": "Maldições da Morte",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Maldições da Morte</h2><p>Quando um personagem acumula 6 desgraças e encontra o Cavaleiro da Morte, rola 1d6:</p><ol><li>Você foi marcado pela Morte. Sua alma permanecerá nesse corpo putrificado.</li><li>A cena da sua própria morte te atormenta ao fechar os olhos.</li><li>A Terra Prometida não aceitará sua alma, a menos que você mate o Dragão.</li><li>A resposta está nos quatro animais. Apresente a Morte e tome o trono.</li><li>A Morte tomará a terra da promessa. O exército dos cavaleiros brancos deve cair.</li><li>Seu corpo morrerá, sempre. Tome outros corpos desalmados para prosseguir.</li></ol>"
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {},
+      "_key": "!journal.pages!CavMorte00000001.MorteMaldicao001"
+    }
+  ],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_key": "!journal!CavMorte00000001"
+}
