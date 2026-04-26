@@ -57,7 +57,7 @@ jobs:
           git checkout system.json
           cp system.json.release system.json
           git add system.json
-          git diff --cached --quiet || git commit -m "chore: bump version to ${GITHUB_REF_NAME} [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: bump version to ${GITHUB_REF_NAME}"
           git push origin main
 
       - name: Create GitHub Release
