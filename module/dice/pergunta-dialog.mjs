@@ -59,7 +59,7 @@ export async function openPerguntaDialog() {
   if (modoCartas) {
     const draw = drawPergunta(provavel);
     const cartasHtml = draw.cartas.map(c =>
-      `<span class="dado dado--vislumbre">${formatCarta(c)}</span>`
+      `<span class="dado vislumbre">${formatCarta(c)}</span>`
     ).join("");
     const resClasse = draw.resposta === "sim" ? "res-milagre" : "res-desgraca";
     conteudo = `<div class="infaernum-chat-message">

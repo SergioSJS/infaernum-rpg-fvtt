@@ -13,13 +13,13 @@ export async function openIdeiaDialog() {
       <div class="chat-header">Ideia (Infærnaculum)</div>
       <div class="ideia-grid">
         <div class="ideia-col">
-          <span class="ideia-dado"><span class="dado dado--facanha">${cv}</span></span>
+          <span class="ideia-dado"><span class="dado facanha">${cv}</span></span>
           <span class="ideia-word ideia-verbo">${r.verbo}</span>
           <span class="ideia-role">verbo</span>
         </div>
         <span class="ideia-plus">+</span>
         <div class="ideia-col">
-          <span class="ideia-dado"><span class="dado dado--milagre">${cs}</span></span>
+          <span class="ideia-dado"><span class="dado milagre">${cs}</span></span>
           <span class="ideia-word ideia-subst">${r.substantivo}</span>
           <span class="ideia-role">substantivo</span>
         </div>
@@ -34,8 +34,8 @@ export async function openIdeiaDialog() {
       <div class="ideia-grid">
         <div class="ideia-col">
           <span class="ideia-dado">
-            <span class="dado dado--facanha">${v1}</span>
-            <span class="dado dado--facanha">${v2}</span>
+            <span class="dado facanha">${v1}</span>
+            <span class="dado facanha">${v2}</span>
           </span>
           <span class="ideia-options">
             <span class="ideia-word ideia-verbo">${r.verboA}</span>
@@ -47,8 +47,8 @@ export async function openIdeiaDialog() {
         <span class="ideia-plus">+</span>
         <div class="ideia-col">
           <span class="ideia-dado">
-            <span class="dado dado--milagre">${s1}</span>
-            <span class="dado dado--milagre">${s2}</span>
+            <span class="dado milagre">${s1}</span>
+            <span class="dado milagre">${s2}</span>
           </span>
           <span class="ideia-options">
             <span class="ideia-word ideia-subst">${r.substA}</span>

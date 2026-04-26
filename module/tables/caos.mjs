@@ -63,7 +63,7 @@ export async function rolarCaosChat(tabela) {
   if (!r) return;
   const content = `<div class="infaernum-chat-message infaernum-caos-msg">
     <div class="chat-header caos-label">${r.label}</div>
-    <div class="caos-dado"><span class="dado dado--vislumbre">${r.dado}</span></div>
+    <div class="caos-dado"><span class="dado vislumbre">${r.dado}</span></div>
     <p class="caos-resultado">${r.resultado}</p>
   </div>`;
   await ChatMessage.create({ content, sound: CONFIG.sounds.dice });
