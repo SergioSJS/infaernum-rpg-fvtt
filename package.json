@@ -8,7 +8,7 @@
     "watch:css": "sass styles/infaernum.scss styles/infaernum.css --watch",
     "lint": "eslint module/**/*.mjs",
     "lint:fix": "eslint module/**/*.mjs --fix",
-    "pack:build": "npx fvtt package pack -n cavaleiros --in packs/sources/cavaleiros --out packs/cavaleiros && npx fvtt package pack -n rolltables --in packs/sources/rolltables --out packs/rolltables && npx fvtt package pack -n cenarios --in packs/sources/cenarios --out packs/cenarios",
+    "pack:build": "npx fvtt package pack --type System -n cavaleiros --in packs/sources/cavaleiros --out packs/cavaleiros && npx fvtt package pack --type System -n rolltables --in packs/sources/rolltables --out packs/rolltables && npx fvtt package pack --type System -n cenarios --in packs/sources/cenarios --out packs/cenarios",
     "pack:unpack": "fvtt package unpack"
   },
   "devDependencies": {
