@@ -174,6 +174,6 @@ O CI irá:
 
 ## 📋 Licença e Créditos
 
-- O código deste repositório está sob [MIT License](LICENSE).
+- Este repositório está sob [CC BY-NC-SA 4.0](LICENSE) — uso não-comercial, atribuição obrigatória, compartilhamento igual.
 - Sistema **Old Infærnum** criado por Raul Volpato — todo o conteúdo narrativo e de regras pertence a ele.
 - Feito por **Sérgio Sousa** — [meioorc.com](https://meioorc.com)
