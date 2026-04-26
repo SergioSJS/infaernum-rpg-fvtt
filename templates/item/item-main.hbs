@@ -1,0 +1,19 @@
+<section class="sheet-body">
+  <div class="field-group">
+    <label>Nome</label>
+    <input type="text" name="name" value="{{item.name}}" />
+  </div>
+
+  {{#if system.descricao}}
+    {{editor system.descricao target="system.descricao" button=true editable=editable}}
+  {{/if}}
+
+  {{#if system.efeito}}
+    <div class="field-group">
+      <label>Efeito</label>
+      {{editor system.efeito target="system.efeito" button=true editable=editable}}
+    </div>
+  {{/if}}
+
+  {{! Campos específicos por tipo renderizados aqui dinamicamente na Fase 1+ }}
+</section>

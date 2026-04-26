@@ -1,0 +1,22 @@
+<section class="sheet-body">
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Colosso.Dificuldade"}}</label>
+    <input type="number" name="system.dificuldade" value="{{system.dificuldade}}" min="0" />
+  </div>
+
+  <h3>Desgraças por Naipe</h3>
+  <div class="naipes-grid">
+    {{#each naipes as |naipe|}}
+      <div class="naipe-block">
+        <span class="naipe-label">{{naipe}}</span>
+        <span class="naipe-count">{{lookup ../system.desgracas_naipes naipe}}</span>
+        <button type="button" data-action="adicionarDesgracaNaipe" data-naipe="{{naipe}}">+</button>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Colosso.Descricao"}}</label>
+    <textarea name="system.descricao" rows="5" {{#unless editable}}readonly{{/unless}}>{{system.descricao}}</textarea>
+  </div>
+</section>

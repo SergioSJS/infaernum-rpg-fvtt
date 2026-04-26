@@ -1,0 +1,284 @@
+<div class="personagem-body-wrapper">
+<div class="personagem-body">
+
+  {{!-- ── TOP GRID: SORTE/AZAR ← | → TORMENTOS ── --}}
+  <div class="pc-top-grid">
+
+    {{!-- Esquerda: Sorte + Azar --}}
+    <div class="pc-influences">
+
+      <div class="pc-influence-block pc-influence-block--sorte">
+        <div class="pc-influence-header">
+          <span class="pc-influence-icon pc-influence-icon--sorte">✦</span>
+          <span class="pc-influence-name">{{localize "INFAERNUM.Personagem.Sorte"}}</span>
+        </div>
+        <textarea name="system.sorte" rows="2"
+                  class="pc-influence-textarea"
+                  placeholder="{{localize 'INFAERNUM.Personagem.SortePlaceholder'}}"
+                  {{#unless editable}}readonly{{/unless}}>{{system.sorte}}</textarea>
+        <p class="pc-influence-hint">{{localize "INFAERNUM.Personagem.SorteHint"}}</p>
+      </div>
+
+      <div class="pc-influence-block pc-influence-block--azar">
+        <div class="pc-influence-header">
+          <span class="pc-influence-icon pc-influence-icon--azar">⚠</span>
+          <span class="pc-influence-name">{{localize "INFAERNUM.Personagem.Azar"}}</span>
+        </div>
+        <textarea name="system.azar" rows="2"
+                  class="pc-influence-textarea"
+                  placeholder="{{localize 'INFAERNUM.Personagem.AzarPlaceholder'}}"
+                  {{#unless editable}}readonly{{/unless}}>{{system.azar}}</textarea>
+        <p class="pc-influence-hint">{{localize "INFAERNUM.Personagem.AzarHint"}}</p>
+      </div>
+
+    </div>
+
+    {{!-- Direita: Tormentos + Paranoias --}}
+    <div class="pc-afflictions">
+
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Tormento.PluralLabel"}}</span>
+        {{#if editable}}
+          <a data-action="addItem" data-type="tormento" title="Adicionar tormento">＋</a>
+        {{/if}}
+      </div>
+      {{#if tormentos.length}}
+        <ul class="pc-affliction-list">
+          {{#each tormentos as |t|}}
+            <li class="pc-affliction-item {{#if t.system.ativo}}is-active{{/if}}" data-item-id="{{t.id}}">
+              <span class="pc-afl-dot"></span>
+              <span class="pc-afl-name">{{t.name}}</span>
+              {{#if ../editable}}
+                <a data-action="editItem"   data-item-id="{{t.id}}" class="pc-afl-btn" title="Editar">✎</a>
+                <a data-action="deleteItem" data-item-id="{{t.id}}" class="pc-afl-btn pc-afl-btn--del" title="Remover">✕</a>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="pc-empty-hint">—</p>
+      {{/if}}
+
+      {{#if maldicoes.length}}
+        <div class="pc-section-header pc-section-header--mt pc-section-header--perigo">
+          <span class="pc-section-title">☠ {{localize "INFAERNUM.Maldicao.Label"}}</span>
+        </div>
+        <ul class="pc-affliction-list">
+          {{#each maldicoes as |m|}}
+            <li class="pc-affliction-item pc-affliction-item--maldicao" data-item-id="{{m.id}}">
+              <span class="pc-afl-dot pc-afl-dot--maldicao"></span>
+              <span class="pc-afl-name">{{m.name}}</span>
+              {{#if ../editable}}
+                <a data-action="editItem" data-item-id="{{m.id}}" class="pc-afl-btn" title="Editar">✎</a>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
+      {{#if paranoias.length}}
+        <div class="pc-section-header pc-section-header--mt {{#if (infaernum-gte paranoias.length 3)}}pc-section-header--perigo{{/if}}">
+          <span class="pc-section-title">{{localize "INFAERNUM.Paranoia.PluralLabel"}} ({{paranoias.length}}/3)</span>
+        </div>
+        <ul class="pc-affliction-list">
+          {{#each paranoias as |p|}}
+            <li class="pc-affliction-item" data-item-id="{{p.id}}">
+              <span class="pc-afl-dot pc-afl-dot--paranoia"></span>
+              <span class="pc-afl-name">{{p.name}}</span>
+              {{#if ../editable}}
+                <a data-action="editItem"   data-item-id="{{p.id}}" class="pc-afl-btn" title="Editar">✎</a>
+                <a data-action="deleteItem" data-item-id="{{p.id}}" class="pc-afl-btn pc-afl-btn--del" title="Remover">✕</a>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
+    </div>
+  </div>{{!-- .pc-top-grid --}}
+
+  {{!-- ── STATS BAR: Almas (só se suplemento ativo) ── --}}
+  {{#if usaAlmas}}
+    <div class="pc-stats-bar">
+      <div class="pc-stat-box">
+        <input type="number" name="system.almas" value="{{system.almas}}"
+               min="0" {{#unless editable}}readonly{{/unless}} />
+        <span>{{infLabel "Personagem.Almas"}}</span>
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- ── BÊNÇÃO ── --}}
+  <div class="pc-items-section">
+    <div class="pc-section-header">
+      <span class="pc-section-title">{{localize "INFAERNUM.Bencao.Label"}}</span>
+      {{#if editable}}
+        <a data-action="addItem" data-type="bencao" title="Adicionar bênção">＋</a>
+      {{/if}}
+    </div>
+    {{#each bencaos as |item|}}
+      <div class="pc-item-row" data-item-id="{{item.id}}">
+        <img class="pc-item-img" src="{{item.img}}" alt="{{item.name}}" />
+        <span class="pc-item-name">{{item.name}}</span>
+        <span class="item-tag {{#if item.system.ativa}}tag--ativo{{else}}tag--inativo{{/if}}">
+          {{#if item.system.ativa}}Ativa{{else}}Inativa{{/if}}
+        </span>
+        {{#if ../editable}}
+          <div class="item-controls">
+            <a data-action="editItem"   title="Editar">✎</a>
+            <a data-action="deleteItem" title="Remover">✕</a>
+          </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+
+  {{!-- ── TRALHAS ── --}}
+  <div class="pc-items-section">
+    <div class="pc-section-header">
+      <span class="pc-section-title">{{localize "INFAERNUM.Tralha.PluralLabel"}} ({{tralhas.length}})</span>
+      {{#if editable}}
+        <a data-action="addItem" data-type="tralha" title="Adicionar tralha">＋</a>
+      {{/if}}
+    </div>
+    {{#each tralhas as |item|}}
+      <div class="pc-item-row" data-item-id="{{item.id}}">
+        <img class="pc-item-img" src="{{item.img}}" alt="{{item.name}}" />
+        <span class="pc-item-name">{{item.name}}</span>
+        {{#if item.system.quantidade}}
+          <span class="item-qty">×{{item.system.quantidade}}</span>
+        {{/if}}
+        {{#if ../editable}}
+          <div class="item-controls">
+            <a data-action="editItem"   title="Editar">✎</a>
+            <a data-action="deleteItem" title="Remover">✕</a>
+          </div>
+        {{/if}}
+      </div>
+    {{/each}}
+    {{#unless tralhas.length}}<p class="pc-empty-hint">—</p>{{/unless}}
+  </div>
+
+  {{!-- ── SUPLEMENTOS (aparecem só se presentes) ── --}}
+
+  {{#if salvacoes.length}}
+    <div class="pc-items-section">
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Salvacao.PluralLabel"}}</span>
+        {{#if editable}}<a data-action="addItem" data-type="salvacao">＋</a>{{/if}}
+      </div>
+      {{#each salvacoes as |item|}}
+        <div class="pc-item-row" data-item-id="{{item.id}}">
+          <span class="pc-item-name">{{item.name}}</span>
+          <span class="item-tag {{#if item.system.ativa}}tag--ativo{{else}}tag--inativo{{/if}}">{{#if item.system.ativa}}Ativa{{else}}Inativa{{/if}}</span>
+          {{#if ../editable}}<div class="item-controls"><a data-action="editItem" title="Editar">✎</a><a data-action="deleteItem" title="Remover">✕</a></div>{{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if rituais.length}}
+    <div class="pc-items-section">
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Ritual.PluralLabel"}}</span>
+        {{#if editable}}<a data-action="addItem" data-type="ritual">＋</a>{{/if}}
+      </div>
+      {{#each rituais as |item|}}
+        <div class="pc-item-row" data-item-id="{{item.id}}">
+          <span class="pc-item-name">{{item.name}}</span>
+          {{#if ../editable}}<div class="item-controls"><a data-action="editItem" title="Editar">✎</a><a data-action="deleteItem" title="Remover">✕</a></div>{{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if pactos.length}}
+    <div class="pc-items-section">
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Pacto.PluralLabel"}} ({{pactos.length}})</span>
+        {{#if editable}}<a data-action="addItem" data-type="pacto">＋</a>{{/if}}
+      </div>
+      {{#each pactos as |item|}}
+        <div class="pc-item-row item-row--pacto" data-item-id="{{item.id}}">
+          <span class="pc-item-name">{{item.name}}</span>
+          {{#if item.system.entidade}}<span class="pacto-entidade">{{item.system.entidade}}</span>{{/if}}
+          {{#if ../editable}}
+            <button type="button" data-action="usarDadiva" data-item-id="{{item.id}}"
+                    class="btn-small {{#if item.system.dadiva_usada}}btn-used{{/if}}"
+                    {{#if item.system.dadiva_usada}}disabled{{/if}}>
+              {{#if item.system.dadiva_usada}}{{localize "INFAERNUM.Pacto.DadivaUsada"}}{{else}}{{localize "INFAERNUM.Pacto.UsarDadiva"}}{{/if}}
+            </button>
+            <div class="item-controls">
+              <a data-action="editItem"   data-item-id="{{item.id}}" title="Editar">✎</a>
+              <a data-action="deleteItem" data-item-id="{{item.id}}" title="Remover">✕</a>
+            </div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if fendas.length}}
+    <div class="pc-items-section">
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Fenda.PluralLabel"}} ({{fendas.length}})</span>
+        {{#if editable}}<a data-action="addItem" data-type="fenda">＋</a>{{/if}}
+      </div>
+      {{#each fendas as |item|}}
+        <div class="pc-item-row" data-item-id="{{item.id}}">
+          <span class="pc-item-name">{{item.name}}</span>
+          <span class="fenda-progresso">{{item.system.progresso}}/{{item.system.dificuldades.length}}</span>
+          <span class="item-tag {{#if item.system.concluida}}tag--ativo{{else}}tag--inativo{{/if}}">{{#if item.system.concluida}}Concluída{{else}}Em andamento{{/if}}</span>
+          {{#if ../editable}}<div class="item-controls"><a data-action="editItem" data-item-id="{{item.id}}" title="Editar">✎</a><a data-action="deleteItem" data-item-id="{{item.id}}" title="Remover">✕</a></div>{{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if dominios.length}}
+    <div class="pc-items-section">
+      <div class="pc-section-header">
+        <span class="pc-section-title">{{localize "INFAERNUM.Dominio.PluralLabel"}} ({{dominios.length}})</span>
+        {{#if editable}}<a data-action="addItem" data-type="dominio">＋</a>{{/if}}
+      </div>
+      {{#each dominios as |item|}}
+        <div class="pc-item-row" data-item-id="{{item.id}}">
+          {{#if item.system.cavaleiro}}<span class="badge badge--cavaleiro badge--{{item.system.cavaleiro}}">{{infaernum-cavaleiro-label item.system.cavaleiro}}</span>{{/if}}
+          <span class="pc-item-name">{{item.name}}</span>
+          <span class="item-tag {{#if item.system.ativo}}tag--ativo{{else}}tag--inativo{{/if}}">{{#if item.system.ativo}}Ativo{{else}}Inativo{{/if}}</span>
+          {{#if ../editable}}<div class="item-controls"><a data-action="editItem" data-item-id="{{item.id}}" title="Editar">✎</a><a data-action="deleteItem" data-item-id="{{item.id}}" title="Remover">✕</a></div>{{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{!-- ── ANOTAÇÕES ── --}}
+  <div class="pc-items-section pc-notes-section">
+    <div class="pc-section-header">
+      <span class="pc-section-title">{{localize "INFAERNUM.Personagem.Anotacoes"}}</span>
+    </div>
+    <textarea name="system.anotacoes" rows="5" {{#unless editable}}readonly{{/unless}}>{{system.anotacoes}}</textarea>
+  </div>
+
+  {{!-- ── FOOTER: Criação / Cavaleiro (Domínios) / Rolar ── --}}
+  <div class="pc-footer">
+    {{#unless system.criacao_concluida}}
+      <button type="button" data-action="openWizard" class="btn-wizard-main">
+        ✦ Criar Personagem
+      </button>
+    {{/unless}}
+    {{#if (infaernum-eq cenario "dominios")}}
+      <select name="system.cavaleiro_servido" class="pc-cavaleiro-select" {{#unless editable}}disabled{{/unless}}>
+        <option value="" {{#unless system.cavaleiro_servido}}selected{{/unless}}>— {{localize "INFAERNUM.Personagem.CavaleiroServido"}} —</option>
+        {{#each (infaernum-choices "cavaleiros") as |c|}}
+          <option value="{{c.value}}" {{#if (infaernum-eq c.value ../system.cavaleiro_servido)}}selected{{/if}}>{{c.label}}</option>
+        {{/each}}
+      </select>
+    {{/if}}
+    <button type="button" data-action="rollAction" class="btn-roll-main">
+      ⚀ {{localize "INFAERNUM.Roll.AcaoLabel"}}
+    </button>
+  </div>
+
+</div>{{!-- .personagem-body --}}
+</div>{{!-- .personagem-body-wrapper --}}

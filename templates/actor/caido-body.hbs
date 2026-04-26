@@ -1,0 +1,90 @@
+<section class="sheet-body caido-body">
+
+  {{!-- Absorver Alma: visível quando caído derrotado (p.53) --}}
+  {{#if system.derrotado}}
+    <div class="caido-derrotado-banner">
+      <span>☠ {{localize "INFAERNUM.Caido.Derrotado"}}</span>
+      <button type="button" data-action="absorverAlma" class="btn-absorver-alma">
+        ✦ {{localize "INFAERNUM.Alma.AbsorverBotao"}}
+      </button>
+    </div>
+  {{/if}}
+
+  {{!-- Linha 1: Cavaleiro + Dificuldades editáveis --}}
+  <div class="caido-stats-row">
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Caido.Cavaleiro"}}</label>
+      <select name="system.cavaleiro">
+        {{#each (infaernum-choices "cavaleiros") as |opt|}}
+          <option value="{{opt.value}}" {{#if (infaernum-eq opt.value ../system.cavaleiro)}}selected{{/if}}>{{opt.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Caido.Dificuldade"}}</label>
+      <input type="number" name="system.dificuldade" value="{{system.dificuldade}}" min="0" />
+    </div>
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Caido.DificuldadeAtual"}}</label>
+      <input type="number" name="system.dificuldade_atual" value="{{system.dificuldade_atual}}" min="0" />
+    </div>
+  </div>
+
+  {{!-- Aparência --}}
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Caido.Aparencia"}}</label>
+    <input type="text" name="system.aparencia" value="{{system.aparencia}}"
+           placeholder="{{localize 'INFAERNUM.Caido.AparenciaPlaceholder'}}" />
+  </div>
+
+  {{!-- Habilidades --}}
+  <div class="caido-section">
+    <div class="caido-section-header">
+      <h3>{{localize "INFAERNUM.Caido.Habilidades"}}</h3>
+      <button type="button" class="btn-add-small" data-action="addHabilidade">+</button>
+    </div>
+    <ul class="habilidades-list">
+      {{#each system.habilidades as |hab idx|}}
+        <li class="habilidade-row">
+          <input type="text" name="system.habilidades.{{idx}}" value="{{hab}}"
+                 placeholder="{{localize 'INFAERNUM.Caido.HabilidadePlaceholder'}}" />
+          <button type="button" class="btn-remove" data-action="removeHabilidade" data-idx="{{idx}}"
+                  title="{{localize 'INFAERNUM.Common.Remover'}}">✕</button>
+        </li>
+      {{else}}
+        <li class="empty-list">{{localize "INFAERNUM.Caido.SemHabilidades"}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{!-- Tormentos que este Caído causa --}}
+  {{#if tormentos.length}}
+    <div class="caido-section">
+      <div class="caido-section-header">
+        <h3>{{localize "INFAERNUM.Caido.TormentosCausados"}}</h3>
+      </div>
+      <ul class="tormentos-list">
+        {{#each tormentos as |t|}}
+          <li class="tormento-row">
+            <span class="tormento-name">{{t.name}}</span>
+            <a data-action="editItem" data-item-id="{{t.id}}" title="{{localize 'INFAERNUM.Common.Editar'}}">✎</a>
+            <a data-action="deleteItem" data-item-id="{{t.id}}" title="{{localize 'INFAERNUM.Common.Remover'}}">✕</a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{!-- Descrição --}}
+  <div class="caido-section">
+    <h3>{{localize "INFAERNUM.Caido.Descricao"}}</h3>
+    <textarea name="system.descricao" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.descricao}}</textarea>
+  </div>
+
+  {{!-- Anotações --}}
+  <div class="caido-section">
+    <h3>{{localize "INFAERNUM.Caido.Anotacoes"}}</h3>
+    <textarea name="system.anotacoes" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.anotacoes}}</textarea>
+  </div>
+
+</section>

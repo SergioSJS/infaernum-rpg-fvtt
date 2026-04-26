@@ -1,0 +1,50 @@
+// Old Infærnum — default visual identity (neutral dark base; themes override via JS)
+:root {
+  // ── Backgrounds ────────────────────────────────────────────────────────────
+  --inf-color-bg:           #0e0a08;
+  --inf-color-bg-sheet:     #1a1410;
+  --inf-color-bg-panel:     #231b14;
+  --inf-color-bg-input:     #0e0a08;
+
+  // ── Borders ────────────────────────────────────────────────────────────────
+  --inf-color-border:       #4a3218;
+  --inf-color-border-light: #a06820;
+
+  // ── Text — high contrast ───────────────────────────────────────────────────
+  --inf-color-text:         #ecdcc0;
+  --inf-color-text-muted:   #a08a68;
+  --inf-color-text-header:  #f8e8c0;
+
+  // ── Accent ─────────────────────────────────────────────────────────────────
+  --inf-color-accent:       #8b1a1a;
+  --inf-color-accent-glow:  rgba(139, 26, 26, 0.3);
+
+  // ── Cavaleiros ─────────────────────────────────────────────────────────────
+  --inf-color-peste:  #6a4e8a;
+  --inf-color-guerra: #8a2a2a;
+  --inf-color-fome:   #6a5a2a;
+  --inf-color-morte:  #2a2a3a;
+
+  // ── Resultados de dado ─────────────────────────────────────────────────────
+  --inf-color-desgraca:      #d04848;
+  --inf-color-neutro:        #909090;
+  --inf-color-facanha:       #c8a840;
+  --inf-color-milagre:       #60b0d0;
+  --inf-color-morte-result:  #ff3030;
+
+  // ── Naipes ─────────────────────────────────────────────────────────────────
+  --inf-color-copas:   #c04040;
+  --inf-color-espadas: #606060;
+  --inf-color-paus:    #508050;
+  --inf-color-ouros:   #c8a840;
+
+  // ── Tipografia ─────────────────────────────────────────────────────────────
+  --inf-font-body:    "Crimson Text", Georgia, serif;
+  --inf-font-header:  "UnifrakturMaguntia", "Old English Text MT", fantasy;
+  --inf-font-mono:    "Courier New", monospace;
+
+  // ── Layout ─────────────────────────────────────────────────────────────────
+  --inf-border-radius:  4px;
+  --inf-sheet-padding:  12px;
+  --inf-header-height:  80px;
+}

@@ -1,0 +1,25 @@
+<section class="sheet-body">
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Grupo.DiaAtual"}}</label>
+    <span class="dia-display">Dia {{system.dia_atual}}</span>
+    <button type="button" data-action="avancarDia">Avançar Dia</button>
+  </div>
+
+  <div class="field-group">
+    <label>Presságios</label>
+    <span>{{presagiosDisponiveis}} / {{system.presagios_totais}}</span>
+    <button type="button" data-action="usarPresagio">Usar Presságio</button>
+  </div>
+
+  <h3>Cavaleiros Anunciados</h3>
+  <div class="cavaleiros-grid">
+    {{#each cavaleiros as |cavaleiro|}}
+      <div class="cavaleiro-entry {{#if (infaernum-includes ../system.cavaleiros_anunciados cavaleiro)}}anunciado{{/if}}">
+        <span class="cavaleiro-badge {{cavaleiro}}">{{infaernum-cavaleiro-label cavaleiro}}</span>
+        {{#unless (infaernum-includes ../system.cavaleiros_anunciados cavaleiro)}}
+          <button type="button" data-action="anunciarCavaleiro" data-cavaleiro="{{cavaleiro}}">Anunciar</button>
+        {{/unless}}
+      </div>
+    {{/each}}
+  </div>
+</section>

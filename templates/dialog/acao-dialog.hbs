@@ -1,0 +1,80 @@
+<div class="inf-dialog inf-dialog--acao">
+
+  {{!-- Descrição --}}
+  <div>
+    <label class="acao-label">{{localize "INFAERNUM.Roll.Descricao"}}</label>
+    <textarea name="descricao" rows="2"
+              placeholder="{{localize 'INFAERNUM.Roll.DescricaoPlaceholder'}}"></textarea>
+  </div>
+
+  {{!-- Influências --}}
+  <div class="acao-cards">
+
+    {{!-- Sorte --}}
+    {{#if system.sorte}}
+      <div class="acao-card acao-card--sorte {{#if temSegundoAzar}}acao-card--disabled{{/if}}">
+        <div class="acao-card-header">
+          <span class="acao-card-icon">✦</span>
+          <label class="acao-card-label">
+            <input type="checkbox" name="usarSorte"
+                   {{#if temSegundoAzar}}disabled{{/if}} />
+            {{localize "INFAERNUM.Roll.UsarSorte"}}
+          </label>
+        </div>
+        <p class="acao-card-value">{{system.sorte}}</p>
+        <p class="acao-card-hint">{{localize "INFAERNUM.Roll.SorteHint"}}</p>
+        {{#if temSegundoAzar}}
+          <p class="acao-card-aviso">⚠ {{localize "INFAERNUM.Roll.SegundoAzarAviso"}}</p>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{!-- Azar --}}
+    {{#if system.azar}}
+      <div class="acao-card acao-card--azar {{#if temSegundoAzar}}acao-card--ativo{{/if}}">
+        <div class="acao-card-header">
+          <span class="acao-card-icon">⚠</span>
+          <label class="acao-card-label">
+            <input type="checkbox" name="usarAzar"
+                   {{#if temSegundoAzar}}checked disabled{{/if}} />
+            {{localize "INFAERNUM.Roll.UsarAzar"}}
+          </label>
+        </div>
+        <p class="acao-card-value">{{system.azar}}</p>
+        <p class="acao-card-hint">{{localize "INFAERNUM.Roll.AzarHint"}}</p>
+      </div>
+    {{/if}}
+
+  </div>
+
+  {{!-- Tormentos --}}
+  {{#if tormentos.length}}
+    <div class="acao-section">
+      <p class="acao-section-label">{{localize "INFAERNUM.Roll.Tormentos"}}</p>
+      <div class="acao-affl-list">
+        {{#each tormentos as |t|}}
+          <label class="acao-affl acao-affl--tormento">
+            <input type="checkbox" name="tormento_{{t.id}}" />
+            <span class="acao-affl-dot"></span>
+            <span class="acao-affl-name">{{t.name}}</span>
+          </label>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- Maldição --}}
+  {{#if temMaldicao}}
+    <div class="acao-section">
+      <p class="acao-section-label">{{localize "INFAERNUM.Roll.Maldicao"}}</p>
+      <label class="acao-affl acao-affl--maldicao">
+        <input type="checkbox" name="usarMaldicao" />
+        <span class="acao-affl-dot"></span>
+        <span class="acao-affl-name">☠ {{localize "INFAERNUM.Roll.Maldicao"}}</span>
+      </label>
+    </div>
+  {{/if}}
+
+  <p class="acao-regra">{{localize "INFAERNUM.Roll.RegraLembrete"}}</p>
+
+</div>

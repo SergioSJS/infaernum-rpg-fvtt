@@ -1,0 +1,12 @@
+<header class="sheet-header sheet-header--grupo">
+  <img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" />
+  <div class="header-fields">
+    <div class="actor-name">
+      <input type="text" name="name" value="{{actor.name}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+    <div class="grupo-cenario">
+      {{localize (concat "INFAERNUM.Setting.Cenario." (infaernum-capitalize system.cenario))}}
+    </div>
+  </div>
+</header>

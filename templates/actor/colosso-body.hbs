@@ -1,0 +1,119 @@
+<section class="sheet-body colosso-body">
+
+  {{!-- Naipes Grid --}}
+  <div class="colosso-section">
+    <h3>{{localize "INFAERNUM.Colosso.DesgracasNaipes"}}</h3>
+    <div class="naipes-grid">
+      {{#each naipes as |naipe|}}
+        {{#with (lookup ../naipeInfo naipe) as |info|}}
+          <div class="naipe-card {{#if (infaernum-includes ../system.cartas_reveladas naipe)}}naipe-revelada{{/if}}">
+            <div class="naipe-card-header">
+              <span class="naipe-simbolo">{{info.simbolo}}</span>
+              <span class="naipe-nome">{{info.label}}</span>
+              {{#if (infaernum-includes ../../system.cartas_reveladas naipe)}}
+                <span class="naipe-revelada-badge">{{localize "INFAERNUM.Colosso.Revelada"}}</span>
+              {{/if}}
+            </div>
+
+            <div class="naipe-tormento">
+              <input type="text" name="system.naipe_tormentos.{{naipe}}"
+                     value="{{lookup ../../system.naipe_tormentos naipe}}"
+                     placeholder="{{localize 'INFAERNUM.Colosso.TormentoPlaceholder'}}"
+                     {{#unless ../../editable}}readonly{{/unless}} />
+            </div>
+
+            <div class="naipe-desgracas">
+              {{#if ../../editable}}
+                <button type="button" class="btn-naipe-minus"
+                        data-action="removerDesgracaNaipe" data-naipe="{{naipe}}">−</button>
+              {{/if}}
+              <span class="naipe-count {{#if (infaernum-gt (lookup ../../system.desgracas_naipes naipe) 0)}}count-active{{/if}}">
+                {{lookup ../../system.desgracas_naipes naipe}}
+              </span>
+              {{#if ../../editable}}
+                <button type="button" class="btn-naipe-plus"
+                        data-action="adicionarDesgracaNaipe" data-naipe="{{naipe}}">+</button>
+              {{/if}}
+            </div>
+
+            {{#if ../../editable}}
+              {{#if (infaernum-includes ../../system.cartas_reveladas naipe)}}
+                <button type="button" class="btn-carta-toggle btn-carta-toggle--revelada"
+                        data-action="esconderCarta" data-carta="{{naipe}}">
+                  {{localize "INFAERNUM.Colosso.EsconderCarta"}}
+                </button>
+              {{else}}
+                <button type="button" class="btn-carta-toggle"
+                        data-action="revelarCarta" data-carta="{{naipe}}">
+                  {{localize "INFAERNUM.Colosso.RevelarCarta"}}
+                </button>
+              {{/if}}
+            {{/if}}
+          </div>
+        {{/with}}
+      {{/each}}
+    </div>
+  </div>
+
+  {{!-- Partes --}}
+  <div class="colosso-section">
+    <div class="colosso-section-header">
+      <h3>{{localize "INFAERNUM.Colosso.Partes"}}</h3>
+      {{#if editable}}
+        <button type="button" class="btn-add-small" data-action="addParte">+</button>
+      {{/if}}
+    </div>
+    <ul class="partes-list">
+      {{#each system.partes as |parte idx|}}
+        <li class="parte-row {{#if parte.destruida}}parte--destruida{{/if}}">
+          <input type="text" name="system.partes.{{idx}}.nome" value="{{parte.nome}}"
+                 {{#unless ../editable}}readonly{{/unless}} />
+          {{#if ../editable}}
+            <button type="button" class="btn-parte-toggle {{#if parte.destruida}}btn-parte-toggle--ativa{{/if}}"
+                    data-action="toggleParteDestruida" data-idx="{{idx}}">
+              {{#if parte.destruida}}Restaurar{{else}}Destruir{{/if}}
+            </button>
+            <button type="button" class="btn-remove" data-action="removeParte" data-idx="{{idx}}">✕</button>
+          {{/if}}
+        </li>
+      {{else}}
+        <li class="empty-list">{{localize "INFAERNUM.Colosso.SemPartes"}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{!-- Rituais absorvidos --}}
+  {{#if rituais.length}}
+    <div class="colosso-section">
+      <h3>{{localize "INFAERNUM.Ritual.PluralLabel"}} Absorvidos</h3>
+      <ul class="items-list">
+        {{#each rituais as |item|}}
+          <li class="item-row" data-item-id="{{item.id}}">
+            <span class="item-name">{{item.name}}</span>
+            {{#if item.system.origem_colosso}}
+              <span class="item-tag">{{item.system.origem_colosso}}</span>
+            {{/if}}
+            {{#if ../editable}}
+              <div class="item-controls">
+                <a data-action="editItem"   data-item-id="{{item.id}}" title="Editar">✎</a>
+                <a data-action="deleteItem" data-item-id="{{item.id}}" title="Remover">✕</a>
+              </div>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{!-- Descrição + Anotações --}}
+  <div class="colosso-section">
+    <h3>{{localize "INFAERNUM.Colosso.Descricao"}}</h3>
+    <textarea name="system.descricao" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.descricao}}</textarea>
+  </div>
+
+  <div class="colosso-section">
+    <h3>{{localize "INFAERNUM.Colosso.Anotacoes"}}</h3>
+    <textarea name="system.anotacoes" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.anotacoes}}</textarea>
+  </div>
+
+</section>

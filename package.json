@@ -1,0 +1,19 @@
+{
+  "name": "infaernum-rpg-fvtt",
+  "version": "0.0.1",
+  "description": "Sistema Foundry VTT para Old Infærnum",
+  "private": true,
+  "scripts": {
+    "build:css": "sass styles/infaernum.scss styles/infaernum.css --style=compressed --no-source-map",
+    "watch:css": "sass styles/infaernum.scss styles/infaernum.css --watch",
+    "lint": "eslint module/**/*.mjs",
+    "lint:fix": "eslint module/**/*.mjs --fix",
+    "pack:build": "npx fvtt package pack -n cavaleiros --in packs/sources/cavaleiros --out packs/cavaleiros && npx fvtt package pack -n rolltables --in packs/sources/rolltables --out packs/rolltables && npx fvtt package pack -n cenarios --in packs/sources/cenarios --out packs/cenarios",
+    "pack:unpack": "fvtt package unpack"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0",
+    "eslint": "^8.57.0",
+    "@foundryvtt/foundryvtt-cli": "^2.0.0"
+  }
+}

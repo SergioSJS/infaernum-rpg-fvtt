@@ -1,0 +1,38 @@
+<section class="tab" data-tab="main">
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Personagem.Sorte"}}</label>
+    <input type="text" name="system.sorte" value="{{system.sorte}}" />
+  </div>
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Personagem.Azar"}}</label>
+    <input type="text" name="system.azar" value="{{system.azar}}" />
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Personagem.Desgracas"}}</label>
+    <div class="desgraca-tracker">
+      {{#each (infaernum-range 1 6) as |i|}}
+        <div class="pip {{#if (infaernum-includes (infaernum-range 1 ../system.desgracas) i)}}filled{{/if}}"
+             data-index="{{i}}"></div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label>{{infLabel "Personagem.Almas"}}</label>
+    <input type="number" name="system.almas" value="{{system.almas}}" min="0" />
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Personagem.MovimentosAlteracao"}}</label>
+    <input type="number" name="system.movimentos_alteracao" value="{{system.movimentos_alteracao}}" min="0" max="6" />
+  </div>
+
+  {{#if system.cavaleiro_servido}}
+    <div class="cavaleiro-badge {{system.cavaleiro_servido}}">
+      {{infaernum-cavaleiro-label system.cavaleiro_servido}}
+    </div>
+  {{/if}}
+
+  <button type="button" data-action="rollAction">Rolar Ação (3d6)</button>
+</section>

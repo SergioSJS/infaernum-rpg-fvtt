@@ -1,0 +1,346 @@
+{
+  "TYPES": {
+    "Actor": {
+      "personagem": "Character",
+      "caido":      "Fallen",
+      "colosso":    "Colossus",
+      "grupo":      "Group"
+    },
+    "Item": {
+      "tralha":     "Gear",
+      "bencao":     "Blessing",
+      "salvacao":   "Salvation",
+      "ritual":     "Ritual",
+      "pacto":      "Pact",
+      "tormento":   "Torment",
+      "maldicao":   "Curse",
+      "paranoia":   "Paranoia",
+      "fenda":      "Rift",
+      "territorio": "Territory",
+      "dominio":    "Domain"
+    }
+  },
+  "INFAERNUM": {
+    "Sheet": {
+      "Personagem": "Character Sheet",
+      "Caido":      "Fallen Sheet",
+      "Colosso":    "Colossus Sheet",
+      "Grupo":      "Group Sheet",
+      "Item":       "Item Sheet"
+    },
+    "Item": {
+      "Novo":      "New Item",
+      "NovoTipo":  "New {tipo}",
+      "Descricao": "Description",
+      "Efeito":    "Effect",
+      "Ativa":     "Active"
+    },
+    "Tab": {
+      "Principal": "Main",
+      "Itens":     "Items",
+      "Anotacoes": "Notes"
+    },
+    "Personagem": {
+      "Nome":                "Name",
+      "Sorte":               "Luck",
+      "SortePlaceholder":    "Ex: Trust of the Innocent",
+      "SorteHint":           "Miracles (6) cancel misfortunes (1)",
+      "Azar":                "Misfortune",
+      "AzarPlaceholder":     "Ex: Survivor's Guilt",
+      "AzarHint":            "Misfortunes (1) cancel miracles (6)",
+      "Desgracas":           "Misfortunes",
+      "Almas":               "Souls",
+      "MovimentosAlteracao": "Alteration Moves",
+      "SegundoAzar":         "Second Misfortune",
+      "SegundoAzarAtivo":    "Luck turned to second misfortune (3rd paranoia)",
+      "CavaleiroServido":    "Served Horseman",
+      "Anotacoes":           "Notes"
+    },
+    "Caido": {
+      "Descricao":            "Description",
+      "Aparencia":            "Appearance",
+      "AparenciaPlaceholder": "Physical appearance, notable features...",
+      "Dificuldade":          "Total Difficulty",
+      "DificuldadeAtual":     "Current Difficulty",
+      "DificuldadeLabel":     "Difficulty",
+      "Habilidades":          "Abilities",
+      "HabilidadePlaceholder": "Describe an ability...",
+      "SemHabilidades":       "No abilities.",
+      "Cavaleiro":            "Horseman",
+      "Anotacoes":            "Notes",
+      "Derrotado":            "Defeated",
+      "TormentosCausados":    "Torments Caused",
+      "AplicarFacanha":       "Feat",
+      "AplicarMilagre":       "Miracle",
+      "AplicarResultado":     "Apply result to Fallen",
+      "EscolherAlvo":         "Choose Fallen",
+      "NenhumDisponivel":     "No Fallen available in scene.",
+      "AbsorverAlmaHint":    "Characters may absorb this fallen's soul."
+    },
+    "Colosso": {
+      "Descricao":               "Description",
+      "Dificuldade":             "Total Difficulty",
+      "DificuldadeAtual":        "Current Difficulty",
+      "DificuldadeLabel":        "Difficulty",
+      "TotalDesgracas":          "Total Misfortunes",
+      "DesgracasNaipes":         "Misfortunes by Suit",
+      "NaipeTormentos":          "Torment by Suit",
+      "TormentoPlaceholder":     "Torment caused on misfortune roll...",
+      "CartasReveladas":         "Revealed Cards",
+      "Revelada":                "Revealed",
+      "RevelarCarta":            "Reveal",
+      "EsconderCarta":           "Hide",
+      "Partes":                  "Parts",
+      "SemPartes":               "No parts.",
+      "NovaParte":               "New Part",
+      "Anotacoes":               "Notes",
+      "Derrotado":               "Defeated",
+      "AbsorverRitual":          "Absorb Ritual",
+      "Absorver":                "Absorb",
+      "EscolherNaipe":           "Suit to absorb",
+      "EscolherPersonagem":      "Character absorbing",
+      "NomeRitual":              "Ritual name",
+      "RitualDefault":           "Ritual of {nome}",
+      "RitualCriado":            "Ritual absorbed!",
+      "SemDesgracasParaAbsorver": "No suit with misfortunes to absorb.",
+      "SemPersonagens":          "No characters in world."
+    },
+    "Grupo": {
+      "DiaAtual":             "Current Day",
+      "PresagiosTotais":      "Total Omens",
+      "PresagiosUsados":      "Omens Used",
+      "Presagios":            "Omens",
+      "PresagiosSemRolar":    "Turn the day to roll omens.",
+      "CavaleiroAnunciados":  "Announced Horsemen",
+      "Cenario":              "Scenario",
+      "Anotacoes":            "Notes",
+      "VirarDia":             "Turn Day (1d6)",
+      "RolarPresagios":       "Advance day and roll 1d6 for omens (1-2→4, 3-4→5, 5-6→6)",
+      "Narrativa":            "Narrative Tools"
+    },
+    "Presagio": {
+      "EscolhaDado":    "Choose which die to reroll:",
+      "AvisoReroll":    "Warning: new die may result in 666 = DEATH.",
+      "SemPresagios":   "No omens available.",
+      "SemDesgraca":    "No characters with misfortunes at this time.",
+      "RerollarDado":   "Reroll die (1 omen)",
+      "ReduzirDesgraca": "Reduce misfortune (1 omen)"
+    },
+    "Cavaleiro": {
+      "Peste":  "Horseman of Pestilence",
+      "Guerra": "Horseman of War",
+      "Fome":   "Horseman of Famine",
+      "Morte":  "Horseman of Death"
+    },
+    "Tralha": {
+      "Label":      "Gear",
+      "PluralLabel": "Gear",
+      "Descricao":  "Description",
+      "Quantidade": "Quantity",
+      "Consumivel": "Consumable"
+    },
+    "Bencao": {
+      "Label":     "Blessing",
+      "Descricao": "Description",
+      "Efeito":    "Effect",
+      "Ativa":     "Active"
+    },
+    "Salvacao": {
+      "Label":       "Salvation",
+      "PluralLabel": "Salvations",
+      "Descricao":   "Description",
+      "Efeito":      "Effect",
+      "OrigemFenda": "Rift of Origin",
+      "Ativa":       "Active"
+    },
+    "Ritual": {
+      "Label":         "Ritual",
+      "PluralLabel":   "Rituals",
+      "Descricao":     "Description",
+      "Efeito":        "Effect",
+      "OrigemColosso": "Colossus of Origin",
+      "Ativa":         "Active"
+    },
+    "Pacto": {
+      "Label":       "Pact",
+      "PluralLabel": "Pacts",
+      "Descricao":   "Description",
+      "Entidade":    "Entity",
+      "Dadiva":      "Gift",
+      "Divida":      "Debt",
+      "DadivaUsada": "Gift used today",
+      "DividaPaga":  "Debt paid",
+      "UsarDadiva":  "Use Gift"
+    },
+    "Tormento": {
+      "Label":             "Torment",
+      "PluralLabel":       "Torments",
+      "Descricao":         "Description",
+      "Origem":            "Origin",
+      "Grave":             "Severe",
+      "GraveHint":         "A severe torment is harder to remove",
+      "GraveLabel":        "severe",
+      "Ativo":             "Active",
+      "Nome":              "Torment name",
+      "NomePlaceholder":   "e.g. Terrifying visions...",
+      "OrigemPlaceholder": "Which action caused it...",
+      "GerarTitulo":       "Generate Torment",
+      "GerarBotao":        "Generate Torment",
+      "Criar":             "Create",
+      "Criado":            "Torment created"
+    },
+    "Maldicao": {
+      "Label":     "Curse",
+      "Descricao": "Description",
+      "Cavaleiro": "Horseman",
+      "Indice":    "Index"
+    },
+    "Paranoia": {
+      "Label":       "Paranoia",
+      "PluralLabel": "Paranoias",
+      "Descricao":   "Description",
+      "Gatilho":     "Trigger",
+      "Indice":      "Index",
+      "MaxAtingido": "Maximum of 3 paranoias reached."
+    },
+    "Fenda": {
+      "Descricao":              "Description",
+      "Dificuldades":           "Difficulties",
+      "PluralLabel":            "Rifts",
+      "Progresso":              "Progress",
+      "SalvacaoNome":           "Salvation Name",
+      "SalvacaoNomePlaceholder": "Name of the salvation obtained...",
+      "SalvacaoEfeito":         "Salvation Effect",
+      "Concluida":              "Rift Completed",
+      "Concluir":               "Complete Rift",
+      "SalvacaoCriada":         "Salvation created in inventory.",
+      "Superar":                "Overcome",
+      "SemDificuldades":        "Add difficulties with the + button"
+    },
+    "Alma": {
+      "Queimar":            "Burn Soul",
+      "ConfirmarQueimar":   "Burn (−1 soul)",
+      "EscolherDado":       "Choose which die to change:",
+      "QueimarHint":        "Misfortune (1) → Neutral · Neutral (2-3) → Feat. Spends 1 soul.",
+      "SemAlmas":           "No souls available.",
+      "NadaParaShift":      "No die can be changed (only misfortunes and neutrals).",
+      "AbsorverBotao":      "Absorb Soul",
+      "AbsorverTitulo":     "Absorb Soul",
+      "Absorver":           "Absorb",
+      "SemPersonagem":      "No character available to absorb the soul.",
+      "EscolherPersonagem": "Which character absorbs the soul?",
+      "AbsorvidaDe":        "Soul absorbed from {caido}",
+      "TotalAtual":         "Total souls: {total}"
+    },
+    "Territorio": {
+      "Descricao":      "Description",
+      "Tipo":           "Type",
+      "Controlador":    "Controller",
+      "Personagens":    "Characters",
+      "CoordQ":         "Q Coordinate",
+      "CoordR":         "R Coordinate",
+      "Revelado":       "Revealed",
+      "BrowserTitulo":  "Territories",
+      "SemTerritorios": "No territories created in world."
+    },
+    "Dominio": {
+      "Descricao":   "Description",
+      "Cavaleiro":   "Horseman",
+      "Efeito":      "Effect",
+      "Ativo":       "Active",
+      "Indice":      "Index",
+      "PluralLabel": "Domains"
+    },
+    "Setting": {
+      "Cenario": {
+        "Name":      "Scenario",
+        "Hint":      "Select the campaign scenario.",
+        "Padrao":    "Standard",
+        "Dominios":  "Domains",
+        "Cyfaernum": "Cyfærnum",
+        "Custom":    "Custom"
+      },
+      "ModoAleatorio": {
+        "Name":   "Random Mode",
+        "Hint":   "Dice (default) or Cards (Infærnaculum).",
+        "Dados":  "Dice",
+        "Cartas": "Cards (Infærnaculum)"
+      },
+      "Theme": {
+        "Name":      "Visual theme",
+        "Hint":      "Sheet appearance (per client).",
+        "Escuro":    "Dark (default)",
+        "Medieval":  "Medieval (warm sepia)",
+        "Cyberpunk": "Cyberpunk (neon blue)"
+      },
+      "UsaColossos":    { "Name": "Use Colossus supplement" },
+      "UsaFendas":      { "Name": "Use Rifts supplement" },
+      "UsaParanoias":   { "Name": "Use Paranoia supplement" },
+      "UsaPactos":      { "Name": "Use Pacts supplement" },
+      "UsaTerritorios": { "Name": "Use Territories supplement" },
+      "UsaDominios":    { "Name": "Use Domains supplement" },
+      "UsaAlmas":       { "Name": "Use Souls supplement" },
+      "UsaArcanos":     { "Name": "Use Arcana supplement" }
+    },
+    "Naipe": {
+      "Copas":   "Hearts",
+      "Espadas": "Spades",
+      "Paus":    "Clubs",
+      "Ouros":   "Diamonds"
+    },
+    "Resultado": {
+      "Desgraca": "Misfortune",
+      "Neutro":   "Neutral",
+      "Facanha":  "Feat",
+      "Milagre":  "Miracle",
+      "Morte":    "DEATH"
+    },
+    "Common": {
+      "Remover": "Remove",
+      "Editar":  "Edit"
+    },
+    "Roll": {
+      "AcaoLabel":            "Roll Action (3d6)",
+      "Facanha":              "Feat",
+      "Milagre":              "Miracle",
+      "Rolar":                "Roll",
+      "Cancelar":             "Cancel",
+      "Descricao":            "Action description",
+      "DescricaoPlaceholder": "What are you trying to do?",
+      "UsarSorte":            "Use Luck",
+      "UsarAzar":             "Use Misfortune",
+      "SorteHint":            "Miracles (6) cancel misfortunes (1)",
+      "AzarHint":             "Misfortunes (1) cancel miracles (6)",
+      "Tormentos":            "Active torments (apply misfortune)",
+      "Maldicao":             "Curse (applies misfortune)",
+      "SegundoAzarAviso":     "Second Misfortune active — luck counts as misfortune",
+      "AlertaCavaleiro":      "{nome} accumulated 6 misfortunes! Horseman encounter imminent!",
+      "RegraLembrete":        "1 = misfortune · 2-3 = neutral · 4-5 = feat · 6 = miracle · 666 = DEATH",
+      "Pergunta":             "Destiny Question (1d6)",
+      "Ideia":                "Idea (2d6)"
+    },
+    "Caos": {
+      "Label":            "Chaos Tables",
+      "Desgraca":         "Misfortune",
+      "Neutro":           "Neutral",
+      "PNJConfronto":     "NPC — Confrontation",
+      "PNJComportamento": "NPC — Behavior",
+      "Oracoes":          "Prayers"
+    },
+    "Cyfaernum": {
+      "Agente":           "Agent",
+      "Agentes":          "Agents",
+      "Downloads":        "Downloads",
+      "QuerimarDownload": "Burn Download (−1)"
+    },
+    "Dialog": {
+      "ConfirmarRemocao": "Confirm Removal",
+      "RemoverItem":      "Remove \"{nome}\"? This action cannot be undone."
+    },
+    "Encontro": {
+      "Titulo":       "Horseman Encounter",
+      "SegundaMorte": "{nome} encountered a Horseman a second time. DEFINITIVE DEATH.",
+      "ServoCavaleiro": "{nome} serves {cavaleiro}. Misfortunes reset without curse."
+    }
+  }
+}

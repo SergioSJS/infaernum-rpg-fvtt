@@ -1,0 +1,2821 @@
+@use "variables";
+
+// ─── Reset ───────────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+
+// ─── Sheet base ──────────────────────────────────────────────────────────────
+.infaernum.sheet {
+  background: var(--inf-color-bg-sheet);
+  color: var(--inf-color-text);
+  font-family: var(--inf-font-body);
+  font-size: 16px;
+
+  .window-content {
+    background: var(--inf-color-bg-sheet);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    resize: vertical;
+    background: var(--inf-color-bg-input, var(--inf-color-bg)) !important;
+    border: 1px solid var(--inf-color-border) !important;
+    border-radius: var(--inf-border-radius) !important;
+    color: var(--inf-color-text) !important;
+    font-family: var(--inf-font-body) !important;
+    font-size: 15px !important;
+    padding: 6px 8px !important;
+    line-height: 1.5 !important;
+
+    &:focus { outline: none !important; border-color: var(--inf-color-border-light) !important; }
+    &[readonly] { opacity: 0.7; cursor: default; }
+    &::placeholder { color: var(--inf-color-text-muted); font-style: italic; }
+  }
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+.infaernum.sheet .sheet-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--inf-color-bg-panel);
+  border-bottom: 2px solid var(--inf-color-border);
+  flex-shrink: 0;
+
+  .profile-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border: 2px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover { border-color: var(--inf-color-border-light); }
+  }
+
+  .header-fields {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .actor-name input {
+    font-family: var(--inf-font-header);
+    font-size: 1.5rem;
+    color: var(--inf-color-text-header);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    width: 100%;
+    padding: 0 2px;
+
+    &:hover, &:focus {
+      border-bottom-color: var(--inf-color-border-light);
+      outline: none;
+    }
+  }
+
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .desgraca-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .desgraca-label {
+      font-size: 0.75rem;
+      color: var(--inf-color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .desgraca-count {
+      font-size: 0.8rem;
+      color: var(--inf-color-text-muted);
+    }
+
+    .btn-rolar-acao {
+      margin-left: auto;
+      padding: 4px 12px;
+      background: transparent;
+      border: 1px solid var(--inf-color-accent);
+      border-radius: var(--inf-border-radius);
+      color: var(--inf-color-text-header);
+      font-family: var(--inf-font-body);
+      font-size: 0.8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.12s, border-color 0.12s;
+
+      &:hover {
+        background: var(--inf-color-accent-glow, rgba(180,30,30,0.15));
+        border-color: var(--inf-color-border-light);
+      }
+    }
+  }
+}
+
+// ─── Desgraças tracker ────────────────────────────────────────────────────────
+.desgraca-tracker {
+  display: flex;
+  gap: 5px;
+
+  .pip {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--inf-color-border);
+    background: var(--inf-color-bg-panel);
+    cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+
+    &.filled {
+      background: var(--inf-color-desgraca);
+      border-color: var(--inf-color-desgraca);
+      box-shadow: 0 0 4px var(--inf-color-desgraca);
+    }
+
+    &:hover:not(.filled) { border-color: var(--inf-color-desgraca); }
+    &:hover.filled { opacity: 0.7; }
+  }
+}
+
+// ─── Tabs ─────────────────────────────────────────────────────────────────────
+.infaernum.sheet .sheet-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--inf-color-bg-panel);
+  border-bottom: 1px solid var(--inf-color-border);
+  flex-shrink: 0;
+
+  .item {
+    padding: 6px 14px;
+    color: var(--inf-color-text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color 0.1s, border-color 0.1s;
+
+    &:hover { color: var(--inf-color-text); }
+
+    &.active {
+      color: var(--inf-color-text-header);
+      border-bottom-color: var(--inf-color-border-light);
+    }
+  }
+}
+
+// ─── Sheet body + tabs ────────────────────────────────────────────────────────
+.sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--inf-sheet-padding);
+
+  .tab { display: none; }
+  .tab.active { display: block; }
+}
+
+// ─── Main grid (principal tab) ────────────────────────────────────────────────
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  .sorte-azar-block, .recursos-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+// ─── Field groups ─────────────────────────────────────────────────────────────
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  &--inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    label { min-width: 140px; flex-shrink: 0; }
+  }
+
+  label {
+    font-size: 0.78rem;
+    color: var(--inf-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text);
+    padding: 4px 8px;
+    font-family: var(--inf-font-body);
+    font-size: 15px;
+
+    &:focus {
+      outline: none;
+      border-color: var(--inf-color-border-light);
+    }
+
+    &[readonly] { opacity: 0.7; cursor: default; }
+  }
+
+  .field-number { width: 64px; text-align: center; }
+
+  .field-hint {
+    font-size: 0.7rem;
+    color: var(--inf-color-text-muted);
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+// ─── Status blocks (tormentos, paranoias) ─────────────────────────────────────
+.status-block {
+  grid-column: 1 / -1;
+
+  h4 {
+    font-size: 0.75rem;
+    color: var(--inf-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 4px;
+    border-bottom: 1px solid var(--inf-color-border);
+    padding-bottom: 2px;
+  }
+
+  &--perigo h4 { color: var(--inf-color-desgraca); }
+}
+
+.status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  .status-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    padding: 2px 8px;
+    font-size: 0.82rem;
+
+    a { color: var(--inf-color-text-muted); cursor: pointer; &:hover { color: var(--inf-color-desgraca); } }
+  }
+}
+
+// ─── Actions bar ─────────────────────────────────────────────────────────────
+.actions-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--inf-color-border);
+
+  .btn-roll {
+    background: var(--inf-color-bg-panel);
+    border: 1px solid var(--inf-color-border-light);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text-header);
+    padding: 6px 16px;
+    cursor: pointer;
+    font-family: var(--inf-font-body);
+    font-size: 16px;
+    transition: background 0.1s;
+
+    &:hover { background: var(--inf-color-border); }
+  }
+}
+
+// ─── Items list ───────────────────────────────────────────────────────────────
+.items-section {
+  margin-bottom: 16px;
+
+  .items-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+
+    h3 {
+      font-size: 0.78rem;
+      color: var(--inf-color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+      border-bottom: 1px solid var(--inf-color-border);
+      padding-bottom: 2px;
+      flex: 1;
+    }
+
+    a {
+      color: var(--inf-color-text-muted);
+      font-size: 1rem;
+      cursor: pointer;
+      margin-left: 8px;
+      line-height: 1;
+
+      &:hover { color: var(--inf-color-facanha); }
+    }
+  }
+}
+
+.items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    border-radius: var(--inf-border-radius);
+    transition: background 0.1s;
+
+    &:hover { background: var(--inf-color-bg-panel); }
+
+    .item-img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+      border: 1px solid var(--inf-color-border);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .item-name { flex: 1; font-size: 15px; }
+
+    .item-qty {
+      font-size: 0.8rem;
+      color: var(--inf-color-text-muted);
+      background: var(--inf-color-bg);
+      border: 1px solid var(--inf-color-border);
+      border-radius: 3px;
+      padding: 0 5px;
+    }
+
+    .item-controls {
+      display: flex;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 0.1s;
+
+      a {
+        color: var(--inf-color-text-muted);
+        cursor: pointer;
+        font-size: 0.85rem;
+
+        &:hover { color: var(--inf-color-text); }
+        &:last-child:hover { color: var(--inf-color-desgraca); }
+      }
+    }
+
+    &:hover .item-controls { opacity: 1; }
+  }
+}
+
+// ─── Badges ──────────────────────────────────────────────────────────────────
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  &--perigo  { background: rgba(192, 64, 64, 0.25); color: var(--inf-color-desgraca); border: 1px solid var(--inf-color-desgraca); }
+  &--maldicao { background: rgba(42, 42, 58, 0.6); color: #a080c0; border: 1px solid #6040a0; }
+}
+
+.cavaleiro-badge {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+
+  &.peste  { background: var(--inf-color-peste);  color: #e0c0f0; border: 1px solid #8a6eaa; }
+  &.guerra { background: var(--inf-color-guerra); color: #f0c0c0; border: 1px solid #aa4a4a; }
+  &.fome   { background: var(--inf-color-fome);   color: #f0e0a0; border: 1px solid #8a7a4a; }
+  &.morte  { background: var(--inf-color-morte);  color: #c0c0d0; border: 1px solid #4a4a5a; }
+}
+
+.item-tag {
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 3px;
+
+  &.tag--ativo   { background: rgba(64, 160, 64, 0.2);  color: #80c080; border: 1px solid #408040; }
+  &.tag--inativo { background: rgba(80, 80, 80, 0.2);   color: var(--inf-color-text-muted); border: 1px solid var(--inf-color-border); }
+}
+
+.pacto-entidade {
+  font-size: 0.78rem;
+  color: var(--inf-color-text-muted);
+  font-style: italic;
+}
+
+// ─── Roll dialog (ação) ───────────────────────────────────────────────────────
+.inf-dialog--acao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  textarea {
+    width: 100%;
+    resize: vertical;
+    background: var(--inf-color-bg-input);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text);
+    font-family: var(--inf-font-body);
+    font-size: 15px;
+    padding: 6px 8px;
+    &:focus { outline: none; border-color: var(--inf-color-border-light); }
+    &::placeholder { color: var(--inf-color-text-muted); font-style: italic; }
+  }
+}
+
+.acao-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--inf-color-text-muted);
+  margin-bottom: 5px;
+}
+
+.acao-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acao-card {
+  border: 1px solid var(--inf-color-border);
+  border-left-width: 3px;
+  border-radius: var(--inf-border-radius);
+  padding: 8px 10px;
+  background: var(--inf-color-bg-panel);
+  transition: border-color 0.15s;
+
+  &--sorte { border-left-color: var(--inf-color-milagre); }
+  &--azar  { border-left-color: var(--inf-color-desgraca); }
+  &--disabled { opacity: 0.45; pointer-events: none; }
+  &--ativo { background: rgba(192, 64, 64, 0.08); border-color: var(--inf-color-desgraca); }
+}
+
+.acao-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+
+  input[type="checkbox"] {
+    appearance: auto;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+    accent-color: var(--inf-color-border-light);
+    margin: 0;
+  }
+}
+
+.acao-card-icon { font-size: 0.85rem; }
+.acao-card--sorte .acao-card-icon { color: var(--inf-color-milagre); }
+.acao-card--azar  .acao-card-icon { color: var(--inf-color-desgraca); }
+
+.acao-card-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--inf-color-text);
+  cursor: pointer;
+  flex: 1;
+}
+.acao-card--sorte .acao-card-label { color: var(--inf-color-milagre); }
+.acao-card--azar  .acao-card-label { color: var(--inf-color-desgraca); }
+
+.acao-card-value {
+  font-size: 15px;
+  color: var(--inf-color-text-header);
+  font-style: italic;
+  margin: 0 0 3px;
+  padding-left: 22px;
+}
+
+.acao-card-hint {
+  font-size: 0.72rem;
+  color: var(--inf-color-text-muted);
+  margin: 0;
+  padding-left: 22px;
+}
+
+.acao-card-aviso {
+  font-size: 0.72rem;
+  color: var(--inf-color-desgraca);
+  margin: 4px 0 0;
+  padding-left: 22px;
+}
+
+.acao-section { display: flex; flex-direction: column; gap: 4px; }
+
+.acao-section-label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--inf-color-text-muted);
+  margin: 0;
+}
+
+.acao-affl-list { display: flex; flex-direction: column; gap: 3px; }
+
+.acao-affl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: var(--inf-border-radius);
+  background: var(--inf-color-bg-panel);
+  border: 1px solid var(--inf-color-border);
+  cursor: pointer;
+  transition: border-color 0.1s;
+
+  input[type="checkbox"] {
+    appearance: auto;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: var(--inf-color-desgraca);
+  }
+
+  &:hover { border-color: var(--inf-color-desgraca); }
+
+  &--tormento { accent-color: #a07050; }
+  &--maldicao { accent-color: #7040a0; }
+}
+
+.acao-affl-dot { display: none; }
+
+.acao-affl-name { font-size: 0.9rem; color: var(--inf-color-text); flex: 1; }
+
+.acao-regra {
+  font-size: 0.72rem;
+  color: var(--inf-color-text-muted);
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+  border-top: 1px solid var(--inf-color-border);
+  padding-top: 6px;
+}
+
+// ─── Chat result ──────────────────────────────────────────────────────────────
+.infaernum-chat-message {
+  .chat-descricao  { color: var(--inf-color-text-muted); font-style: italic; font-size: 0.9rem; }
+
+  .chat-mod {
+    display: flex;
+    gap: 6px;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+
+    .mod-sorte { color: var(--inf-color-milagre); }
+    .mod-azar  { color: var(--inf-color-desgraca); }
+  }
+
+  .chat-resultado {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 6px;
+
+    .res-desgraca { color: var(--inf-color-desgraca); }
+    .res-neutro   { color: var(--inf-color-neutro); }
+    .res-facanha  { color: var(--inf-color-facanha); }
+    .res-milagre  { color: var(--inf-color-milagre); }
+  }
+
+  .chat-aviso {
+    font-size: 0.75rem;
+    color: var(--inf-color-desgraca);
+    margin-top: 4px;
+    font-style: italic;
+  }
+}
+
+// ─── Caído sheet ─────────────────────────────────────────────────────────────
+.infaernum.sheet.caido {
+  .sheet-header--caido {
+    display: flex;
+    gap: 12px;
+    padding: var(--inf-sheet-padding);
+    background: var(--inf-color-bg-dark);
+    border-bottom: 1px solid var(--inf-color-border);
+    align-items: flex-start;
+
+    .actor-portrait {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--inf-border-radius);
+      border: 2px solid var(--inf-color-border);
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .sheet-header-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .actor-name {
+        font-family: var(--inf-font-header);
+        font-size: 1.1rem;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--inf-color-border);
+        color: var(--inf-color-text);
+        padding: 2px 0;
+        &:focus { outline: none; border-color: var(--inf-color-accent); }
+      }
+    }
+
+    .caido-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge--derrotado {
+      background: rgba(180, 60, 60, 0.15);
+      color: var(--inf-color-desgraca);
+      border-color: var(--inf-color-desgraca);
+    }
+
+    .caido-dificuldade {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-family: var(--inf-font-header);
+
+      .dif-label { font-size: 0.7rem; color: var(--inf-color-text-muted); text-transform: uppercase; }
+      .dif-atual { font-size: 1.4rem; font-weight: bold; color: var(--inf-color-facanha);
+                   &.dif-zero { color: var(--inf-color-desgraca); } }
+      .dif-sep   { font-size: 0.9rem; color: var(--inf-color-text-muted); }
+      .dif-total { font-size: 0.9rem; color: var(--inf-color-text-muted); }
+    }
+
+    .caido-reducao-buttons {
+      display: flex;
+      gap: 6px;
+
+      .btn-reducao {
+        flex: 1;
+        background: var(--inf-color-bg);
+        border: 1px solid var(--inf-color-border);
+        border-radius: var(--inf-border-radius);
+        color: var(--inf-color-facanha);
+        padding: 3px 8px;
+        font-family: var(--inf-font-body);
+        font-size: 0.8rem;
+        cursor: pointer;
+        &:hover { border-color: var(--inf-color-facanha); background: rgba(96, 192, 128, 0.1); }
+
+        &--milagre {
+          color: var(--inf-color-milagre);
+          &:hover { border-color: var(--inf-color-milagre); background: rgba(96, 160, 192, 0.1); }
+        }
+      }
+    }
+  }
+}
+
+.caido-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--inf-sheet-padding);
+  overflow-y: auto;
+
+  .caido-stats-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .caido-section {
+    .caido-section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+
+      h3 {
+        flex: 1;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--inf-color-text-muted);
+        margin: 0;
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--inf-color-border);
+      }
+
+      .btn-add-small {
+        background: transparent;
+        border: 1px solid var(--inf-color-border);
+        border-radius: var(--inf-border-radius);
+        color: var(--inf-color-text-muted);
+        width: 20px;
+        height: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        &:hover { color: var(--inf-color-accent); border-color: var(--inf-color-accent); }
+      }
+    }
+
+    h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--inf-color-text-muted);
+      margin: 0 0 6px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--inf-color-border);
+    }
+  }
+
+  .habilidades-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .habilidade-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+
+      input { flex: 1; }
+
+      .btn-remove {
+        background: transparent;
+        border: none;
+        color: var(--inf-color-text-muted);
+        cursor: pointer;
+        padding: 0 4px;
+        font-size: 0.75rem;
+        &:hover { color: var(--inf-color-desgraca); }
+      }
+    }
+
+    .empty-list { font-style: italic; color: var(--inf-color-text-muted); font-size: 0.85rem; }
+  }
+
+  .tormentos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    .tormento-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 0;
+
+      .tormento-name { flex: 1; font-size: 0.9rem; }
+
+      a {
+        color: var(--inf-color-text-muted);
+        cursor: pointer;
+        font-size: 0.75rem;
+        &:hover { color: var(--inf-color-accent); }
+        &:last-child:hover { color: var(--inf-color-desgraca); }
+      }
+    }
+  }
+}
+
+// ─── Grupo sheet ─────────────────────────────────────────────────────────────
+.infaernum.sheet.grupo {
+  .sheet-header--grupo .grupo-cenario {
+    font-size: 0.72rem;
+    color: var(--inf-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.grupo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--inf-sheet-padding);
+}
+
+.grupo-section {
+  .grupo-section-title {
+    font-size: 0.75rem;
+    color: var(--inf-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 8px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--inf-color-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .presagio-count {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: var(--inf-color-text);
+      letter-spacing: 0;
+    }
+  }
+}
+
+// Day tracker
+.dia-tracker {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+
+  .dia-pip {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 4px;
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    background: var(--inf-color-bg);
+    transition: all 0.1s;
+
+    .dia-num  { font-size: 1rem; font-weight: bold; }
+    .dia-label { font-size: 0.6rem; color: var(--inf-color-text-muted); text-transform: uppercase; }
+
+    &--passado { opacity: 0.4; }
+    &--ativo {
+      border-color: var(--inf-color-border-light);
+      background: var(--inf-color-bg-panel);
+      .dia-num { color: var(--inf-color-text-header); }
+    }
+  }
+}
+
+.dia-controls, .presagio-controls {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+
+  button {
+    flex: 1;
+    background: var(--inf-color-bg-panel);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text);
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: var(--inf-font-body);
+    font-size: 12px;
+
+    &:hover:not(:disabled) { border-color: var(--inf-color-border-light); color: var(--inf-color-text-header); }
+    &:disabled { opacity: 0.4; cursor: not-allowed; }
+  }
+}
+
+// Presságios tracker
+.presagio-tracker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+
+  .presagio-pip {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--inf-color-milagre);
+    background: rgba(96, 160, 192, 0.15);
+    transition: all 0.12s;
+
+    &--gasto {
+      background: var(--inf-color-bg);
+      border-color: var(--inf-color-border);
+      opacity: 0.3;
+    }
+  }
+}
+
+// Cavaleiros grid
+.cavaleiros-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+
+  .cavaleiro-entry {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    background: var(--inf-color-bg);
+
+    &--anunciado { background: var(--inf-color-bg-panel); border-color: var(--inf-color-border-light); }
+
+    button {
+      margin-left: auto;
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      background: transparent;
+      border: 1px solid var(--inf-color-border);
+      border-radius: 3px;
+      color: var(--inf-color-text-muted);
+      cursor: pointer;
+      &:hover { color: var(--inf-color-text); }
+    }
+
+    a { margin-left: auto; color: var(--inf-color-text-muted); cursor: pointer; font-size: 0.75rem;
+        &:hover { color: var(--inf-color-desgraca); } }
+  }
+}
+
+// Chat presságio buttons
+.chat-presagio-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--inf-color-border);
+
+  .btn-presagio {
+    flex: 1;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text-muted);
+    padding: 3px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover { color: var(--inf-color-milagre); border-color: var(--inf-color-milagre); }
+  }
+}
+
+.chat-reroll-badge {
+  font-size: 0.7rem;
+  color: var(--inf-color-milagre);
+  background: rgba(96, 160, 192, 0.1);
+  border: 1px solid var(--inf-color-milagre);
+  border-radius: 3px;
+  padding: 0 5px;
+}
+
+.dado--rerolled {
+  box-shadow: 0 0 6px var(--inf-color-milagre);
+}
+
+.text-muted { color: var(--inf-color-text-muted); font-style: italic; font-size: 0.85rem; }
+
+// ─── Cavaleiro dialog ─────────────────────────────────────────────────────────
+.inf-dialog--cavaleiro {
+  padding: 10px;
+
+  .dialog-aviso-maior {
+    text-align: center;
+    color: var(--inf-color-desgraca);
+    border: 1px solid var(--inf-color-desgraca);
+    border-radius: var(--inf-border-radius);
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    background: rgba(192, 64, 64, 0.1);
+  }
+}
+
+// ─── Maldição chat message ────────────────────────────────────────────────────
+.infaernum-chat-message--maldicao {
+  border-color: #6040a0;
+
+  .maldicao-indice {
+    font-size: 0.72rem;
+    color: #a080c0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 4px 0;
+  }
+
+  .maldicao-texto {
+    border-left: 3px solid #6040a0;
+    padding: 4px 10px;
+    margin: 6px 0;
+    font-style: italic;
+    color: var(--inf-color-text-header);
+  }
+}
+
+// ─── Item sheet ───────────────────────────────────────────────────────────────
+.infaernum.sheet.item {
+  .sheet-header--item {
+    padding: 10px 14px;
+    background: var(--inf-color-bg-panel);
+    border-bottom: 2px solid var(--inf-color-border);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    .item-type-label {
+      font-size: 0.72rem;
+      color: var(--inf-color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .item-fields-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .btn-small {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background: var(--inf-color-bg-panel);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text-muted);
+    cursor: pointer;
+    &:hover { color: var(--inf-color-text); }
+  }
+}
+
+// ─── Chat messages ────────────────────────────────────────────────────────────
+.infaernum-chat-message {
+  background: var(--inf-color-bg-panel);
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  padding: 8px;
+  font-family: var(--inf-font-body);
+  color: var(--inf-color-text);
+
+  .chat-header { font-size: 0.8rem; color: var(--inf-color-text-muted); margin-bottom: 6px; }
+  .chat-dados  { display: flex; gap: 6px; margin: 8px 0; }
+
+  .dado {
+    display: inline-flex;
+    width: 30px; height: 30px;
+    align-items: center; justify-content: center;
+    border: 2px solid;
+    border-radius: var(--inf-border-radius);
+    font-weight: bold;
+    font-size: 1rem;
+
+    &.desgraca { color: var(--inf-color-desgraca); border-color: var(--inf-color-desgraca); }
+    &.neutro   { color: var(--inf-color-neutro);   border-color: var(--inf-color-neutro); }
+    &.facanha  { color: var(--inf-color-facanha);  border-color: var(--inf-color-facanha); }
+    &.milagre  { color: var(--inf-color-milagre);  border-color: var(--inf-color-milagre); }
+  }
+
+  .chat-resultado { font-size: 1.05rem; font-weight: bold; margin-top: 6px; }
+  .chat-morte     { color: var(--inf-color-morte-result); font-size: 1.3rem; text-align: center; font-family: var(--inf-font-header); }
+}
+
+// Chat caído reduction buttons
+.chat-caido-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--inf-color-border);
+
+  .btn-caido {
+    flex: 1;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-facanha);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-facanha);
+    padding: 3px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover { background: rgba(96, 192, 128, 0.15); }
+
+    &--milagre {
+      border-color: var(--inf-color-milagre);
+      color: var(--inf-color-milagre);
+      &:hover { background: rgba(96, 160, 192, 0.15); }
+    }
+  }
+}
+
+// ─── Fenda item sheet ─────────────────────────────────────────────────────────
+.fenda-section {
+  margin-bottom: 12px;
+
+  .fenda-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+
+    label {
+      flex: 1;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--inf-color-text-muted);
+    }
+  }
+
+  .dificuldade-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .dif-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 6px;
+      border-radius: var(--inf-border-radius);
+      border: 1px solid var(--inf-color-border);
+
+      .dif-marker { font-size: 0.9rem; width: 16px; text-align: center; }
+      .dif-input  { width: 60px; text-align: center; }
+
+      &.dif--superada {
+        opacity: 0.5;
+        .dif-marker { color: var(--inf-color-facanha); }
+      }
+
+      &.dif--atual { border-color: var(--inf-color-accent); }
+
+      .btn-superar {
+        margin-left: auto;
+        background: var(--inf-color-facanha);
+        color: #000;
+        border: none;
+        border-radius: var(--inf-border-radius);
+        padding: 2px 8px;
+        font-size: 0.75rem;
+        cursor: pointer;
+        &:hover { opacity: 0.8; }
+      }
+
+      .btn-remove {
+        background: transparent;
+        border: none;
+        color: var(--inf-color-text-muted);
+        cursor: pointer;
+        padding: 0 4px;
+        &:hover { color: var(--inf-color-desgraca); }
+      }
+
+      .empty-list { font-style: italic; color: var(--inf-color-text-muted); }
+    }
+  }
+}
+
+.fenda-salvacao { margin-top: 10px; }
+
+.fenda-status {
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: var(--inf-border-radius);
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.btn-concluir {
+  margin-top: 12px;
+  width: 100%;
+  background: var(--inf-color-facanha);
+  color: #000;
+  border: none;
+  border-radius: var(--inf-border-radius);
+  padding: 6px;
+  font-family: var(--inf-font-header);
+  font-size: 0.9rem;
+  cursor: pointer;
+  &:hover { opacity: 0.85; }
+}
+
+// ─── Chat alma button ─────────────────────────────────────────────────────────
+.chat-alma-actions {
+  margin-top: 6px;
+
+  .btn-alma {
+    width: 100%;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-facanha);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-facanha);
+    padding: 3px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+    &:hover { background: rgba(96, 192, 128, 0.15); }
+  }
+}
+
+// ─── Pacto btn-used state ─────────────────────────────────────────────────────
+.btn-used {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.fenda-progresso {
+  font-size: 0.8rem;
+  color: var(--inf-color-text-muted);
+  font-family: var(--inf-font-header);
+}
+
+// ─── Colosso sheet ───────────────────────────────────────────────────────────
+.infaernum.sheet.colosso {
+  .sheet-header--colosso {
+    display: flex;
+    gap: 12px;
+    padding: var(--inf-sheet-padding);
+    background: var(--inf-color-bg-dark);
+    border-bottom: 1px solid var(--inf-color-border);
+    align-items: flex-start;
+
+    .actor-portrait {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--inf-border-radius);
+      border: 2px solid var(--inf-color-border);
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .sheet-header-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .actor-name {
+        font-family: var(--inf-font-header);
+        font-size: 1.2rem;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--inf-color-border);
+        color: var(--inf-color-text);
+        padding: 2px 0;
+        &:focus { outline: none; border-color: var(--inf-color-accent); }
+      }
+    }
+
+    .colosso-dificuldade {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-family: var(--inf-font-header);
+
+      .dif-label { font-size: 0.7rem; color: var(--inf-color-text-muted); text-transform: uppercase; }
+      .dif-atual { font-size: 1.6rem; font-weight: bold; color: var(--inf-color-facanha);
+                   &.dif-zero { color: var(--inf-color-desgraca); } }
+      .dif-sep, .dif-total { font-size: 0.9rem; color: var(--inf-color-text-muted); }
+    }
+
+    .colosso-header-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .colosso-total-desgracas {
+        font-family: var(--inf-font-header);
+        font-size: 1.1rem;
+        color: var(--inf-color-desgraca);
+      }
+    }
+
+    .btn-absorver {
+      align-self: flex-start;
+      background: var(--inf-color-bg);
+      border: 1px solid var(--inf-color-accent);
+      border-radius: var(--inf-border-radius);
+      color: var(--inf-color-accent);
+      padding: 4px 10px;
+      font-family: var(--inf-font-body);
+      font-size: 0.85rem;
+      cursor: pointer;
+      &:hover { background: rgba(160, 128, 96, 0.15); }
+    }
+  }
+}
+
+.colosso-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--inf-sheet-padding);
+  overflow-y: auto;
+
+  .colosso-section {
+    h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--inf-color-text-muted);
+      margin: 0 0 8px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--inf-color-border);
+    }
+
+    .colosso-section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+
+      h3 { flex: 1; margin: 0; border-bottom: none; }
+    }
+  }
+
+  // Naipes 2×2 grid
+  .naipes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    .naipe-card {
+      border: 1px solid var(--inf-color-border);
+      border-radius: var(--inf-border-radius);
+      padding: 8px;
+      background: var(--inf-color-bg-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      &.naipe-revelada { border-color: var(--inf-color-accent); }
+
+      .naipe-card-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .naipe-simbolo { font-size: 1.2rem; }
+        .naipe-nome { font-family: var(--inf-font-header); font-size: 0.9rem; flex: 1; }
+        .naipe-revelada-badge {
+          font-size: 0.7rem;
+          color: var(--inf-color-accent);
+          border: 1px solid var(--inf-color-accent);
+          border-radius: 3px;
+          padding: 0 4px;
+        }
+      }
+
+      .naipe-tormento input {
+        width: 100%;
+        font-size: 0.8rem;
+        color: var(--inf-color-text-muted);
+        background: transparent;
+        border: none;
+        border-bottom: 1px dashed var(--inf-color-border);
+        padding: 2px 0;
+        &:focus { outline: none; border-color: var(--inf-color-accent); }
+      }
+
+      .naipe-desgracas {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+
+        .naipe-count {
+          font-family: var(--inf-font-header);
+          font-size: 1.4rem;
+          min-width: 32px;
+          text-align: center;
+          color: var(--inf-color-text-muted);
+          &.count-active { color: var(--inf-color-desgraca); }
+        }
+
+        .btn-naipe-plus, .btn-naipe-minus {
+          background: transparent;
+          border: 1px solid var(--inf-color-border);
+          border-radius: 3px;
+          color: var(--inf-color-text-muted);
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+          font-size: 1rem;
+          line-height: 1;
+          &:hover { color: var(--inf-color-desgraca); border-color: var(--inf-color-desgraca); }
+        }
+      }
+
+      .btn-carta-toggle {
+        background: transparent;
+        border: 1px solid var(--inf-color-border);
+        border-radius: var(--inf-border-radius);
+        color: var(--inf-color-text-muted);
+        padding: 2px 6px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        align-self: flex-end;
+        &:hover { border-color: var(--inf-color-accent); color: var(--inf-color-accent); }
+        &--revelada { border-color: var(--inf-color-accent); color: var(--inf-color-accent); }
+      }
+    }
+  }
+
+  // Partes list
+  .partes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .parte-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      input { flex: 1; }
+
+      &.parte--destruida input { text-decoration: line-through; opacity: 0.5; }
+
+      .btn-parte-toggle {
+        background: transparent;
+        border: 1px solid var(--inf-color-desgraca);
+        border-radius: var(--inf-border-radius);
+        color: var(--inf-color-desgraca);
+        padding: 2px 6px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        &:hover { background: rgba(180, 60, 60, 0.1); }
+        &--ativa {
+          border-color: var(--inf-color-facanha);
+          color: var(--inf-color-facanha);
+          &:hover { background: rgba(96, 192, 128, 0.1); }
+        }
+      }
+
+      .btn-remove {
+        background: transparent;
+        border: none;
+        color: var(--inf-color-text-muted);
+        cursor: pointer;
+        &:hover { color: var(--inf-color-desgraca); }
+      }
+
+      .empty-list { font-style: italic; color: var(--inf-color-text-muted); }
+    }
+  }
+}
+
+// ─── Arcanos chat cards ───────────────────────────────────────────────────────
+.arcano-card {
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  padding: 6px 10px;
+  margin: 4px 0;
+  background: var(--inf-color-bg-dark);
+
+  .arcano-titulo { font-size: 0.75rem; color: var(--inf-color-text-muted); margin-bottom: 4px; }
+
+  .arcano-palavras {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .arcano-verbo       { color: var(--inf-color-facanha); font-weight: bold; font-size: 0.95rem; }
+    .arcano-substantivo { color: var(--inf-color-milagre); font-weight: bold; font-size: 0.95rem; }
+    .arcano-adjetivo    { color: var(--inf-color-accent);  font-style: italic; font-size: 0.95rem; }
+    .arcano-sep         { color: var(--inf-color-text-muted); font-size: 0.75rem; }
+  }
+}
+
+// ─── Território browser dialog ────────────────────────────────────────────────
+.territorio-browser {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+
+  th {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+    border-bottom: 1px solid var(--inf-color-border);
+    padding: 4px 6px;
+    text-align: left;
+  }
+
+  td {
+    padding: 4px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+}
+
+// ─── Personagem body wrapper (single-root fix) ────────────────────────────────
+.personagem-body-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .sheet-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+}
+
+// ─── Personagem: main tab redesign ───────────────────────────────────────────
+.pc-main-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  height: 100%;
+}
+
+// Sorte / Azar blocks
+.pc-influence-block {
+  border-radius: var(--inf-border-radius);
+  border: 1px solid var(--inf-color-border);
+  padding: 8px 12px;
+  background: var(--inf-color-bg);
+
+  &--sorte { border-left: 3px solid var(--inf-color-milagre); }
+  &--azar  { border-left: 3px solid var(--inf-color-desgraca); }
+}
+
+.pc-influence-label {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 5px;
+
+  .pc-influence-icon { font-size: 0.8rem; }
+
+  > span:nth-child(2) {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--inf-color-text-muted);
+    font-weight: 600;
+  }
+
+  .pc-influence-rule {
+    font-size: 0.72rem;
+    color: var(--inf-color-text-muted);
+    font-style: italic;
+    margin-left: auto;
+  }
+}
+
+.pc-influence-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--inf-color-border);
+  color: var(--inf-color-text-header);
+  font-family: var(--inf-font-body);
+  font-size: 16px;
+  padding: 3px 2px;
+
+  &:focus { outline: none; border-bottom-color: var(--inf-color-border-light); }
+  &::placeholder { color: var(--inf-color-text-muted); font-style: italic; font-size: 15px; }
+  &[readonly] { opacity: 0.7; cursor: default; }
+}
+
+// Stat boxes (Almas, Movimentos)
+.pc-stat-row {
+  display: flex;
+  gap: 10px;
+}
+
+.pc-stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--inf-color-bg);
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  padding: 8px 6px;
+
+  .pc-stat-value input {
+    width: 56px;
+    text-align: center;
+    font-family: var(--inf-font-header);
+    font-size: 1.6rem;
+    color: var(--inf-color-text-header);
+    background: transparent;
+    border: none;
+    &:focus { outline: none; }
+    &[readonly] { cursor: default; }
+  }
+
+  .pc-stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+    text-align: center;
+  }
+}
+
+// Status sections
+.pc-status-section {
+  .pc-status-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+    margin: 0 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid var(--inf-color-border);
+    padding-bottom: 3px;
+
+    .pc-status-count { font-size: 0.75rem; }
+  }
+
+  &--tormento .pc-status-title { color: #a07050; border-color: rgba(160, 112, 80, 0.4); }
+  &--perigo   .pc-status-title { color: var(--inf-color-desgraca); border-color: rgba(192, 64, 64, 0.4); }
+}
+
+// Cavaleiro row (Domínios only)
+.pc-cavaleiro-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .pc-cavaleiro-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+    white-space: nowrap;
+  }
+
+  select {
+    flex: 1;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text);
+    padding: 3px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 15px;
+  }
+}
+
+// Action area — grows to push button to bottom
+.pc-action-area {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--inf-color-border);
+}
+
+.btn-roll-main {
+  width: 100%;
+  padding: 10px;
+  background: var(--inf-color-bg-panel);
+  border: 1px solid var(--inf-color-border-light);
+  border-radius: var(--inf-border-radius);
+  color: var(--inf-color-text-header);
+  font-family: var(--inf-font-header);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: rgba(138, 111, 58, 0.2);
+    border-color: var(--inf-color-border-light);
+  }
+}
+
+// ─── Personagem: single-page layout (sem abas) ───────────────────────────────
+.personagem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 14px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+// Top grid: 60% influences | 40% afflictions
+.pc-top-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+// Influences (Sorte/Azar)
+.pc-influences {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pc-influence-block {
+  border-radius: var(--inf-border-radius);
+  border: 1px solid var(--inf-color-border);
+  border-left-width: 3px;
+  padding: 7px 10px;
+  background: var(--inf-color-bg);
+
+  &--sorte { border-left-color: var(--inf-color-milagre); }
+  &--azar  { border-left-color: var(--inf-color-desgraca); }
+}
+
+.pc-influence-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.pc-influence-icon {
+  font-size: 0.75rem;
+  &--sorte { color: var(--inf-color-milagre); }
+  &--azar  { color: var(--inf-color-desgraca); }
+}
+
+.pc-influence-name {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--inf-color-text-muted);
+  font-weight: 600;
+}
+
+.pc-influence-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--inf-color-border);
+  color: var(--inf-color-text-header);
+  font-family: var(--inf-font-body);
+  font-size: 15px;
+  resize: none;
+  padding: 2px 0;
+  line-height: 1.4;
+
+  &:focus { outline: none; border-bottom-color: var(--inf-color-border-light); }
+  &::placeholder { color: var(--inf-color-text-muted); font-style: italic; }
+  &[readonly] { opacity: 0.75; cursor: default; }
+}
+
+.pc-influence-hint {
+  margin: 3px 0 0;
+  font-size: 0.67rem;
+  color: var(--inf-color-text-muted);
+  font-style: italic;
+}
+
+// Afflictions (Tormentos/Paranoias)
+.pc-afflictions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pc-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--inf-color-border);
+  margin-bottom: 4px;
+
+  &--mt { margin-top: 10px; }
+  &--perigo .pc-section-title { color: var(--inf-color-desgraca); }
+
+  > a {
+    color: var(--inf-color-text-muted);
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    &:hover { color: var(--inf-color-facanha); }
+  }
+}
+
+.pc-section-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--inf-color-text-muted);
+  font-weight: 600;
+}
+
+.pc-affliction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pc-affliction-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 4px;
+  border-radius: var(--inf-border-radius);
+
+  &:hover { background: var(--inf-color-bg-panel); }
+  &.is-active .pc-afl-dot { background: #a07050; }
+}
+
+.pc-afl-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--inf-color-border-light);
+  flex-shrink: 0;
+
+  &--paranoia  { background: var(--inf-color-desgraca); }
+  &--maldicao  { background: #7040a0; box-shadow: 0 0 4px #7040a0; }
+}
+
+.pc-afl-name {
+  flex: 1;
+  font-size: 12px;
+  color: var(--inf-color-text);
+}
+
+.pc-afl-btn {
+  color: var(--inf-color-text-muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.1s;
+
+  &--del:hover { color: var(--inf-color-desgraca); }
+  &:hover { color: var(--inf-color-text); }
+}
+
+.pc-affliction-item:hover .pc-afl-btn { opacity: 1; }
+
+.pc-empty-hint {
+  font-size: 0.78rem;
+  color: var(--inf-color-text-muted);
+  margin: 2px 0 4px;
+  font-style: italic;
+}
+
+// Stats bar
+.pc-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--inf-color-bg);
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.pc-stat-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+
+  input[type="number"] {
+    width: 44px;
+    font-family: var(--inf-font-header);
+    font-size: 1.4rem;
+    color: var(--inf-color-text-header);
+    background: transparent;
+    border: none;
+    text-align: center;
+    &:focus { outline: none; }
+    &[readonly] { cursor: default; }
+  }
+
+  > span {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+  }
+}
+
+.pc-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--inf-color-border);
+  flex-shrink: 0;
+}
+
+// Items sections
+.pc-items-section {
+  margin-bottom: 8px;
+}
+
+.pc-notes-section {
+  margin-bottom: 10px;
+}
+
+.pc-item-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 5px;
+  border-radius: var(--inf-border-radius);
+
+  &:hover {
+    background: var(--inf-color-bg-panel);
+
+    .item-controls { opacity: 1; }
+  }
+}
+
+.pc-item-img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border: 1px solid var(--inf-color-border);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pc-item-name {
+  flex: 1;
+  font-size: 15px;
+  color: var(--inf-color-text);
+}
+
+// Footer
+.pc-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--inf-color-border);
+  margin-top: auto;
+
+  .pc-cavaleiro-select {
+    flex: 1;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-text);
+    padding: 4px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 12px;
+  }
+}
+
+// ─── Wizard de Criação de Personagem ─────────────────────────────────────────
+.btn-wizard-main {
+  width: 100%;
+  padding: 10px;
+  background: rgba(96, 160, 192, 0.1);
+  border: 1px solid var(--inf-color-milagre);
+  border-radius: var(--inf-border-radius);
+  color: var(--inf-color-milagre);
+  font-family: var(--inf-font-header);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background 0.15s;
+
+  &:hover { background: rgba(96, 160, 192, 0.2); }
+}
+
+.inf-dialog--wizard {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wiz-movimentos-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--inf-color-bg-panel);
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  padding: 6px 10px;
+
+  .wiz-mov-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--inf-color-text-muted);
+  }
+
+  .wiz-mov-remaining {
+    font-family: var(--inf-font-header);
+    font-size: 1.2rem;
+    color: var(--inf-color-text-header);
+  }
+
+  .wiz-mov-total {
+    font-size: 0.8rem;
+    color: var(--inf-color-text-muted);
+  }
+
+  progress {
+    flex: 1;
+    height: 6px;
+    accent-color: var(--inf-color-milagre);
+  }
+}
+
+.wiz-mov-hint {
+  font-size: 0.72rem;
+  color: var(--inf-color-text-muted);
+  font-style: italic;
+  margin: -4px 0 0;
+}
+
+.wiz-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wiz-section {
+  background: var(--inf-color-bg);
+  border: 1px solid var(--inf-color-border);
+  border-radius: var(--inf-border-radius);
+  padding: 8px 10px;
+}
+
+.wiz-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.wiz-section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--inf-color-text-muted);
+  font-weight: 600;
+}
+
+.wiz-section-hint {
+  font-size: 0.72rem;
+  color: var(--inf-color-text-muted);
+  font-style: italic;
+}
+
+.wiz-roll-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.wiz-dice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .wiz-die {
+    width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+  }
+
+  .wiz-sum {
+    font-size: 0.85rem;
+    color: var(--inf-color-text-muted);
+    margin-left: 2px;
+  }
+}
+
+.wiz-adjust {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+
+  .wiz-value {
+    width: 44px;
+    text-align: center;
+    font-family: var(--inf-font-header);
+    font-size: 1.1rem;
+    color: var(--inf-color-text-header);
+    background: var(--inf-color-bg-panel);
+    border: 1px solid var(--inf-color-border);
+    border-radius: var(--inf-border-radius);
+    padding: 2px 4px;
+
+    &:focus { outline: none; border-color: var(--inf-color-border-light); }
+  }
+
+  .wiz-btn {
+    width: 22px;
+    height: 22px;
+    background: var(--inf-color-bg-panel);
+    border: 1px solid var(--inf-color-border);
+    border-radius: 3px;
+    color: var(--inf-color-text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+
+    &:hover { color: var(--inf-color-text-header); border-color: var(--inf-color-border-light); }
+  }
+}
+
+.wiz-desc {
+  font-size: 15px;
+  color: var(--inf-color-text-header);
+  font-style: italic;
+  margin: 0;
+  padding-left: 4px;
+  border-left: 2px solid var(--inf-color-border);
+}
+
+// ─── Pergunta chat ────────────────────────────────────────────────────────────
+.pergunta-resp {
+  font-size: 1.4rem;
+  font-family: var(--inf-font-header);
+  letter-spacing: 0.06em;
+}
+
+.pergunta-intensidade {
+  font-size: 0.82rem;
+  color: var(--inf-color-text-muted);
+  font-style: italic;
+  margin-left: 6px;
+}
+
+// ─── Ideia chat ───────────────────────────────────────────────────────────────
+.infaernum-ideia-msg {
+  .ideia-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .ideia-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .ideia-dado { display: flex; gap: 4px; justify-content: center; }
+
+  .ideia-plus {
+    font-size: 1.2rem;
+    color: var(--inf-color-text-muted);
+    align-self: center;
+    padding-top: 12px;
+  }
+
+  .ideia-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .ideia-word {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .ideia-verbo { color: var(--inf-color-facanha); }
+  .ideia-subst { color: var(--inf-color-milagre); }
+  .ideia-alt   { opacity: 0.55; font-size: 0.88rem; }
+
+  .ideia-ou {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--inf-color-text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .ideia-role {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--inf-color-text-muted);
+  }
+
+  .ideia-hint {
+    font-size: 0.72rem;
+    color: var(--inf-color-text-muted);
+    font-style: italic;
+    text-align: center;
+    margin: 4px 0 0;
+  }
+}
+
+// ─── Caos chat ────────────────────────────────────────────────────────────────
+.infaernum-caos-msg {
+  .caos-label {
+    font-size: 0.72rem;
+    color: var(--inf-color-text-muted);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .caos-dado { margin: 4px 0; }
+
+  .caos-resultado {
+    font-size: 15px;
+    color: var(--inf-color-text-header);
+    border-left: 2px solid var(--inf-color-border-light);
+    padding: 3px 8px;
+    margin: 4px 0 0;
+  }
+}
+
+// ─── Pergunta dialog ──────────────────────────────────────────────────────────
+.inf-dialog--pergunta {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// ─── Chat: Gerar Tormento button ─────────────────────────────────────────────
+.chat-tormento-actions {
+  margin-top: 4px;
+
+  .btn-tormento {
+    width: 100%;
+    background: var(--inf-color-bg);
+    border: 1px solid var(--inf-color-desgraca);
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-desgraca);
+    padding: 3px 6px;
+    font-family: var(--inf-font-body);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+    &:hover { background: rgba(192, 64, 64, 0.12); }
+  }
+}
+
+// ─── Caído: banner de derrotado + absorver alma ───────────────────────────────
+.caido-derrotado-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(96, 192, 128, 0.1);
+  border: 1px solid var(--inf-color-facanha);
+  border-radius: var(--inf-border-radius);
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--inf-color-facanha);
+
+  .btn-absorver-alma {
+    background: var(--inf-color-facanha);
+    border: none;
+    border-radius: var(--inf-border-radius);
+    color: var(--inf-color-bg);
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-family: var(--inf-font-body);
+    cursor: pointer;
+    &:hover { opacity: 0.85; }
+  }
+}
+
+// ─── Tormento dialog ──────────────────────────────────────────────────────────
+.inf-dialog--tormento {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .field-group--row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .field-hint {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+  }
+}
+
+// ─── Grupo: Ferramentas Narrativas ───────────────────────────────────────────
+.grupo-narrativa {
+  .narrativa-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+
+    .btn-narrativa {
+      flex: 1;
+      padding: 6px 8px;
+      border-radius: var(--inf-border-radius);
+      font-family: var(--inf-font-body);
+      font-size: 0.82rem;
+      cursor: pointer;
+      border: 1px solid;
+
+      &--pergunta {
+        background: var(--inf-color-bg);
+        border-color: var(--inf-color-neutro);
+        color: var(--inf-color-neutro);
+        &:hover { background: rgba(128, 128, 192, 0.15); }
+      }
+
+      &--ideia {
+        background: var(--inf-color-bg);
+        border-color: var(--inf-color-facanha);
+        color: var(--inf-color-facanha);
+        &:hover { background: rgba(96, 192, 128, 0.15); }
+      }
+    }
+  }
+
+  .narrativa-caos-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  .narrativa-row--caos {
+    flex-wrap: wrap;
+
+    .btn-caos {
+      flex: 1 1 45%;
+      padding: 4px 6px;
+      background: var(--inf-color-bg);
+      border: 1px solid var(--inf-color-border-light);
+      border-radius: var(--inf-border-radius);
+      font-family: var(--inf-font-body);
+      font-size: 0.75rem;
+      color: var(--inf-color-text);
+      cursor: pointer;
+      text-align: center;
+      &:hover {
+        border-color: var(--inf-color-desgraca);
+        color: var(--inf-color-desgraca);
+      }
+    }
+  }
+}
+
+// ─── Painel Narrativo (dentro de #ui-right-column-1, mesmo padrão fractal) ────
+#inf-narrative-panel {
+  position: relative;
+  z-index: 60;
+  pointer-events: all;
+  padding: 4px 4px 0;
+
+  * { pointer-events: all; }
+}
+
+.inf-np-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--inf-color-accent);
+  border-radius: 6px;
+  color: var(--inf-color-border-light);
+  font-family: var(--inf-font-body, serif);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    border-color: var(--inf-color-border-light);
+    background: rgba(0, 0, 0, 0.88);
+  }
+
+  &[aria-expanded="true"] {
+    border-color: var(--inf-color-border-light);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .inf-np-icon { font-size: 1rem; }
+  .inf-np-label { flex: 1; font-weight: 500; letter-spacing: 0.05em; }
+  .inf-np-chevron { font-size: 0.65rem; opacity: 0.7; }
+}
+
+.inf-np-menu {
+  background: rgba(0, 0, 0, 0.90);
+  border: 1px solid var(--inf-color-accent);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+
+  &[hidden] { display: none; }
+}
+
+.inf-np-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--inf-color-text);
+  font-family: var(--inf-font-body, serif);
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+
+  &:first-child { border-top: none; }
+
+  small {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background: var(--inf-color-accent-glow);
+    color: var(--inf-color-text-header);
+  }
+
+  &--caos {
+    padding-left: 24px;
+    font-size: 0.88rem;
+    color: var(--inf-color-text-muted);
+    &:hover { color: var(--inf-color-text); background: var(--inf-color-accent-glow); }
+  }
+}
+
+.inf-np-sep {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--inf-color-text-muted);
+  opacity: 0.7;
+  padding: 5px 12px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// ─── Grupo HUD (presságios e dia, abaixo do painel narrativo) ─────────────────
+#inf-grupo-hud {
+  position: relative;
+  z-index: 59;
+  pointer-events: all;
+  padding: 4px 4px 4px;
+
+  * { pointer-events: all; }
+}
+
+.inf-hud-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--inf-color-accent);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+
+  &:hover { border-color: var(--inf-color-border-light); background: rgba(0, 0, 0, 0.88); }
+}
+
+.inf-hud-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 8px;
+  margin-right: 2px;
+}
+
+.inf-hud-dia-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--inf-color-text-muted);
+  opacity: 0.7;
+}
+
+.inf-hud-dia-num {
+  font-family: var(--inf-font-header, serif);
+  font-size: 1.1rem;
+  color: var(--inf-color-border-light);
+  line-height: 1;
+}
+
+.inf-hud-presagio {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.inf-hud-presagio-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--inf-color-text-muted);
+  opacity: 0.7;
+}
+
+.inf-hud-pips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.inf-hud-pip {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--inf-color-border-light);
+  border: 1px solid var(--inf-color-border);
+
+  &--gasto {
+    background: transparent;
+    border-color: var(--inf-color-border);
+    opacity: 0.35;
+  }
+}
+
+.inf-hud-sem-presagios {
+  font-size: 0.7rem;
+  color: var(--inf-color-text-muted);
+  opacity: 0.6;
+}
+
+.inf-hud-presagio-count {
+  font-size: 0.68rem;
+  color: var(--inf-color-text-muted);
+  align-self: flex-end;
+}
+
+// ─── DialogV2 chrome override (theme-aware) ──────────────────────────────────
+// Hook in infaernum.mjs adds .inf-system class to any DialogV2 with .inf-dialog content.
+// Using a class avoids :has() specificity battles with Foundry core styles.
+.application.inf-system {
+  background: var(--inf-color-bg-sheet) !important;
+  border: 1px solid var(--inf-color-border) !important;
+  color: var(--inf-color-text) !important;
+
+  .window-header {
+    background: var(--inf-color-bg-panel) !important;
+    border-bottom: 1px solid var(--inf-color-border) !important;
+
+    .window-title {
+      color: var(--inf-color-text-header) !important;
+      font-family: var(--inf-font-header);
+      font-size: 1rem !important;
+    }
+
+    button {
+      color: var(--inf-color-text-muted) !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      &:hover { color: var(--inf-color-text) !important; background: transparent !important; }
+    }
+  }
+
+  .window-content {
+    background: var(--inf-color-bg-sheet) !important;
+    color: var(--inf-color-text) !important;
+    padding: 12px !important;
+
+    // Ensure field-group labels are readable
+    label {
+      color: var(--inf-color-text-muted) !important;
+      font-size: 0.8rem !important;
+    }
+
+    input, select, textarea {
+      background: var(--inf-color-bg-input) !important;
+      border: 1px solid var(--inf-color-border) !important;
+      border-radius: var(--inf-border-radius) !important;
+      color: var(--inf-color-text) !important;
+      font-family: var(--inf-font-body) !important;
+      font-size: 15px !important;
+      padding: 5px 8px !important;
+
+      &:focus {
+        outline: none !important;
+        border-color: var(--inf-color-border-light) !important;
+      }
+    }
+
+    select option {
+      background: var(--inf-color-bg-panel) !important;
+      color: var(--inf-color-text) !important;
+    }
+  }
+
+  .dialog-buttons,
+  footer.form-footer {
+    background: var(--inf-color-bg-panel) !important;
+    border-top: 1px solid var(--inf-color-border) !important;
+    padding: 8px 12px !important;
+    display: flex !important;
+    gap: 8px !important;
+    margin: 0 !important;
+
+    button {
+      flex: 1 !important;
+      background: var(--inf-color-bg-panel) !important;
+      border: 1px solid var(--inf-color-border) !important;
+      border-radius: var(--inf-border-radius) !important;
+      color: var(--inf-color-text) !important;
+      font-family: var(--inf-font-body) !important;
+      font-size: 15px !important;
+      padding: 6px 14px !important;
+      cursor: pointer !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      background-image: none !important;
+
+      i { color: inherit !important; }
+      span { color: inherit !important; }
+
+      &:hover {
+        border-color: var(--inf-color-border-light) !important;
+        color: var(--inf-color-text-header) !important;
+        background: var(--inf-color-bg) !important;
+        background-image: none !important;
+      }
+
+      &.default, &[data-action="yes"], &[data-action="ok"],
+      &[data-action="roll"], &[data-action="rolar"], &[data-action="firmar"] {
+        border-color: var(--inf-color-accent) !important;
+        color: var(--inf-color-text-header) !important;
+        background-image: none !important;
+        &:hover { background: var(--inf-color-accent-glow) !important; }
+      }
+    }
+  }
+}
+
+// ─── Presságio reroll dialog ──────────────────────────────────────────────────
+.inf-dialog--presagio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dados-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dado-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+
+  input[type="radio"] { display: none; }
+
+  .dado {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: var(--inf-border-radius);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: box-shadow 0.12s;
+
+    &.desgraca { color: var(--inf-color-desgraca); border-color: var(--inf-color-desgraca); }
+    &.neutro   { color: var(--inf-color-neutro);   border-color: var(--inf-color-neutro); }
+    &.facanha  { color: var(--inf-color-facanha);  border-color: var(--inf-color-facanha); }
+    &.milagre  { color: var(--inf-color-milagre);  border-color: var(--inf-color-milagre); }
+  }
+
+  input[type="radio"]:checked + .dado { box-shadow: 0 0 8px currentColor; }
+}
+
+// ─── Generic dialog rules ────────────────────────────────────────────────────
+.inf-dialog .dialog-regra {
+  font-size: 0.7rem;
+  color: var(--inf-color-text-muted);
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+// ─── Chat message wrapper (Foundry outer .chat-message) ─────────────────────
+// Foundry renders its own chrome around each message; override for inf messages.
+.chat-message:has(.infaernum-chat-message) {
+  background: var(--inf-color-bg-panel) !important;
+  border-color: var(--inf-color-border) !important;
+
+  .message-header {
+    background: var(--inf-color-bg) !important;
+    border-bottom: 1px solid var(--inf-color-border) !important;
+  }
+
+  .message-sender {
+    color: var(--inf-color-text-muted) !important;
+    font-family: var(--inf-font-body) !important;
+    font-size: 0.8rem !important;
+  }
+
+  .message-timestamp {
+    color: var(--inf-color-text-muted) !important;
+    opacity: 0.7 !important;
+  }
+
+  .message-content {
+    background: var(--inf-color-bg-panel) !important;
+    padding: 6px !important;
+  }
+}

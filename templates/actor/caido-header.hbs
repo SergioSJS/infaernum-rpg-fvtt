@@ -1,0 +1,36 @@
+<header class="sheet-header sheet-header--caido">
+  <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" />
+
+  <div class="sheet-header-info">
+    <input class="actor-name" type="text" name="name" value="{{actor.name}}" />
+
+    <div class="caido-badges">
+      {{#if system.cavaleiro}}
+        <span class="badge badge--cavaleiro badge--{{system.cavaleiro}}">
+          {{infaernum-cavaleiro-label system.cavaleiro}}
+        </span>
+      {{/if}}
+      {{#if system.derrotado}}
+        <span class="badge badge--derrotado">☠ {{localize "INFAERNUM.Caido.Derrotado"}}</span>
+      {{/if}}
+    </div>
+
+    <div class="caido-dificuldade">
+      <span class="dif-label">{{localize "INFAERNUM.Caido.DificuldadeLabel"}}</span>
+      <span class="dif-atual {{#if system.derrotado}}dif-zero{{/if}}">{{system.dificuldade_atual}}</span>
+      <span class="dif-sep">/</span>
+      <span class="dif-total">{{system.dificuldade}}</span>
+    </div>
+
+    <div class="caido-reducao-buttons">
+      <button type="button" class="btn-reducao" data-action="reduzirDificuldade" data-reducao="1"
+              title="{{localize 'INFAERNUM.Caido.AplicarFacanha'}}">
+        −1 {{localize "INFAERNUM.Roll.Facanha"}}
+      </button>
+      <button type="button" class="btn-reducao btn-reducao--milagre" data-action="reduzirDificuldade" data-reducao="2"
+              title="{{localize 'INFAERNUM.Caido.AplicarMilagre'}}">
+        −2 {{localize "INFAERNUM.Roll.Milagre"}}
+      </button>
+    </div>
+  </div>
+</header>

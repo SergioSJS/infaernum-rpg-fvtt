@@ -1,0 +1,110 @@
+<div class="infaernum-chat-message">
+
+  <div class="chat-header">
+    <strong>{{actor.name}}</strong>
+    {{#if descricao}}<span class="chat-descricao">— {{descricao}}</span>{{/if}}
+    {{#if isReroll}}<span class="chat-reroll-badge">↺ Presságio</span>{{/if}}
+  </div>
+
+  {{!-- Dados / Cartas --}}
+  <div class="chat-dados">
+    {{#if cartas}}
+      {{#each cartas as |c|}}
+        <span class="dado {{c.classe}}" title="{{c.naipe}}">{{c.formatted}}</span>
+      {{/each}}
+    {{else}}
+      {{#each dados as |d|}}
+        <span class="dado {{d.classe}} {{#if d.rerolled}}dado--rerolled{{/if}}"
+              title="{{d.classe}}{{#if d.rerolled}} (rerrolado){{/if}}">{{d.valor}}</span>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- Modificadores --}}
+  {{#if (infaernum-includes (array usarSorte temAzar) true)}}
+    <div class="chat-mod">
+      {{#if usarSorte}}<span class="mod-sorte">✦ Sorte</span>{{/if}}
+      {{#if temAzar}}<span class="mod-azar">⚠ Azar</span>{{/if}}
+    </div>
+  {{/if}}
+
+  {{!-- MORTE --}}
+  {{#if resultado.morte}}
+    <div class="chat-morte">☠ MORTE ☠</div>
+
+  {{else}}
+    <div class="chat-resultado">
+      {{#if resultado.numDesgracas}}
+        <span class="res-desgraca">
+          {{resultado.numDesgracas}} desgraça{{#if (infaernum-gt resultado.numDesgracas 1)}}s{{/if}}
+        </span>
+      {{/if}}
+      {{#if resultado.numFacanhas}}
+        <span class="res-facanha">
+          {{resultado.numFacanhas}} façanha{{#if (infaernum-gt resultado.numFacanhas 1)}}s{{/if}}
+        </span>
+      {{/if}}
+      {{#if resultado.numMilagres}}
+        <span class="res-milagre">
+          {{resultado.numMilagres}} milagre{{#if (infaernum-gt resultado.numMilagres 1)}}s{{/if}}
+        </span>
+      {{/if}}
+      {{#if (infaernum-eq resumo "neutro")}}
+        <span class="res-neutro">neutro</span>
+      {{/if}}
+    </div>
+
+    {{#if resultado.numDesgracas}}
+      <div class="chat-aviso">
+        +{{resultado.numDesgracas}} desgraça{{#if (infaernum-gt resultado.numDesgracas 1)}}s{{/if}} acumulada{{#if (infaernum-gt resultado.numDesgracas 1)}}s{{/if}}
+      </div>
+      {{#unless isReroll}}
+        <div class="chat-tormento-actions">
+          <button type="button" class="btn-tormento" data-action="gerarTormento">
+            ⚠ {{localize "INFAERNUM.Tormento.GerarBotao"}}
+          </button>
+        </div>
+      {{/unless}}
+    {{/if}}
+
+    {{!-- Queimar Alma (se ator tem almas) --}}
+    {{#if temAlmas}}
+      <div class="chat-alma-actions">
+        <button type="button" class="btn-alma" data-action="queimarAlma">
+          ✦ {{infLabel "Alma.Queimar"}}
+        </button>
+      </div>
+    {{/if}}
+
+    {{!-- Botões de presságio (só na primeira rolagem, não em rerroladas) --}}
+    {{#unless isReroll}}
+      <div class="chat-presagio-actions">
+        <button type="button" class="btn-presagio" data-action="gastarPresagioReroll"
+                title="{{localize 'INFAERNUM.Presagio.RerollarDado'}}">
+          ↺ {{localize "INFAERNUM.Presagio.RerollarDado"}}
+        </button>
+        <button type="button" class="btn-presagio" data-action="gastarPresagioDesgraca"
+                title="{{localize 'INFAERNUM.Presagio.ReduzirDesgraca'}}">
+          ✦ {{localize "INFAERNUM.Presagio.ReduzirDesgraca"}}
+        </button>
+      </div>
+    {{/unless}}
+
+    {{!-- Aplicar resultado a Caído --}}
+    {{#if (infaernum-gt (infaernum-plus resultado.numFacanhas resultado.numMilagres) 0)}}
+      <div class="chat-caido-actions">
+        {{#if resultado.numFacanhas}}
+          <button type="button" class="btn-caido" data-action="aplicarFacanhaACaido">
+            −1 {{localize "INFAERNUM.Caido.AplicarFacanha"}}
+          </button>
+        {{/if}}
+        {{#if resultado.numMilagres}}
+          <button type="button" class="btn-caido btn-caido--milagre" data-action="aplicarMilagreACaido">
+            −2 {{localize "INFAERNUM.Caido.AplicarMilagre"}}
+          </button>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/if}}
+
+</div>

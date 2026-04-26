@@ -1,0 +1,347 @@
+{
+  "TYPES": {
+    "Actor": {
+      "personagem": "Personagem",
+      "caido":      "Caído",
+      "colosso":    "Colosso",
+      "grupo":      "Grupo"
+    },
+    "Item": {
+      "tralha":   "Tralha",
+      "bencao":   "Bênção",
+      "salvacao": "Salvação",
+      "ritual":   "Ritual",
+      "pacto":    "Pacto",
+      "tormento": "Tormento",
+      "maldicao": "Maldição",
+      "paranoia": "Paranoia",
+      "fenda":    "Fenda",
+      "territorio": "Território",
+      "dominio":  "Domínio"
+    }
+  },
+  "INFAERNUM": {
+    "Sheet": {
+      "Personagem": "Ficha de Personagem",
+      "Caido":      "Ficha de Caído",
+      "Colosso":    "Ficha de Colosso",
+      "Grupo":      "Ficha de Grupo",
+      "Item":       "Ficha de Item"
+    },
+    "Item": {
+      "Novo":      "Novo Item",
+      "NovoTipo":  "Novo {tipo}",
+      "Descricao": "Descrição",
+      "Efeito":    "Efeito",
+      "Ativa":     "Ativa"
+    },
+    "Tab": {
+      "Principal": "Principal",
+      "Itens":     "Itens",
+      "Anotacoes": "Anotações"
+    },
+    "Personagem": {
+      "Nome":                "Nome",
+      "Sorte":               "Sorte",
+      "SortePlaceholder":    "Ex: Confiança dos Inocentes",
+      "SorteHint":           "Milagres (6) cancelam desgraças (1)",
+      "Azar":                "Azar",
+      "AzarPlaceholder":     "Ex: Culpa do Sobrevivente",
+      "AzarHint":            "Desgraças (1) cancelam milagres (6)",
+      "Desgracas":           "Desgraças",
+      "Almas":               "Almas",
+      "MovimentosAlteracao": "Movimentos de Alteração",
+      "SegundoAzar":         "Segundo Azar",
+      "SegundoAzarAtivo":    "Sorte virou segundo azar (3ª paranoia)",
+      "CavaleiroServido":    "Cavaleiro Servido",
+      "Anotacoes":           "Anotações"
+    },
+    "Caido": {
+      "Descricao":            "Descrição",
+      "Aparencia":            "Aparência",
+      "AparenciaPlaceholder": "Aparência física, traços marcantes...",
+      "Dificuldade":          "Dificuldade Total",
+      "DificuldadeAtual":     "Dificuldade Atual",
+      "DificuldadeLabel":     "Dificuldade",
+      "Habilidades":          "Habilidades",
+      "HabilidadePlaceholder": "Descreva uma habilidade...",
+      "SemHabilidades":       "Nenhuma habilidade.",
+      "Cavaleiro":            "Cavaleiro",
+      "Anotacoes":            "Anotações",
+      "Derrotado":            "Derrotado",
+      "TormentosCausados":    "Tormentos que Causa",
+      "AplicarFacanha":       "Façanha",
+      "AplicarMilagre":       "Milagre",
+      "AplicarResultado":     "Aplicar resultado a Caído",
+      "EscolherAlvo":         "Escolher Caído",
+      "NenhumDisponivel":     "Nenhum Caído disponível na cena.",
+      "AbsorverAlmaHint":    "Personagens podem absorver a alma deste caído."
+    },
+    "Colosso": {
+      "Descricao":               "Descrição",
+      "Dificuldade":             "Dificuldade Total",
+      "DificuldadeAtual":        "Dificuldade Atual",
+      "DificuldadeLabel":        "Dificuldade",
+      "TotalDesgracas":          "Total de Desgraças",
+      "DesgracasNaipes":         "Desgraças por Naipe",
+      "NaipeTormentos":          "Tormento por Naipe",
+      "TormentoPlaceholder":     "Tormento causado ao rolar desgraça...",
+      "CartasReveladas":         "Cartas Reveladas",
+      "Revelada":                "Revelada",
+      "RevelarCarta":            "Revelar",
+      "EsconderCarta":           "Ocultar",
+      "Partes":                  "Partes",
+      "SemPartes":               "Nenhuma parte.",
+      "NovaParte":               "Nova Parte",
+      "Anotacoes":               "Anotações",
+      "Derrotado":               "Derrotado",
+      "AbsorverRitual":          "Absorver Ritual",
+      "Absorver":                "Absorver",
+      "EscolherNaipe":           "Naipe a absorver",
+      "EscolherPersonagem":      "Personagem que absorve",
+      "NomeRitual":              "Nome do ritual",
+      "RitualDefault":           "Ritual de {nome}",
+      "RitualCriado":            "Ritual absorvido!",
+      "SemDesgracasParaAbsorver": "Nenhum naipe com desgraças para absorver.",
+      "SemPersonagens":          "Nenhum personagem no mundo."
+    },
+    "Grupo": {
+      "DiaAtual":             "Dia Atual",
+      "PresagiosTotais":      "Presságios Totais",
+      "PresagiosUsados":      "Presságios Usados",
+      "Presagios":            "Presságios",
+      "PresagiosSemRolar":    "Vire o dia para rolar presságios.",
+      "CavaleiroAnunciados":  "Cavaleiros Anunciados",
+      "Cenario":              "Cenário",
+      "Anotacoes":            "Anotações",
+      "VirarDia":             "Virar Dia (1d6)",
+      "RolarPresagios":       "Avança o dia e rola 1d6 para presságios (1-2→4, 3-4→5, 5-6→6)",
+      "Narrativa":            "Ferramentas Narrativas"
+    },
+    "Presagio": {
+      "EscolhaDado":    "Escolha qual dado rerrolar:",
+      "AvisoReroll":    "Atenção: o novo dado pode gerar 666 = MORTE.",
+      "SemPresagios":   "Sem presságios disponíveis.",
+      "SemDesgraca":    "Nenhum personagem com desgraças no momento.",
+      "RerollarDado":   "Rerrolar dado (1 presságio)",
+      "ReduzirDesgraca": "Reduzir desgraça (1 presságio)"
+    },
+    "Cavaleiro": {
+      "Peste":  "Cavaleiro da Peste",
+      "Guerra": "Cavaleiro da Guerra",
+      "Fome":   "Cavaleiro da Fome",
+      "Morte":  "Cavaleiro da Morte"
+    },
+    "Tralha": {
+      "Label":      "Tralha",
+      "PluralLabel": "Tralhas",
+      "Descricao":  "Descrição",
+      "Quantidade": "Quantidade",
+      "Consumivel": "Consumível"
+    },
+    "Bencao": {
+      "Label":     "Bênção",
+      "Descricao": "Descrição",
+      "Efeito":    "Efeito",
+      "Ativa":     "Ativa"
+    },
+    "Salvacao": {
+      "Label":       "Salvação",
+      "PluralLabel": "Salvações",
+      "Descricao":   "Descrição",
+      "Efeito":      "Efeito",
+      "OrigemFenda": "Fenda de Origem",
+      "Ativa":       "Ativa"
+    },
+    "Ritual": {
+      "Label":         "Ritual",
+      "PluralLabel":   "Rituais",
+      "Descricao":     "Descrição",
+      "Efeito":        "Efeito",
+      "OrigemColosso": "Colosso de Origem",
+      "Ativa":         "Ativa"
+    },
+    "Pacto": {
+      "Label":       "Pacto",
+      "PluralLabel": "Pactos",
+      "Descricao":   "Descrição",
+      "Entidade":    "Entidade",
+      "Dadiva":      "Dádiva",
+      "Divida":      "Dívida",
+      "DadivaUsada": "Dádiva usada hoje",
+      "DividaPaga":  "Dívida Paga",
+      "UsarDadiva":  "Usar Dádiva"
+    },
+    "Tormento": {
+      "Label":              "Tormento",
+      "PluralLabel":        "Tormentos",
+      "Descricao":          "Descrição",
+      "Origem":             "Origem",
+      "Grave":              "Grave",
+      "GraveHint":          "Tormento grave é mais severo e difícil de remover",
+      "GraveLabel":         "grave",
+      "Ativo":              "Ativo",
+      "Nome":               "Nome do tormento",
+      "NomePlaceholder":    "Ex.: Visões assustadoras...",
+      "OrigemPlaceholder":  "De qual ação surgiu...",
+      "GerarTitulo":        "Gerar Tormento",
+      "GerarBotao":         "Gerar Tormento",
+      "Criar":              "Criar",
+      "Criado":             "Tormento criado"
+    },
+    "Maldicao": {
+      "Label":     "Maldição",
+      "Descricao": "Descrição",
+      "Cavaleiro": "Cavaleiro",
+      "Indice":    "Índice"
+    },
+    "Paranoia": {
+      "Label":       "Paranoia",
+      "PluralLabel": "Paranoias",
+      "Descricao":   "Descrição",
+      "Gatilho":     "Gatilho",
+      "Indice":      "Índice",
+      "MaxAtingido": "Máximo de 3 paranoias atingido."
+    },
+    "Fenda": {
+      "Descricao":              "Descrição",
+      "Dificuldades":           "Dificuldades",
+      "PluralLabel":            "Fendas",
+      "Progresso":              "Progresso",
+      "SalvacaoNome":           "Nome da Salvação",
+      "SalvacaoNomePlaceholder": "Nome da salvação obtida...",
+      "SalvacaoEfeito":         "Efeito da Salvação",
+      "Concluida":              "Fenda Concluída",
+      "Concluir":               "Concluir Fenda",
+      "SalvacaoCriada":         "Salvação criada no inventário.",
+      "Superar":                "Superar",
+      "SemDificuldades":        "Adicione dificuldades com o botão +"
+    },
+    "Alma": {
+      "Queimar":             "Queimar Alma",
+      "ConfirmarQueimar":    "Queimar (−1 alma)",
+      "EscolherDado":        "Escolha qual dado alterar:",
+      "QueimarHint":         "Desgraça (1) → Neutro · Neutro (2-3) → Façanha. Gasta 1 alma.",
+      "SemAlmas":            "Sem almas disponíveis.",
+      "NadaParaShift":       "Nenhum dado pode ser alterado (só desgraças e neutros).",
+      "AbsorverBotao":       "Absorver Alma",
+      "AbsorverTitulo":      "Absorver Alma",
+      "Absorver":            "Absorver",
+      "SemPersonagem":       "Nenhum personagem disponível para absorver a alma.",
+      "EscolherPersonagem":  "Qual personagem absorve a alma?",
+      "AbsorvidaDe":         "Alma absorvida de {caido}",
+      "TotalAtual":          "Total de almas: {total}"
+    },
+    "Territorio": {
+      "Descricao":      "Descrição",
+      "Tipo":           "Tipo",
+      "Controlador":    "Controlador",
+      "Personagens":    "Personagens",
+      "CoordQ":         "Coordenada Q",
+      "CoordR":         "Coordenada R",
+      "Revelado":       "Revelado",
+      "BrowserTitulo":  "Territórios",
+      "SemTerritorios": "Nenhum território criado no mundo."
+    },
+    "Dominio": {
+      "Descricao":   "Descrição",
+      "Cavaleiro":   "Cavaleiro",
+      "Efeito":      "Efeito",
+      "Ativo":       "Ativo",
+      "Indice":      "Índice",
+      "PluralLabel": "Domínios"
+    },
+    "Setting": {
+      "Cenario": {
+        "Name":      "Cenário",
+        "Hint":      "Selecione o cenário da campanha.",
+        "Padrao":    "Padrão",
+        "Dominios":  "Domínios",
+        "Cyfaernum": "Cyfærnum",
+        "Custom":    "Personalizado"
+      },
+      "ModoAleatorio": {
+        "Name":   "Modo Aleatório",
+        "Hint":   "Dados (padrão) ou Cartas (Infærnaculum).",
+        "Dados":  "Dados",
+        "Cartas": "Cartas (Infærnaculum)"
+      },
+      "Theme": {
+        "Name":      "Tema visual",
+        "Hint":      "Aparência das fichas (por cliente).",
+        "Escuro":    "Escuro (padrão)",
+        "Medieval":  "Medieval (sépia quente)",
+        "Cyberpunk": "Cyberpunk (azul néon)"
+      },
+      "UsaColossos":   { "Name": "Usar suplemento Colossos" },
+      "UsaFendas":     { "Name": "Usar suplemento Fendas" },
+      "UsaParanoias":  { "Name": "Usar suplemento Paranoias" },
+      "UsaPactos":     { "Name": "Usar suplemento Pactos" },
+      "UsaTerritorios": { "Name": "Usar suplemento Territórios" },
+      "UsaDominios":   { "Name": "Usar suplemento Domínios" },
+      "UsaAlmas":      { "Name": "Usar suplemento Almas" },
+      "UsaArcanos":    { "Name": "Usar suplemento Arcanos" }
+    },
+    "Naipe": {
+      "Copas":   "Copas",
+      "Espadas": "Espadas",
+      "Paus":    "Paus",
+      "Ouros":   "Ouros"
+    },
+    "Resultado": {
+      "Desgraca": "Desgraça",
+      "Neutro":   "Neutro",
+      "Facanha":  "Façanha",
+      "Milagre":  "Milagre",
+      "Morte":    "MORTE"
+    },
+    "Common": {
+      "Remover": "Remover",
+      "Editar":  "Editar"
+    },
+    "Roll": {
+      "AcaoLabel":            "Rolar Ação (3d6)",
+      "Facanha":              "Façanha",
+      "Milagre":              "Milagre",
+      "RolarAcao":            "Rolar Ação",
+      "Rolar":                "Rolar",
+      "Cancelar":             "Cancelar",
+      "Descricao":            "Descrição da ação",
+      "DescricaoPlaceholder": "O que você está tentando fazer?",
+      "UsarSorte":            "Usar Sorte",
+      "UsarAzar":             "Usar Azar",
+      "SorteHint":            "Milagres (6) cancelam desgraças (1)",
+      "AzarHint":             "Desgraças (1) cancelam milagres (6)",
+      "Tormentos":            "Tormentos ativos (aplicam azar)",
+      "Maldicao":             "Maldição (aplica azar)",
+      "SegundoAzarAviso":     "Segundo Azar ativo — sorte conta como azar",
+      "AlertaCavaleiro":      "{nome} acumulou 6 desgraças! Encontro com Cavaleiro iminente!",
+      "RegraLembrete":        "1 = desgraça · 2-3 = neutro · 4-5 = façanha · 6 = milagre · 666 = MORTE",
+      "Pergunta":             "Pergunta ao Destino (1d6)",
+      "Ideia":                "Ideia (2d6)"
+    },
+    "Caos": {
+      "Label":            "Tabelas de Caos",
+      "Desgraca":         "Desgraça",
+      "Neutro":           "Neutro",
+      "PNJConfronto":     "PNJ — Confronto",
+      "PNJComportamento": "PNJ — Comportamento",
+      "Oracoes":          "Orações"
+    },
+    "Dialog": {
+      "ConfirmarRemocao": "Confirmar Remoção",
+      "RemoverItem":      "Remover \"{nome}\"? Esta ação não pode ser desfeita."
+    },
+    "Cyfaernum": {
+      "Agente":           "Agente",
+      "Agentes":          "Agentes",
+      "Downloads":        "Downloads",
+      "QuerimarDownload": "Queimar Download (−1)"
+    },
+    "Encontro": {
+      "Titulo":      "Encontro com Cavaleiro",
+      "SegundaMorte": "{nome} encontrou um Cavaleiro pela segunda vez. MORTE DEFINITIVA.",
+      "ServoCavaleiro": "{nome} serve {cavaleiro}. Desgraças zeradas sem maldição."
+    }
+  }
+}

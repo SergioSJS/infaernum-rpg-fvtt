@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "globals": {
+    "foundry": "readonly",
+    "game": "readonly",
+    "ui": "readonly",
+    "canvas": "readonly",
+    "CONFIG": "readonly",
+    "Hooks": "readonly",
+    "ChatMessage": "readonly",
+    "Roll": "readonly",
+    "Handlebars": "readonly",
+    "DialogV2": "readonly",
+    "FilePicker": "readonly",
+    "renderTemplate": "readonly",
+    "Dialog": "readonly",
+    "Item": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "warn",
+    "prefer-const": "error",
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
+  }
+}

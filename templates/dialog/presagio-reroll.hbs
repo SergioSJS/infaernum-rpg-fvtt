@@ -1,0 +1,14 @@
+<div class="inf-dialog inf-dialog--presagio">
+  <p>{{localize "INFAERNUM.Presagio.EscolhaDado"}}</p>
+
+  <div class="dados-picker">
+    {{#each dados as |d|}}
+      <label class="dado-option">
+        <input type="radio" name="indice" value="{{d.index}}" {{#if @first}}checked{{/if}} />
+        <span class="dado {{d.classe}}" title="{{d.classe}}">{{d.valor}}</span>
+      </label>
+    {{/each}}
+  </div>
+
+  <p class="dialog-regra">{{localize "INFAERNUM.Presagio.AvisoReroll"}}</p>
+</div>

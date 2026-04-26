@@ -1,0 +1,276 @@
+<div class="sheet-body">
+
+  {{!-- Descrição (todos os tipos têm este campo) --}}
+  <div class="field-group">
+    <label>{{localize "INFAERNUM.Item.Descricao"}}</label>
+    <textarea name="system.descricao" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.descricao}}</textarea>
+  </div>
+
+  {{!-- Efeito (bencao / salvacao / ritual — domínio tem na sua seção própria) --}}
+  {{#if (infaernum-includes (array "bencao" "salvacao" "ritual") itemType)}}
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Item.Efeito"}}</label>
+      <textarea name="system.efeito" rows="4" {{#unless editable}}readonly{{/unless}}>{{system.efeito}}</textarea>
+    </div>
+  {{/if}}
+
+  {{!-- TRALHA --}}
+  {{#if (infaernum-eq itemType "tralha")}}
+    <div class="item-fields-row">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Tralha.Quantidade"}}</label>
+        <input type="number" name="system.quantidade" value="{{system.quantidade}}" min="0" class="field-number"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Tralha.Consumivel"}}</label>
+        <input type="checkbox" name="system.consumivel" {{#if system.consumivel}}checked{{/if}}
+               {{#unless editable}}disabled{{/unless}} />
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- BÊNÇÃO / SALVAÇÃO / RITUAL — toggle ativa --}}
+  {{#if (infaernum-includes (array "bencao" "salvacao" "ritual") itemType)}}
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Item.Ativa"}}</label>
+      <span class="item-tag {{#if system.ativa}}tag--ativo{{else}}tag--inativo{{/if}}">
+        {{#if system.ativa}}Ativa{{else}}Inativa{{/if}}
+      </span>
+      {{#if editable}}
+        <button type="button" data-action="toggleField" data-field="system.ativa" class="btn-small">
+          {{#if system.ativa}}Desativar{{else}}Ativar{{/if}}
+        </button>
+      {{/if}}
+    </div>
+    {{#if system.origem_fenda}}
+      <div class="field-group">
+        <label>{{localize "INFAERNUM.Salvacao.OrigemFenda"}}</label>
+        <input type="text" name="system.origem_fenda" value="{{system.origem_fenda}}"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+    {{/if}}
+    {{#if system.origem_colosso}}
+      <div class="field-group">
+        <label>{{localize "INFAERNUM.Ritual.OrigemColosso"}}</label>
+        <input type="text" name="system.origem_colosso" value="{{system.origem_colosso}}"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+    {{/if}}
+  {{/if}}
+
+  {{!-- PACTO --}}
+  {{#if (infaernum-eq itemType "pacto")}}
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Pacto.Entidade"}}</label>
+      <input type="text" name="system.entidade" value="{{system.entidade}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Pacto.Dadiva"}}</label>
+      <textarea name="system.dadiva" rows="3" {{#unless editable}}readonly{{/unless}}>{{system.dadiva}}</textarea>
+    </div>
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Pacto.Divida"}}</label>
+      <textarea name="system.divida" rows="3" {{#unless editable}}readonly{{/unless}}>{{system.divida}}</textarea>
+    </div>
+    <div class="item-fields-row">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Pacto.DadivaUsada"}}</label>
+        <input type="checkbox" name="system.dadiva_usada" {{#if system.dadiva_usada}}checked{{/if}}
+               {{#unless editable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Pacto.DividaPaga"}}</label>
+        <input type="checkbox" name="system.divida_paga" {{#if system.divida_paga}}checked{{/if}}
+               {{#unless editable}}disabled{{/unless}} />
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- DOMÍNIO --}}
+  {{#if (infaernum-eq itemType "dominio")}}
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Dominio.Efeito"}}</label>
+      <textarea name="system.efeito" rows="3" {{#unless editable}}readonly{{/unless}}>{{system.efeito}}</textarea>
+    </div>
+    <div class="item-fields-row">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Dominio.Cavaleiro"}}</label>
+        <select name="system.cavaleiro" {{#unless editable}}disabled{{/unless}}>
+          {{#each (infaernum-choices "cavaleiros") as |c|}}
+            <option value="{{c.value}}" {{#if (infaernum-eq c.value ../system.cavaleiro)}}selected{{/if}}>
+              {{c.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Dominio.Indice"}}</label>
+        <input type="number" name="system.indice" value="{{system.indice}}" min="1" max="6" class="field-number"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+    </div>
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Dominio.Ativo"}}</label>
+      <span class="item-tag {{#if system.ativo}}tag--ativo{{else}}tag--inativo{{/if}}">
+        {{#if system.ativo}}Ativo{{else}}Inativo{{/if}}
+      </span>
+      {{#if editable}}
+        <button type="button" data-action="toggleField" data-field="system.ativo" class="btn-small">
+          {{#if system.ativo}}Desativar{{else}}Ativar{{/if}}
+        </button>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{!-- TERRITÓRIO --}}
+  {{#if (infaernum-eq itemType "territorio")}}
+    <div class="item-fields-row">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Territorio.Tipo"}}</label>
+        <input type="text" name="system.tipo" value="{{system.tipo}}"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Territorio.Controlador"}}</label>
+        <select name="system.controlador" {{#unless editable}}disabled{{/unless}}>
+          {{#each (infaernum-choices "cavaleiros-plus") as |c|}}
+            <option value="{{c.value}}" {{#if (infaernum-eq c.value ../system.controlador)}}selected{{/if}}>
+              {{c.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="item-fields-row">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Territorio.CoordQ"}}</label>
+        <input type="number" name="system.coordenada_q" value="{{system.coordenada_q}}" class="field-number"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Territorio.CoordR"}}</label>
+        <input type="number" name="system.coordenada_r" value="{{system.coordenada_r}}" class="field-number"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Territorio.Revelado"}}</label>
+        <input type="checkbox" name="system.revelado" {{#if system.revelado}}checked{{/if}}
+               {{#unless editable}}disabled{{/unless}} />
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- TORMENTO --}}
+  {{#if (infaernum-eq itemType "tormento")}}
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Tormento.Origem"}}</label>
+      <input type="text" name="system.origem" value="{{system.origem}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Tormento.Grave"}}</label>
+      <input type="checkbox" name="system.grave" {{#if system.grave}}checked{{/if}}
+             {{#unless editable}}disabled{{/unless}} />
+    </div>
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Tormento.Ativo"}}</label>
+      <input type="checkbox" name="system.ativo" {{#if system.ativo}}checked{{/if}}
+             {{#unless editable}}disabled{{/unless}} />
+    </div>
+    <p class="field-hint">Aplica azar: desgraças (1) cancelam milagres (6) nas rolagens.</p>
+  {{/if}}
+
+  {{!-- MALDIÇÃO --}}
+  {{#if (infaernum-eq itemType "maldicao")}}
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Maldicao.Cavaleiro"}}</label>
+      <select name="system.cavaleiro" {{#unless editable}}disabled{{/unless}}>
+        {{#each (infaernum-choices "cavaleiros") as |c|}}
+          <option value="{{c.value}}" {{#if (infaernum-eq c.value ../system.cavaleiro)}}selected{{/if}}>
+            {{c.label}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Maldicao.Indice"}}</label>
+      <input type="number" name="system.indice" value="{{system.indice}}" min="1" max="6" class="field-number"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+  {{/if}}
+
+  {{!-- FENDA --}}
+  {{#if (infaernum-eq itemType "fenda")}}
+    <div class="fenda-section">
+      <div class="fenda-section-header">
+        <label>{{localize "INFAERNUM.Fenda.Dificuldades"}}</label>
+        {{#if editable}}
+          <button type="button" data-action="addDificuldade" class="btn-small">+</button>
+        {{/if}}
+      </div>
+      <ol class="dificuldade-list">
+        {{#each system.dificuldades as |dif idx|}}
+          <li class="dif-row {{#if (infaernum-lt idx ../system.progresso)}}dif--superada{{/if}} {{#if (infaernum-eq idx ../system.progresso)}}dif--atual{{/if}}">
+            <span class="dif-marker">{{#if (infaernum-lt idx ../system.progresso)}}✓{{else}}○{{/if}}</span>
+            <input type="number" name="system.dificuldades.{{idx}}" value="{{dif}}" min="0" class="field-number dif-input"
+                   {{#unless ../editable}}readonly{{/unless}} />
+            {{#if (infaernum-eq idx ../system.progresso)}}
+              <button type="button" data-action="superarDificuldade" class="btn-small btn-superar">
+                {{localize "INFAERNUM.Fenda.Superar"}}
+              </button>
+            {{/if}}
+            {{#if ../editable}}
+              <button type="button" data-action="removeDificuldade" data-idx="{{idx}}" class="btn-remove">✕</button>
+            {{/if}}
+          </li>
+        {{else}}
+          <li class="empty-list">{{localize "INFAERNUM.Fenda.SemDificuldades"}}</li>
+        {{/each}}
+      </ol>
+    </div>
+
+    <div class="fenda-salvacao">
+      <div class="field-group">
+        <label>{{localize "INFAERNUM.Fenda.SalvacaoNome"}}</label>
+        <input type="text" name="system.salvacao_nome" value="{{system.salvacao_nome}}"
+               placeholder="{{localize 'INFAERNUM.Fenda.SalvacaoNomePlaceholder'}}"
+               {{#unless editable}}readonly{{/unless}} />
+      </div>
+      <div class="field-group">
+        <label>{{localize "INFAERNUM.Fenda.SalvacaoEfeito"}}</label>
+        <textarea name="system.salvacao_efeito" rows="3" {{#unless editable}}readonly{{/unless}}>{{system.salvacao_efeito}}</textarea>
+      </div>
+    </div>
+
+    {{#if system.concluida}}
+      <div class="fenda-status tag--ativo">✓ {{localize "INFAERNUM.Fenda.Concluida"}}</div>
+    {{else}}
+      {{#if editable}}
+        {{#if (infaernum-gte system.progresso system.dificuldades.length)}}
+          {{#if (infaernum-gt system.dificuldades.length 0)}}
+            <button type="button" data-action="concluirFenda" class="btn-concluir">
+              {{localize "INFAERNUM.Fenda.Concluir"}}
+            </button>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+
+  {{!-- PARANOIA --}}
+  {{#if (infaernum-eq itemType "paranoia")}}
+    <div class="field-group">
+      <label>{{localize "INFAERNUM.Paranoia.Gatilho"}}</label>
+      <input type="text" name="system.gatilho" value="{{system.gatilho}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+    <div class="field-group field-group--inline">
+      <label>{{localize "INFAERNUM.Paranoia.Indice"}}</label>
+      <input type="number" name="system.indice" value="{{system.indice}}" min="1" max="3" class="field-number"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+  {{/if}}
+
+</div>

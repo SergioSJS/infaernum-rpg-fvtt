@@ -1,0 +1,11 @@
+<header class="sheet-header sheet-header--item">
+  <img class="profile-img" src="{{item.img}}" alt="{{item.name}}"
+       data-edit="img" title="{{item.name}}" />
+  <div class="header-fields">
+    <div class="actor-name">
+      <input type="text" name="name" value="{{item.name}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+    <div class="item-type-label">{{localize (concat "INFAERNUM." (infaernum-capitalize itemType) ".Label")}}</div>
+  </div>
+</header>

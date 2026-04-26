@@ -1,0 +1,133 @@
+<div class="sheet-body grupo-body">
+
+  {{!-- Tracker de dias --}}
+  <section class="grupo-section">
+    <h3 class="grupo-section-title">{{localize "INFAERNUM.Grupo.DiaAtual"}}</h3>
+
+    <div class="dia-tracker">
+      {{#each dias as |d|}}
+        <div class="dia-pip
+                    {{#if d.ativo}}dia-pip--ativo{{/if}}
+                    {{#if d.passado}}dia-pip--passado{{/if}}">
+          <span class="dia-num">{{d.numero}}</span>
+          <span class="dia-label">Dia {{d.numero}}</span>
+        </div>
+      {{/each}}
+    </div>
+
+    {{#if editable}}
+      <div class="dia-controls">
+        <button type="button" data-action="recuarDia" {{#if (infaernum-lte system.dia_atual 0)}}disabled{{/if}}>
+          ← Recuar
+        </button>
+        <button type="button" data-action="rolarPresagiosDia"
+                title="{{localize 'INFAERNUM.Grupo.RolarPresagios'}}"
+                {{#if (infaernum-gte system.dia_atual 7)}}disabled{{/if}}>
+          ⚀ {{localize "INFAERNUM.Grupo.VirarDia"}}
+        </button>
+        <button type="button" data-action="avancarDia" {{#if (infaernum-gte system.dia_atual 7)}}disabled{{/if}}>
+          Avançar →
+        </button>
+      </div>
+    {{/if}}
+  </section>
+
+  {{!-- Presságios --}}
+  <section class="grupo-section">
+    <h3 class="grupo-section-title">
+      {{localize "INFAERNUM.Grupo.Presagios"}}
+      <span class="presagio-count">{{presagiosDisponiveis}} / {{system.presagios_totais}}</span>
+    </h3>
+
+    {{#if system.presagios_totais}}
+      <div class="presagio-tracker">
+        {{#each presagiosPips as |p|}}
+          <div class="presagio-pip {{#if p.gasto}}presagio-pip--gasto{{/if}}"
+               title="Presságio {{infaernum-plus p.index 1}}"></div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="text-muted">{{localize "INFAERNUM.Grupo.PresagiosSemRolar"}}</p>
+    {{/if}}
+
+    {{#if editable}}
+      <div class="presagio-controls">
+        <button type="button" data-action="usarPresagio"
+                {{#unless presagiosDisponiveis}}disabled{{/unless}}>
+          − Gastar Presságio
+        </button>
+        <button type="button" data-action="restaurarPresagios">
+          ↺ Restaurar
+        </button>
+      </div>
+    {{/if}}
+  </section>
+
+  {{!-- Cavaleiros anunciados --}}
+  <section class="grupo-section">
+    <h3 class="grupo-section-title">{{localize "INFAERNUM.Grupo.CavaleiroAnunciados"}}</h3>
+
+    <div class="cavaleiros-grid">
+      {{#each cavaleiros as |cavaleiro|}}
+        {{#with (infaernum-includes ../system.cavaleiros_anunciados cavaleiro) as |anunciado|}}
+          <div class="cavaleiro-entry {{#if this}}cavaleiro-entry--anunciado{{/if}}">
+            <span class="cavaleiro-badge {{cavaleiro}}">
+              {{infaernum-cavaleiro-label cavaleiro}}
+            </span>
+            {{#if ../editable}}
+              {{#if this}}
+                <a data-action="limparCavaleiro" data-cavaleiro="{{cavaleiro}}"
+                   title="Remover anúncio">✕</a>
+              {{else}}
+                <button type="button" data-action="anunciarCavaleiro"
+                        data-cavaleiro="{{cavaleiro}}">
+                  Anunciar
+                </button>
+              {{/if}}
+            {{/if}}
+          </div>
+        {{/with}}
+      {{/each}}
+    </div>
+  </section>
+
+  {{!-- Ferramentas narrativas --}}
+  <section class="grupo-section grupo-narrativa">
+    <h3 class="grupo-section-title">{{localize "INFAERNUM.Grupo.Narrativa"}}</h3>
+
+    <div class="narrativa-row">
+      <button type="button" data-action="rolarPergunta" class="btn-narrativa btn-narrativa--pergunta">
+        ⚀ {{localize "INFAERNUM.Roll.Pergunta"}}
+      </button>
+      <button type="button" data-action="rolarIdeia" class="btn-narrativa btn-narrativa--ideia">
+        ✦ {{localize "INFAERNUM.Roll.Ideia"}}
+      </button>
+    </div>
+
+    <div class="narrativa-caos-label">{{localize "INFAERNUM.Caos.Label"}}</div>
+    <div class="narrativa-row narrativa-row--caos">
+      <button type="button" data-action="rolarCaos" data-tabela="desgraca" class="btn-caos">
+        {{localize "INFAERNUM.Caos.Desgraca"}}
+      </button>
+      <button type="button" data-action="rolarCaos" data-tabela="neutro" class="btn-caos">
+        {{localize "INFAERNUM.Caos.Neutro"}}
+      </button>
+      <button type="button" data-action="rolarCaos" data-tabela="pnj_confronto" class="btn-caos">
+        {{localize "INFAERNUM.Caos.PNJConfronto"}}
+      </button>
+      <button type="button" data-action="rolarCaos" data-tabela="pnj_comportamento" class="btn-caos">
+        {{localize "INFAERNUM.Caos.PNJComportamento"}}
+      </button>
+      <button type="button" data-action="rolarCaos" data-tabela="oracoes" class="btn-caos">
+        {{localize "INFAERNUM.Caos.Oracoes"}}
+      </button>
+    </div>
+  </section>
+
+  {{!-- Anotações --}}
+  <section class="grupo-section">
+    <h3 class="grupo-section-title">{{localize "INFAERNUM.Grupo.Anotacoes"}}</h3>
+    <textarea name="system.anotacoes" rows="6" {{#unless editable}}readonly{{/unless}}>{{system.anotacoes}}</textarea>
+  </section>
+
+</div>

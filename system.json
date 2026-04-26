@@ -1,0 +1,83 @@
+{
+  "id": "infaernum",
+  "title": "Old Infærnum",
+  "description": "Sistema Foundry VTT não-oficial para Old Infærnum, RPG de Raul Volpato.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "esmodules": ["module/infaernum.mjs"],
+  "styles": ["styles/infaernum.css"],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "pt",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "personagem": {},
+      "caido": {},
+      "colosso": {},
+      "grupo": {}
+    },
+    "Item": {
+      "tralha": {},
+      "bencao": {},
+      "salvacao": {},
+      "ritual": {},
+      "pacto": {},
+      "tormento": {},
+      "maldicao": {},
+      "paranoia": {},
+      "fenda": {},
+      "territorio": {},
+      "dominio": {}
+    }
+  },
+  "packs": [
+    {
+      "name": "cavaleiros",
+      "label": "Cavaleiros do Apocalipse",
+      "path": "packs/cavaleiros/cavaleiros",
+      "type": "JournalEntry",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "rolltables",
+      "label": "Tabelas Aleatórias",
+      "path": "packs/rolltables/rolltables",
+      "type": "RollTable",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "cenarios",
+      "label": "Cenários",
+      "path": "packs/cenarios/cenarios",
+      "type": "JournalEntry",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    }
+  ],
+  "authors": [
+    {
+      "name": "SergioSJS",
+      "url": "https://github.com/SergioSJS"
+    }
+  ],
+  "url": "https://github.com/SergioSJS/infaernum-rpg-fvtt",
+  "manifest": "https://raw.githubusercontent.com/SergioSJS/infaernum-rpg-fvtt/main/system.json",
+  "download": "",
+  "license": "LICENSE"
+}

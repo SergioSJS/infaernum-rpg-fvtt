@@ -1,0 +1,48 @@
+<header class="sheet-header">
+  <img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}"
+       data-edit="img" title="{{actor.name}}" />
+
+  <div class="header-fields">
+    <div class="actor-name">
+      <input type="text" name="name" value="{{actor.name}}"
+             placeholder="{{localize 'INFAERNUM.Personagem.Nome'}}"
+             {{#unless editable}}readonly{{/unless}} />
+    </div>
+
+    <div class="header-meta">
+      {{#if system.cavaleiro_servido}}
+        <span class="cavaleiro-badge {{system.cavaleiro_servido}}">
+          {{infaernum-cavaleiro-label system.cavaleiro_servido}}
+        </span>
+      {{/if}}
+      {{#if temSegundoAzar}}
+        <span class="badge badge--perigo" title="{{localize 'INFAERNUM.Personagem.SegundoAzarAtivo'}}">
+          ⚠ Segundo Azar
+        </span>
+      {{/if}}
+      {{#if temMaldicao}}
+        <span class="badge badge--maldicao">
+          ☠ {{localize "INFAERNUM.Maldicao.Label"}}
+        </span>
+      {{/if}}
+    </div>
+
+    {{! Desgraças tracker + roll button }}
+    <div class="desgraca-row">
+      <span class="desgraca-label">{{localize "INFAERNUM.Personagem.Desgracas"}}</span>
+      <div class="desgraca-tracker">
+        {{#each desgracasArr as |n|}}
+          <div class="pip {{#if (infaernum-lte n ../system.desgracas)}}filled{{/if}}"
+               data-action="setDesgracas"
+               data-idx="{{n}}"
+               title="Desgraça {{n}}"
+               {{#unless ../editable}}style="pointer-events:none"{{/unless}}></div>
+        {{/each}}
+      </div>
+      <span class="desgraca-count">{{system.desgracas}}/6</span>
+      <button type="button" data-action="rollAction" class="btn-rolar-acao" title="{{localize 'INFAERNUM.Roll.RolarAcao'}}">
+        ⚀ {{localize "INFAERNUM.Roll.RolarAcao"}}
+      </button>
+    </div>
+  </div>
+</header>

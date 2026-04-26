@@ -1,0 +1,39 @@
+<header class="sheet-header sheet-header--colosso">
+  <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" />
+
+  <div class="sheet-header-info">
+    <input class="actor-name" type="text" name="name" value="{{actor.name}}" />
+
+    <div class="colosso-dificuldade">
+      <span class="dif-label">{{localize "INFAERNUM.Colosso.DificuldadeLabel"}}</span>
+      <span class="dif-atual {{#if system.derrotado}}dif-zero{{/if}}">{{system.dificuldade_atual}}</span>
+      <span class="dif-sep">/</span>
+      <span class="dif-total">{{system.dificuldade}}</span>
+    </div>
+
+    {{#if system.derrotado}}
+      <span class="badge badge--derrotado">☠ {{localize "INFAERNUM.Colosso.Derrotado"}}</span>
+    {{/if}}
+
+    <div class="colosso-header-stats">
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Colosso.Dificuldade"}}</label>
+        <input type="number" name="system.dificuldade" value="{{system.dificuldade}}" min="0" class="field-number" />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Colosso.DificuldadeAtual"}}</label>
+        <input type="number" name="system.dificuldade_atual" value="{{system.dificuldade_atual}}" min="0" class="field-number" />
+      </div>
+      <div class="field-group field-group--inline">
+        <label>{{localize "INFAERNUM.Colosso.TotalDesgracas"}}</label>
+        <span class="colosso-total-desgracas">{{system.totalDesgracas}}</span>
+      </div>
+    </div>
+
+    {{#if editable}}
+      <button type="button" data-action="absorverRitual" class="btn-absorver">
+        ⚗ {{localize "INFAERNUM.Colosso.AbsorverRitual"}}
+      </button>
+    {{/if}}
+  </div>
+</header>

@@ -1,0 +1,65 @@
+<section class="tab" data-tab="items">
+  {{! Tralhas }}
+  <div class="items-section">
+    <h3>Tralhas <a data-action="addItem" data-type="tralha"><i class="fas fa-plus"></i></a></h3>
+    <ul class="items-list">
+      {{#each tralhas as |item|}}
+        <li class="item-row" data-item-id="{{item.id}}">
+          <span class="item-name">{{item.name}}</span>
+          <div class="item-controls">
+            <a data-action="editItem"><i class="fas fa-edit"></i></a>
+            <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{! Bênçãos }}
+  <div class="items-section">
+    <h3>Bênção <a data-action="addItem" data-type="bencao"><i class="fas fa-plus"></i></a></h3>
+    <ul class="items-list">
+      {{#each bencaos as |item|}}
+        <li class="item-row" data-item-id="{{item.id}}">
+          <span class="item-name">{{item.name}}</span>
+          <div class="item-controls">
+            <a data-action="editItem"><i class="fas fa-edit"></i></a>
+            <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{! Tormentos }}
+  <div class="items-section">
+    <h3>Tormentos</h3>
+    <ul class="items-list">
+      {{#each tormentos as |item|}}
+        <li class="item-row" data-item-id="{{item.id}}">
+          <span class="item-name">{{item.name}}</span>
+          <div class="item-controls">
+            <a data-action="editItem"><i class="fas fa-edit"></i></a>
+            <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{! Paranoias }}
+  <div class="items-section">
+    <h3>Paranoias ({{paranoias.length}}/3)</h3>
+    <ul class="items-list">
+      {{#each paranoias as |item|}}
+        <li class="item-row" data-item-id="{{item.id}}">
+          <span class="item-name">{{item.name}}</span>
+          <div class="item-controls">
+            <a data-action="editItem"><i class="fas fa-edit"></i></a>
+            <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
