@@ -22,7 +22,7 @@ export async function openPerguntaDialog() {
       <div class="field-group">
         <label>Probabilidade</label>
         <select name="provavel">
-          <option value="">Neutro (1d6)</option>
+          <option value="">Vislumbre (1d6)</option>
           <option value="sim">Sim mais provável (1d6+1)</option>
           <option value="nao">Não mais provável (1d6−1)</option>
         </select>
@@ -59,7 +59,7 @@ export async function openPerguntaDialog() {
   if (modoCartas) {
     const draw = drawPergunta(provavel);
     const cartasHtml = draw.cartas.map(c =>
-      `<span class="dado dado--neutro">${formatCarta(c)}</span>`
+      `<span class="dado dado--vislumbre">${formatCarta(c)}</span>`
     ).join("");
     const resClasse = draw.resposta === "sim" ? "res-milagre" : "res-desgraca";
     conteudo = `<div class="infaernum-chat-message">

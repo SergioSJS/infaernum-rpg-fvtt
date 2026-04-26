@@ -14,7 +14,7 @@
 export function resolverRolagem3d6({ dados, temSorte, temAzar }) {
   let desgracas = dados.filter(d => d === 1);
   let milagres  = dados.filter(d => d === 6);
-  const neutros  = dados.filter(d => d >= 2 && d <= 3);
+  const vislumbres  = dados.filter(d => d >= 2 && d <= 3);
   const facanhas = dados.filter(d => d >= 4 && d <= 5);
 
   if (temSorte && !temAzar) {
@@ -31,11 +31,11 @@ export function resolverRolagem3d6({ dados, temSorte, temAzar }) {
   return {
     dados,
     desgracas,
-    neutros,
+    vislumbres,
     facanhas,
     milagres,
     numDesgracas: desgracas.length,
-    numNeutros:   neutros.length,
+    numVislumbres:   vislumbres.length,
     numFacanhas:  facanhas.length,
     numMilagres:  milagres.length,
     temSorte,
@@ -47,11 +47,11 @@ export function resolverRolagem3d6({ dados, temSorte, temAzar }) {
 /**
  * Classify a single d6 value for display.
  * @param {number} v
- * @returns {"desgraca"|"neutro"|"facanha"|"milagre"}
+ * @returns {"desgraca"|"vislumbre"|"facanha"|"milagre"}
  */
 export function classificarDado(v) {
   if (v === 1) return "desgraca";
-  if (v <= 3)  return "neutro";
+  if (v <= 3)  return "vislumbre";
   if (v <= 5)  return "facanha";
   return "milagre";
 }
@@ -79,6 +79,6 @@ export function resumoResultado(res) {
   if (res.numDesgracas)  parts.push(`${res.numDesgracas} desgraça${res.numDesgracas > 1 ? "s" : ""}`);
   if (res.numFacanhas)   parts.push(`${res.numFacanhas} façanha${res.numFacanhas > 1 ? "s" : ""}`);
   if (res.numMilagres)   parts.push(`${res.numMilagres} milagre${res.numMilagres > 1 ? "s" : ""}`);
-  if (res.numNeutros && parts.length === 0) parts.push(`${res.numNeutros} neutro${res.numNeutros > 1 ? "s" : ""}`);
-  return parts.join(", ") || "neutro";
+  if (res.numVislumbres && parts.length === 0) parts.push(`${res.numVislumbres} vislumbre${res.numVislumbres > 1 ? "s" : ""}`);
+  return parts.join(", ") || "vislumbre";
 }

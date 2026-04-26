@@ -221,9 +221,9 @@
       "Queimar":             "Queimar Alma",
       "ConfirmarQueimar":    "Queimar (−1 alma)",
       "EscolherDado":        "Escolha qual dado alterar:",
-      "QueimarHint":         "Desgraça (1) → Neutro · Neutro (2-3) → Façanha. Gasta 1 alma.",
+      "QueimarHint":         "Desgraça (1) → Vislumbre · Vislumbre (2-3) → Façanha. Gasta 1 alma.",
       "SemAlmas":            "Sem almas disponíveis.",
-      "NadaParaShift":       "Nenhum dado pode ser alterado (só desgraças e neutros).",
+      "NadaParaShift":       "Nenhum dado pode ser alterado (só desgraças e vislumbres).",
       "AbsorverBotao":       "Absorver Alma",
       "AbsorverTitulo":      "Absorver Alma",
       "Absorver":            "Absorver",
@@ -290,7 +290,7 @@
     },
     "Resultado": {
       "Desgraca": "Desgraça",
-      "Neutro":   "Neutro",
+      "Vislumbre":   "Vislumbre",
       "Facanha":  "Façanha",
       "Milagre":  "Milagre",
       "Morte":    "MORTE"
@@ -316,14 +316,14 @@
       "Maldicao":             "Maldição (aplica azar)",
       "SegundoAzarAviso":     "Segundo Azar ativo — sorte conta como azar",
       "AlertaCavaleiro":      "{nome} acumulou 6 desgraças! Encontro com Cavaleiro iminente!",
-      "RegraLembrete":        "1 = desgraça · 2-3 = neutro · 4-5 = façanha · 6 = milagre · 666 = MORTE",
+      "RegraLembrete":        "1 = desgraça · 2-3 = vislumbre · 4-5 = façanha · 6 = milagre · 666 = MORTE",
       "Pergunta":             "Pergunta ao Destino (1d6)",
       "Ideia":                "Ideia (2d6)"
     },
     "Caos": {
       "Label":            "Tabelas de Caos",
       "Desgraca":         "Desgraça",
-      "Neutro":           "Neutro",
+      "Vislumbre":           "Vislumbre",
       "PNJConfronto":     "PNJ — Confronto",
       "PNJComportamento": "PNJ — Comportamento",
       "Oracoes":          "Orações"

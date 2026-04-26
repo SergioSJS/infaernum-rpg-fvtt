@@ -9,8 +9,8 @@ Hooks.on("quenchReady", (quench) => {
 
     describe("classificarDado", () => {
       it("1 → desgraca",  () => assert.equal(classificarDado(1), "desgraca"));
-      it("2 → neutro",   () => assert.equal(classificarDado(2), "neutro"));
-      it("3 → neutro",   () => assert.equal(classificarDado(3), "neutro"));
+      it("2 → vislumbre",   () => assert.equal(classificarDado(2), "vislumbre"));
+      it("3 → vislumbre",   () => assert.equal(classificarDado(3), "vislumbre"));
       it("4 → facanha",  () => assert.equal(classificarDado(4), "facanha"));
       it("5 → facanha",  () => assert.equal(classificarDado(5), "facanha"));
       it("6 → milagre",  () => assert.equal(classificarDado(6), "milagre"));
@@ -25,9 +25,9 @@ Hooks.on("quenchReady", (quench) => {
     });
 
     describe("resolverRolagem3d6 — sem sorte/azar", () => {
-      it("tudo neutro: 3 neutros, 0 resto", () => {
+      it("tudo vislumbre: 3 vislumbres, 0 resto", () => {
         const r = resolverRolagem3d6({ dados: [2, 3, 2], temSorte: false, temAzar: false });
-        assert.equal(r.numNeutros,   3);
+        assert.equal(r.numVislumbres,   3);
         assert.equal(r.numDesgracas, 0);
         assert.equal(r.numFacanhas,  0);
         assert.equal(r.numMilagres,  0);
@@ -60,7 +60,7 @@ Hooks.on("quenchReady", (quench) => {
         const r = resolverRolagem3d6({ dados: [1, 6, 3], temSorte: true, temAzar: false });
         assert.equal(r.numDesgracas, 0);
         // milagres retain value; desgraças removed
-        assert.equal(r.numNeutros,   1);
+        assert.equal(r.numVislumbres,   1);
       });
 
       it("2 desgraças + 1 milagre → cancela 1, resta 1 desgraca", () => {

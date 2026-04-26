@@ -28,10 +28,10 @@ export const NAIPE_SIMBOLO = {
   paus:    "♣",
 };
 
-// 3d6 mapping: paus=desgraça, ouros=neutro, espadas=façanha, copas=milagre
+// 3d6 mapping: paus=desgraça, ouros=vislumbre, espadas=façanha, copas=milagre
 export function naipeParaResultado(naipe) {
   if (naipe === "paus")   return "desgraca";
-  if (naipe === "ouros")  return "neutro";
+  if (naipe === "ouros")  return "vislumbre";
   if (naipe === "espadas") return "facanha";
   return "milagre"; // copas
 }

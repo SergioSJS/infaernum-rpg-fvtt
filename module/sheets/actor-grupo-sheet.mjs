@@ -88,7 +88,7 @@ export class GrupoSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       <div class="chat-header">📅 Dia ${diaNovo} — Presságios</div>
       <div class="chat-resultado">
         <span class="res-milagre">${presagios} presságios disponíveis</span>
-        <span class="res-neutro">(rolou ${v})</span>
+        <span class="res-vislumbre">(rolou ${v})</span>
       </div>
     </div>`;
     await ChatMessage.create({ content, rolls: [roll], sound: CONFIG.sounds.dice });

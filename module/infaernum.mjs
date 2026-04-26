@@ -142,7 +142,7 @@ Hooks.once("ready", async () => {
     // Caos (tabelas narrativas)
     caos:               (tab)   => rolarCaosChat(tab),
     caosDesgraca:       ()      => rolarCaosChat("desgraca"),
-    caosNeutro:         ()      => rolarCaosChat("neutro"),
+    caosVislumbre:         ()      => rolarCaosChat("vislumbre"),
     caosPNJConfronto:   ()      => rolarCaosChat("pnj_confronto"),
     caosPNJComport:     ()      => rolarCaosChat("pnj_comportamento"),
     caosOracoes:        ()      => rolarCaosChat("oracoes"),
@@ -201,7 +201,7 @@ function _montarPainelNarrativo() {
       </button>
       <div class="inf-np-sep">Caos</div>
       <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="desgraca">Desgraça</button>
-      <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="neutro">Neutro</button>
+      <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="vislumbre">Vislumbre</button>
       <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="pnj_confronto">PNJ — Confronto</button>
       <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="pnj_comportamento">PNJ — Comportamento</button>
       <button class="inf-np-item inf-np-item--caos" data-inf="caos" data-tabela="oracoes">Orações</button>
@@ -270,8 +270,8 @@ async function _criarMacrosInfaernum() {
       folder: pastaFerramentas.id,
     },
     {
-      name: "⚡ Caos — Neutro",
-      command: "game.infaernum.caosNeutro();",
+      name: "⚡ Caos — Vislumbre",
+      command: "game.infaernum.caosVislumbre();",
       img: "icons/svg/hazard.svg",
       folder: pastaFerramentas.id,
     },

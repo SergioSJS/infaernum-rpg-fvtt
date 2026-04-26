@@ -221,9 +221,9 @@
       "Queimar":            "Burn Soul",
       "ConfirmarQueimar":   "Burn (−1 soul)",
       "EscolherDado":       "Choose which die to change:",
-      "QueimarHint":        "Misfortune (1) → Neutral · Neutral (2-3) → Feat. Spends 1 soul.",
+      "QueimarHint":        "Misfortune (1) → Vislumbrel · Vislumbrel (2-3) → Feat. Spends 1 soul.",
       "SemAlmas":           "No souls available.",
-      "NadaParaShift":      "No die can be changed (only misfortunes and neutrals).",
+      "NadaParaShift":      "No die can be changed (only misfortunes and vislumbrels).",
       "AbsorverBotao":      "Absorb Soul",
       "AbsorverTitulo":     "Absorb Soul",
       "Absorver":           "Absorb",
@@ -290,7 +290,7 @@
     },
     "Resultado": {
       "Desgraca": "Misfortune",
-      "Neutro":   "Neutral",
+      "Vislumbre":   "Vislumbrel",
       "Facanha":  "Feat",
       "Milagre":  "Miracle",
       "Morte":    "DEATH"
@@ -315,14 +315,14 @@
       "Maldicao":             "Curse (applies misfortune)",
       "SegundoAzarAviso":     "Second Misfortune active — luck counts as misfortune",
       "AlertaCavaleiro":      "{nome} accumulated 6 misfortunes! Horseman encounter imminent!",
-      "RegraLembrete":        "1 = misfortune · 2-3 = neutral · 4-5 = feat · 6 = miracle · 666 = DEATH",
+      "RegraLembrete":        "1 = misfortune · 2-3 = vislumbrel · 4-5 = feat · 6 = miracle · 666 = DEATH",
       "Pergunta":             "Destiny Question (1d6)",
       "Ideia":                "Idea (2d6)"
     },
     "Caos": {
       "Label":            "Chaos Tables",
       "Desgraca":         "Misfortune",
-      "Neutro":           "Neutral",
+      "Vislumbre":           "Vislumbrel",
       "PNJConfronto":     "NPC — Confrontation",
       "PNJComportamento": "NPC — Behavior",
       "Oracoes":          "Prayers"

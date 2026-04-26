@@ -18,7 +18,7 @@ function _buildContent(rolls) {
   const sections = SECTIONS.map(s => {
     const { dados, total } = rolls[s.key];
     const desc = s.table[total] ?? "—";
-    const diceHtml = dados.map(v => `<span class="dado dado--neutro wiz-die">${v}</span>`).join("");
+    const diceHtml = dados.map(v => `<span class="dado dado--vislumbre wiz-die">${v}</span>`).join("");
     return `
       <div class="wiz-section">
         <div class="wiz-section-header">

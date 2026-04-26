@@ -15,7 +15,7 @@ export async function queimarAlma(message) {
   }
 
   const dados = flags.dados; // raw numbers e.g. [1, 3, 6]
-  // Only desgraças (1) and neutros (2-3) can be shifted up
+  // Only desgraças (1) and vislumbres (2-3) can be shifted up
   const shiftable = dados
     .map((val, idx) => ({ idx, val }))
     .filter(({ val }) => val <= 3);
@@ -26,8 +26,8 @@ export async function queimarAlma(message) {
   }
 
   const options = shiftable.map(({ idx, val }) => {
-    const tipo    = val === 1 ? game.i18n.localize("INFAERNUM.Resultado.Desgraca") : game.i18n.localize("INFAERNUM.Resultado.Neutro");
-    const destino = val === 1 ? game.i18n.localize("INFAERNUM.Resultado.Neutro")   : game.i18n.localize("INFAERNUM.Resultado.Facanha");
+    const tipo    = val === 1 ? game.i18n.localize("INFAERNUM.Resultado.Desgraca") : game.i18n.localize("INFAERNUM.Resultado.Vislumbre");
+    const destino = val === 1 ? game.i18n.localize("INFAERNUM.Resultado.Vislumbre")   : game.i18n.localize("INFAERNUM.Resultado.Facanha");
     return `<option value="${idx}">${idx + 1}º dado (${val}) — ${tipo} → ${destino}</option>`;
   }).join("");
 

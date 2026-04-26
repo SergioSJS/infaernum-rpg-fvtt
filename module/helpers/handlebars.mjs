@@ -82,7 +82,7 @@ export function registerHandlebarsHelpers() {
   // CSS class for dado result
   Handlebars.registerHelper("infaernum-dado-classe", (v) => {
     if (v === 1) return "desgraca";
-    if (v <= 3)  return "neutro";
+    if (v <= 3)  return "vislumbre";
     if (v <= 5)  return "facanha";
     return "milagre";
   });

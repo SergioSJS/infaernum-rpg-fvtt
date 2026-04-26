@@ -631,7 +631,7 @@
     margin-top: 6px;
 
     .res-desgraca { color: var(--inf-color-desgraca); }
-    .res-neutro   { color: var(--inf-color-neutro); }
+    .res-vislumbre   { color: var(--inf-color-vislumbre); }
     .res-facanha  { color: var(--inf-color-facanha); }
     .res-milagre  { color: var(--inf-color-milagre); }
   }
@@ -1125,7 +1125,7 @@
     font-size: 1rem;
 
     &.desgraca { color: var(--inf-color-desgraca); border-color: var(--inf-color-desgraca); }
-    &.neutro   { color: var(--inf-color-neutro);   border-color: var(--inf-color-neutro); }
+    &.vislumbre   { color: var(--inf-color-vislumbre);   border-color: var(--inf-color-vislumbre); }
     &.facanha  { color: var(--inf-color-facanha);  border-color: var(--inf-color-facanha); }
     &.milagre  { color: var(--inf-color-milagre);  border-color: var(--inf-color-milagre); }
   }
@@ -2398,8 +2398,8 @@
 
       &--pergunta {
         background: var(--inf-color-bg);
-        border-color: var(--inf-color-neutro);
-        color: var(--inf-color-neutro);
+        border-color: var(--inf-color-vislumbre);
+        color: var(--inf-color-vislumbre);
         &:hover { background: rgba(128, 128, 192, 0.15); }
       }
 
@@ -2775,7 +2775,7 @@
     transition: box-shadow 0.12s;
 
     &.desgraca { color: var(--inf-color-desgraca); border-color: var(--inf-color-desgraca); }
-    &.neutro   { color: var(--inf-color-neutro);   border-color: var(--inf-color-neutro); }
+    &.vislumbre   { color: var(--inf-color-vislumbre);   border-color: var(--inf-color-vislumbre); }
     &.facanha  { color: var(--inf-color-facanha);  border-color: var(--inf-color-facanha); }
     &.milagre  { color: var(--inf-color-milagre);  border-color: var(--inf-color-milagre); }
   }

@@ -9,7 +9,7 @@ export const CAOS = {
     "PNJ afetado severamente por algo",
     "Algum personagem sofre tormento grave",
   ],
-  neutro: [
+  vislumbre: [
     "Algo oculto é revelado",
     "PNJ ou grupo entra em cena",
     "Algo no ambiente chama atenção",
@@ -45,7 +45,7 @@ export const CAOS = {
 
 export const CAOS_LABELS = {
   desgraca:          "O que acontece ao rolar desgraça?",
-  neutro:            "O que acontece ao rolar neutro?",
+  vislumbre:            "O que acontece ao rolar vislumbre?",
   pnj_confronto:     "O que um PNJ fará durante confronto?",
   pnj_comportamento: "Comportamento inicial de PNJ",
   oracoes:           "Objetivo de súplica no quadro de orações",
@@ -63,7 +63,7 @@ export async function rolarCaosChat(tabela) {
   if (!r) return;
   const content = `<div class="infaernum-chat-message infaernum-caos-msg">
     <div class="chat-header caos-label">${r.label}</div>
-    <div class="caos-dado"><span class="dado dado--neutro">${r.dado}</span></div>
+    <div class="caos-dado"><span class="dado dado--vislumbre">${r.dado}</span></div>
     <p class="caos-resultado">${r.resultado}</p>
   </div>`;
   await ChatMessage.create({ content, sound: CONFIG.sounds.dice });
