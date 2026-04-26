@@ -2,7 +2,7 @@
   "id": "infaernum",
   "title": "Old Infærnum",
   "description": "Sistema Foundry VTT não-oficial para Old Infærnum, RPG de Raul Volpato.",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
